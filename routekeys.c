@@ -14,10 +14,18 @@ struct timeval64 { __u64 tv_sec, tv_usec; };
 struct event64   { struct timeval64 time; __u16 type, code; __s32 value; };
 
 #define escapelen 4
-char escapekeys[escapelen]={KEY_LEFTCTRL, KEY_LEFTALT, KEY_LEFTSHIFT, KEY_SCROLLLOCK}; //Ctrl-Alt-Shift-Scroll
+char escapekeys[escapelen]={KEY_LEFTCTRL, KEY_LEFTALT, KEY_LEFTSHIFT, KEY_ESC}; //Ctrl-Alt-Shift-Esc
 char escapevals[escapelen]={ 0,  0,  0,  0};
-int
-main(int argc, char* argv[])
+int checkEscapeSequence(struct input_event *ev)
+{  int i, all;
+   for (i=0, all=0; i<escapelen; i++) 
+   {  if (escapekeys[i] ==ev->code) escapevals[i] =ev->value;
+      if (escapevals[i]) all++;
+   }  
+   return all ==escapelen;
+}
+
+int main(int argc, char* argv[])
 {
     int                    fdo, fdi;
     struct uinput_user_dev uidev;
@@ -26,10 +34,11 @@ main(int argc, char* argv[])
     struct event64         tmp;
     int                    evsize  =sizeof(struct input_event); 
     int                    tmpsize =sizeof(struct event64); 
-    int                    err =0;
+    int                    err =0, retval =0, pressterminate =0;
+
     ev =(void*)&tmp+tmpsize-evsize;
 
-    if (argc==2 && !strcmp(argv[1], "in")) //receiving stdin and make it as local keyboard*************************
+    if (argc==2 && !strcmp(argv[1], "inp")) //receiving stdin and make it as local keyboard************************
     {  fdo = open("/dev/uinput", O_WRONLY | O_NONBLOCK); if (fdo < 0) die("error: open /dev/uinput");
 
        if (ioctl(fdo, UI_SET_EVBIT, EV_SYN) < 0) die("error: ioctl");
@@ -55,14 +64,9 @@ main(int argc, char* argv[])
           ev->time.tv_sec  = 0;
           ev->time.tv_usec = 0;
           if (write(fdo, ev, evsize) < 0) die("error: write"); //to device send arch-specific 32 or 64bit
-
-          //check escape key sequence:
-          for (i=0, all=0; i<escapelen; i++) 
-          {  if (escapekeys[i] ==ev->code) escapevals[i] =ev->value;
-             if (escapevals[i]) all++;
-          }  if (all ==escapelen) { mprintf(" in: terminating with Ctrl-Alt-Shift-Scroll\n"); break; } //all 4 keys are pressed
+          if (checkEscapeSequence(ev)) { mprintf(" in: Escape-Sequence detected, terminating\n"); break; } //all 4 keys are pressed
        }
-
+       mprintf("in: exiting\n");
        if (ioctl(fdo, UI_DEV_DESTROY) < 0) die("error: ioctl");
 
        close(fdo); close(STDIN_FILENO); die("ok");
@@ -73,20 +77,22 @@ main(int argc, char* argv[])
        if (ioctl(fdi, EVIOCGRAB, 1) < 0) die("error: ioctl");
 
        while(1)
-       {  if (read (fdi, ev, evsize) < 0) die("error: read"); //from device events could be 32 or 64 bit long
+       {  mprintf("out:reading\n");
+          if (read (fdi, ev, evsize) < 0) die("error: read"); //from device events could be 32 or 64 bit long
+          mprintf("out:reading end.\n");
           mprintf("out: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
+
+          if (pressterminate && (ev->type ==1) && (ev->value >0)) { retval =ev->code +1000; break; }
 
           tmp.time.tv_sec  = 0;
           tmp.time.tv_usec = 0;
+          if (!pressterminate) 
           if (write(STDOUT_FILENO, &tmp, tmpsize) < 0) die("error: write"); //to stdout send 64bit 
 
-          //check escape key sequence:
-          for (i=0, all=0; i<escapelen; i++) 
-          {  if (escapekeys[i] ==ev->code) escapevals[i] =ev->value;
-             if (escapevals[i]) all++;
-          }  if (all ==escapelen) { mprintf("out: terminating with Ctrl-Alt-Shift-Scroll\n"); break; } //all 4 keys are pressed
+          if (checkEscapeSequence(ev)) { mprintf("out: Escape-Sequence detected, terminating on first-next-key-PRESS\n"); 
+                                         pressterminate =1; } 
        }
-
+       mprintf("out: exiting\n");
        close(fdi); close(STDOUT_FILENO); die("ok");
     }
     else err =1; //params not ok
@@ -101,6 +107,6 @@ __end:
                break;
     }
     mprintf(" end.\n");
-    exit(0);
-    return 0;
+    exit(retval);
+    return retval;
 }

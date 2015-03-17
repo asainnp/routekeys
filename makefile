@@ -1,4 +1,5 @@
 #******************************************************************************
+SHELL=/bin/bash
 .PHONY: all clean test
 
 archdir=bin$(shell uname -m)
@@ -9,8 +10,8 @@ all: $(archdir)/routekeys
 clean: 
 	rm $(archdir)/routekeys
 install: 
-	cp $(archdir)/routekeys /usr/bin/.
-	cp routekeyskbd.sh /usr/bin/.
+	cp -v $(archdir)/routekeys /usr/bin/.
+	cp -v routekeys{kbd,dest,loop}.sh /usr/bin/.
 #******************************************************************************
 	
 $(archdir):
