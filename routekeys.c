@@ -60,7 +60,7 @@ main(int argc, char* argv[])
           for (i=0, all=0; i<escapelen; i++) 
           {  if (escapekeys[i] ==ev->code) escapevals[i] =ev->value;
              if (escapevals[i]) all++;
-          }  if (all ==escapelen) { mprintf(" in: terminating with Ctrl-Shift-A-S\n"); break; } //all 4 keys are pressed
+          }  if (all ==escapelen) { mprintf(" in: terminating with Ctrl-Alt-Shift-Scroll\n"); break; } //all 4 keys are pressed
        }
 
        if (ioctl(fdo, UI_DEV_DESTROY) < 0) die("error: ioctl");
@@ -84,7 +84,7 @@ main(int argc, char* argv[])
           for (i=0, all=0; i<escapelen; i++) 
           {  if (escapekeys[i] ==ev->code) escapevals[i] =ev->value;
              if (escapevals[i]) all++;
-          }  if (all ==escapelen) { mprintf("out: terminating with Ctrl-Shift-A-S\n"); break; } //all 4 keys are pressed
+          }  if (all ==escapelen) { mprintf("out: terminating with Ctrl-Shift-Scroll\n"); break; } //all 4 keys are pressed
        }
 
        close(fdi); close(STDOUT_FILENO); die("ok");
