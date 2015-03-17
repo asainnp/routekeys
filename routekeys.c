@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
           mprintf("out:reading end.\n");
           mprintf("out: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
 
-          if (pressterminate && (ev->type ==1) && (ev->value >0)) { retval =ev->code +1000; break; }
+          if (pressterminate && (ev->type ==1) && (ev->value >0)) { retval =ev->code; break; }
 
           tmp.time.tv_sec  = 0;
           tmp.time.tv_usec = 0;
@@ -107,6 +107,6 @@ __end:
                break;
     }
     mprintf(" end.\n");
-    exit(retval);
+    //exit(retval);
     return retval;
 }
