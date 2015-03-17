@@ -8,7 +8,7 @@ all: $(archdir)/routekeys
 
 clean: 
 	rm $(archdir)/routekeys
-install:
+install: all
 	cp $(archdir)/routekeys /usr/bin/.
 #******************************************************************************
 	
@@ -18,8 +18,8 @@ $(archdir):
 $(archdir)/routekeys: $(archdir) routekeys.c
 	gcc routekeys.c -o $(archdir)/routekeys
 
-test:
+test: 
 	(sleep 10; pkill routekeys)& #in case that app cause keyboard hangs-up
 	kbd=$$(./findkbd.sh) ;\
-	./routekeys out "$$kbd" | ./routekeys in 
+	routekeys out "$$kbd" | routekeys in 
 #******************************************************************************
