@@ -13,5 +13,6 @@ run to different comp (where routekeys is also installed):
 > routekeys $(routekeyskbd.sh) | ssh remoteCompIP routekeys in
 
 Note:  
-> all commands needs root permission
+> all commands needs root permission so add sudo before left  
+> and right part pf pipe and in right ssh command  
 
