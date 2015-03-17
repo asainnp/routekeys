@@ -8,7 +8,7 @@ all: $(archdir)/routekeys
 
 clean: 
 	rm $(archdir)/routekeys
-install: all
+install: 
 	cp $(archdir)/routekeys /usr/bin/.
 	cp routekeyskbd.sh /usr/bin/.
 #******************************************************************************
