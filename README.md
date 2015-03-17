@@ -5,13 +5,13 @@ install:
 > sudo make install
 
 run test:  
-> sudo make test
-> or:
+> sudo make test  
+> or:  
 > routekeys $(routekeyskbd.sh) | routekeys in
 
 run to different comp (where routekeys is also installed):  
 > routekeys $(routekeyskbd.sh) | ssh remoteCompIP routekeys in
 
 Note:  
-> all commands needs root permissions
+> all commands needs root permission
 
