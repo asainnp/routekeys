@@ -3,18 +3,18 @@
 kbd=$(routekeyskbd.sh)
 [ $(whoami) == "root" ] && { echo "no need for sudo/root in start."; exit; }
 
-nextdest=""
+nextdest=""   #route back to local comp
 
 while true; do
-   fname=$(mktemp -u)
-   mkfifo $fname
-      $nextdest sudo routekeys inp      < $fname > /dev/null &
-                sudo routekeys out $kbd > $fname  
-      exitcode=$?
-   rm $fname
+   sudo routekeys out $kbd | $nextdest sudo routekeys inp
+   exitkeycode=${PIPESTATUS[0]}
 
-   nextdest=$(routekeysdest.sh $exitcode)
-   [ $? -eq 0 ] || break
+   sshdest=$(routekeysdest.sh $exitkeycode)
+   case "$?" in
+      0: nextdest="ssh $sshdest" ;;  #key found
+      1: break ;;                    #exitLoop requested
+      2: nextdest="";                #no key found, return to local comp
+   esac
    echo "all again... nextdest($exitcode)==$nextdest"
 done
 
