@@ -1,8 +1,34 @@
 #!/usr/bin/env bash
 
-case "$1" in
-   2) echo "ssh asain@192.168.131.35" ; exit 0 ;; #key '1' - lenovo laptop
-   3) echo ""                         ; exit 0 ;; #key '2' - local comp
-   4) echo "ssh    pi@192.168.134.121"; exit 0 ;; #key '3' - raspberry pi
-esac
-exit 1
+keycode=$1
+
+function isnum()
+{  case "$1" in
+      ''|0|*[!0-9]*) echo 1 ;; #bad num
+                  *) echo 0 ;; # ok num
+   esac
+}
+               [ $(isnum $keycode) -eq 0 ] || \
+               { echo "param 1 must be valid key code" >&2 ; exit 1 ; }
+
+[ $keycode -eq 45 ] && exit 1               #key 'X' code45 - exit all
+
+cat ~/.routekeysrc | sed '/^[ \t]*#/d' | tr -d '\040\011' | \
+while read line; do
+   arr=(${line//:/ })   ;     [ ${#arr[@]}       -eq 3 ] || continue
+                              [ ${arr[0]} == "keycode" ] || continue
+   fcode=${arr[1]}      ;     [ $(isnum $fcode)  -eq 0 ] || continue
+
+   [ $fcode -eq $keycode ] && { echo ${arr[2]} ; exit 0; } 
+done 
+exit 2  # no key found, nor exitAll requested
+
+#--------------------------------------------------------------------------------
+# routekeysdest.sh, documentation:
+#--------------------------------------------------------------------------------
+# reading ~/.routekeysrc for keycode-sshdestination pairs (keycode:xx:sshdest)
+# return result of script should be:
+#     - 0-ok, and output string to stdout is sshdestination
+#     - 1-exitAll request
+#     - 2-noKeyFound
+#--------------------------------------------------------------------------------
