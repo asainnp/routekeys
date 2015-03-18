@@ -9,18 +9,19 @@ function isnum()
    esac
 }
                [ $(isnum $keycode) -eq 0 ] || \
-               { echo "param 1 must be valid key code" >&2 ; exit 1 ; }
+               { echo "param 1 must be valid key code (not $1)" >&2 ; exit 1 ; }
 
 [ $keycode -eq 45 ] && exit 1               #key 'X' code45 - exit all
 
-cat ~/.routekeysrc | sed '/^[ \t]*#/d' | tr -d '\040\011' | \
 while read line; do
    arr=(${line//:/ })   ;     [ ${#arr[@]}       -eq 3 ] || continue
                               [ ${arr[0]} == "keycode" ] || continue
    fcode=${arr[1]}      ;     [ $(isnum $fcode)  -eq 0 ] || continue
 
    [ $fcode -eq $keycode ] && { echo ${arr[2]} ; exit 0; } 
-done 
+done \
+< <(cat ~/.routekeysrc | sed '/^[ \t]*#/d' | tr -d '\040\011')
+
 exit 2  # no key found, nor exitAll requested
 
 #--------------------------------------------------------------------------------
