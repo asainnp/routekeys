@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 
        if (write(fdo, &uidev, sizeof(uidev)) < 0) die("error: write");
        if (ioctl(fdo, UI_DEV_CREATE)         < 0) die("error: ioctl");
-       system("fgnotify 'KEYS ROUTED HERE !'");
+       system("fgnotify 'KEYS ROUTED HERE !' &");
        while(1)
        {  if (read (STDIN_FILENO, &tmp, tmpsize) < 0) die("error: read"); //from stdin must come 64bit sized structs
           mprintf(" in: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
@@ -90,6 +90,7 @@ int main(int argc, char* argv[])
           if (write(STDOUT_FILENO, &tmp, tmpsize) < 0) die("error: write"); //to stdout send 64bit 
 
           if (checkEscapeSequence(ev)) { mprintf("out: Escape-Sequence detected, terminating on first-next-key-PRESS\n"); 
+                                         system("fgnotify 'select dest' &");
                                          pressterminate =1; } 
        }
        mprintf("out: exiting\n");
