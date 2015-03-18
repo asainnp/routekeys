@@ -11,9 +11,9 @@ while true; do
 
    sshdest=$(routekeysdest.sh $exitkeycode)
    case "$?" in
-      0: nextdest="ssh $sshdest" ;;  #key found
-      1: break ;;                    #exitLoop requested
-      2: nextdest="";                #no key found, return to local comp
+      0) nextdest="ssh $sshdest" ;;  #key found
+      1) break ;;                    #exitLoop requested
+      2) nextdest="";                #no key found, return to local comp
    esac
    echo "all again... nextdest($exitcode)==$nextdest"
 done
