@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
        system("fgnotify 'KEYS ROUTED HERE !' &");
        while(1)
        {  if (read (STDIN_FILENO, &tmp, tmpsize) < 0) die("error: read"); //from stdin must come 64bit sized structs
-          mprintf(" in: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
+          //mprintf("\r in: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
           ev->time.tv_sec  = 0;
           ev->time.tv_usec = 0;
           if (write(fdo, ev, evsize) < 0) die("error: write"); //to device send arch-specific 32 or 64bit
@@ -77,10 +77,8 @@ int main(int argc, char* argv[])
        if (ioctl(fdi, EVIOCGRAB, 1) < 0) die("error: ioctl");
 
        while(1)
-       {  mprintf("out:reading\n");
-          if (read (fdi, ev, evsize) < 0) die("error: read"); //from device events could be 32 or 64 bit long
-          mprintf("out:reading end.\n");
-          mprintf("out: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
+       {  if (read (fdi, ev, evsize) < 0) die("error: read"); //from device events could be 32 or 64 bit long
+          //mprintf("\rout: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
 
           if (pressterminate && (ev->type ==1) && (ev->value >0)) { retval =ev->code; break; }
 
