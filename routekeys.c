@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 
        if (write(fdo, &uidev, sizeof(uidev)) < 0) die("error: write");
        if (ioctl(fdo, UI_DEV_CREATE)         < 0) die("error: ioctl");
-
+       system("fgnotify 'KEYS ROUTED HERE !'");
        while(1)
        {  if (read (STDIN_FILENO, &tmp, tmpsize) < 0) die("error: read"); //from stdin must come 64bit sized structs
           mprintf(" in: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 

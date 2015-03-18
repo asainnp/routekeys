@@ -10,8 +10,7 @@ all: $(archdir)/routekeys
 clean: 
 	rm $(archdir)/routekeys
 install: 
-	cp -v $(archdir)/routekeys /usr/bin/.
-	cp -v routekeys{kbd,dest,loop}.sh /usr/bin/.
+	sudo ./install.sh
 #******************************************************************************
 	
 $(archdir):
