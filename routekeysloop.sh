@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+clear
 kbd=$(routekeyskbd.sh)
 [ $(whoami) == "root" ] && { echo "no need for sudo/root in start."; exit; }
 

@@ -20,7 +20,7 @@ while read line; do
 
    [ $fcode -eq $keycode ] && { echo ${arr[2]} ; exit 0; } 
 done \
-< <(cat ~/.routekeysrc | sed '/^[ \t]*#/d' | tr -d '\040\011')
+< <(cat ~/.routekeysrc | sed -e 's/#.*$//' | tr -d '\040\011')
 
 exit 2  # no key found, nor exitAll requested
 
