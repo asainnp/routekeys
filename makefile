@@ -1,6 +1,6 @@
 #******************************************************************************
 SHELL=/bin/bash
-.PHONY: all clean test
+.PHONY: all clean test gg
 
 archdir=bin$(shell uname -m)
 #******************************************************************************
@@ -11,6 +11,8 @@ clean:
 	rm $(archdir)/routekeys
 install: 
 	sudo ./install.sh
+gg:
+	git add . && git commit -m ... && git push
 #******************************************************************************
 	
 $(archdir):
