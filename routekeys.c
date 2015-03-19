@@ -27,9 +27,10 @@ int checkEscapeSequence(struct input_event *ev)
 }
 
 //main keyboard functions:
-    struct event64         tmp; int tmpsize =sizeof(struct event64); 
-                                int evsize  =sizeof(struct input_event); 
-    struct input_event     *ev =(void*)&tmp+tmpsize-evsize;
+    struct event64         tmp; const int tmpsize =sizeof(struct event64); 
+                                const int evsize  =sizeof(struct input_event); 
+    struct input_event     *ev =(void*)&tmp +sizeof(struct event64)
+                                            -sizeof(struct input_event);
     
 int loopKeyboardINP()
 {  struct uinput_user_dev uidev;
@@ -60,7 +61,7 @@ int loopKeyboardINP()
 
    close(fdo); close(STDIN_FILENO); return 0;
 }
-int keyboardOUT(char *devname)
+int loopKeyboardOUT(char *devname)
 {  int pressterminate=0,
        fdi = open(devname, O_RDONLY);  if (fdi  <0) return 1;
    if (ioctl(fdi, EVIOCGRAB, 1) < 0)  { close(fdi); return 2; }
@@ -69,11 +70,11 @@ int keyboardOUT(char *devname)
    {  if (read (fdi, ev, evsize) < 0) { close(fdi); return 3; }
       //mprintf("\rout: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
 
-      if (pressterminate && (ev->type ==1) && (ev->value >0)) { close(fdi); return ev->code; }
+      if (pressterminate && (ev->type ==1) && (ev->value >0)) { close(fdi); return 100+ev->code; }
 
-      tmp.time.tv_sec  =tmm.time.tv_usec =0;
+      tmp.time.tv_sec =tmp.time.tv_usec =0;
       if (!pressterminate) 
-         if (write(STDOUT_FILENO, &tmp, tmpsize) < 0) die("error: write"); //to stdout send 64bit 
+         if (write(STDOUT_FILENO, &tmp, tmpsize) < 0) return 5; //to stdout send 64bit 
 
       if (checkEscapeSequence(ev)) 
       { mprintf("out: Escape-Sequence detected, terminating on first-next-key-PRESS\n"); 
@@ -86,10 +87,7 @@ int keyboardOUT(char *devname)
 //main function: //////////////////////////////////////////////////////////////////////////
 #define die(args...)     if (1) { mprintf(args); goto __end; }
 int main(int argc, char* argv[])
-{   int                    fdo, fdi;
-    int                    i, all;
-    int                    err =0, retval =0, pressterminate =0;
-
+{   int retval =0, pressterminate =0;
 
     if      (argc==2 && !strcmp(argv[1], "inp")) retval =loopKeyboardINP(); 
     else if (argc==3 && !strcmp(argv[1], "out")) retval =loopKeyboardOUT(argv[2]); 
@@ -102,6 +100,7 @@ int main(int argc, char* argv[])
                sizeof(struct input_event), sizeof(struct timeval)); 
        return 0;
     }
+    if (retval >100) retval -=100; //key-code
     mprintf("%s: exiting with value: %d\n", argv[1], retval);
     return retval;
 }
