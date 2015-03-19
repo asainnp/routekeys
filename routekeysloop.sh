@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-clear
 kbd=$(routekeyskbd.sh)
 [ $(whoami) == "root" ] && { echo "no need for sudo/root in start."; exit; }
 
 nextdest=""   #route back to local comp
 
 while true; do
+   clear
    sudo routekeys out $kbd | $nextdest sudo routekeys inp
    exitkeycode=${PIPESTATUS[0]}
 
