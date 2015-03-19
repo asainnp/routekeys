@@ -34,10 +34,11 @@ int checkEscapeSequence(struct input_event *ev)
     
 int loopKeyboardINP()
 {  struct uinput_user_dev uidev;
-   int i, evbits[] ={ EV_SYN, EV_KEY, EV_MSC };
-   int fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);           if (fdo < 0)   return 1;
-   for (i=0;i<sizeof(evbits);i++) if (ioctl(fdo, UI_SET_EVBIT, evbits[i]) < 0) { close(fdo); return 20+i; }
-   for (i=0;i<KEY_MAX;       ++i) if (ioctl(fdo, UI_SET_KEYBIT, i)        < 0) { close(fdo); return 3; }
+   int i, pressterminate=0,
+       evbits[3] ={ EV_SYN, EV_KEY, EV_MSC },
+       fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);                if (fdo < 0)   return 1;
+   for (i=0;i<3;      i++) if (ioctl(fdo, UI_SET_EVBIT, evbits[i]) < 0) { close(fdo); return 20+i; }
+   for (i=0;i<KEY_MAX;++i) if (ioctl(fdo, UI_SET_KEYBIT, i)        < 0) { close(fdo); return 3; }
 
    memset(&uidev, 0, sizeof(uidev));
    snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinput-sample");
@@ -51,12 +52,14 @@ int loopKeyboardINP()
    while (1)                                   //from stdin - 64bit sized structs comming
    {  if (read (STDIN_FILENO, &tmp, tmpsize) < 0) { close(fdo); return 6; } 
       //mprintf("\r in: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
+
+      if (pressterminate && (ev->type ==1) && (ev->value >0)) { close(fdo); return 1000+ev->code; }
+
       ev->time.tv_sec  =ev->time.tv_usec =0;
-      if (write(fdo, ev, evsize) < 0) { close(fdo); return 7; } //to device send arch-specific 32 or 64bit
-      if (checkEscapeSequence(ev))    { mprintf(" in: Escape-Sequence detected, terminating\n"); 
-                                        close(fdo); return 8; } 
+      if (write(fdo, ev, evsize)  < 0) { close(fdo); return 7; } //to device send arch-specific 32 or 64bit
+      if (checkEscapeSequence(ev))    
+      { mprintf(" in: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
    }
-   mprintf("in: exiting\n");
    if (ioctl(fdo, UI_DEV_DESTROY) < 0) { close(fdo); return 9; }
 
    close(fdo); close(STDIN_FILENO); return 0;
@@ -70,18 +73,10 @@ int loopKeyboardOUT(char *devname)
    {  if (read (fdi, ev, evsize) < 0) { close(fdi); return 3; }
       //mprintf("\rout: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
 
-      if (pressterminate && (ev->type ==1) && (ev->value >0)) { close(fdi); return 100+ev->code; }
-
       tmp.time.tv_sec =tmp.time.tv_usec =0;
-      if (!pressterminate) 
-         if (write(STDOUT_FILENO, &tmp, tmpsize) < 0) return 5; //to stdout send 64bit 
+      if (write(STDOUT_FILENO, &tmp, tmpsize) < 0) return 5; //to stdout send 64bit 
 
-      if (checkEscapeSequence(ev)) 
-      { mprintf("out: Escape-Sequence detected, terminating on first-next-key-PRESS\n"); 
-                                     mysys("fgnotify 'select dest'"); pressterminate =1; 
-      } 
    }
-   mprintf("out: exiting\n");
    close(fdi); close(STDOUT_FILENO); return 0;
 }
 //main function: //////////////////////////////////////////////////////////////////////////
@@ -100,7 +95,9 @@ int main(int argc, char* argv[])
                sizeof(struct input_event), sizeof(struct timeval)); 
        return 0;
     }
-    if (retval >100) retval -=100; //key-code
-    mprintf("%s: exiting with value: %d\n", argv[1], retval);
-    return retval;
+    mprintf("%s: exiting, org.retval==%d\n", argv[1], retval);
+    if (retval >1000) retval -=1000; //key-code
+    return retval; //INP:   0 no key selected
+                   //      >0 key-code returning
+                   //OUT:  errcode
 }

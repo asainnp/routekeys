@@ -5,18 +5,17 @@ kbd=$(routekeyskbd.sh)
 
 nextdest=""   #route back to local comp
 
+sudo routekeys out $kbd | \
 while true; do
-   clear
-   sudo routekeys out $kbd | $nextdest sudo routekeys inp
-   exitkeycode=${PIPESTATUS[0]}
-
-   sshdest=$(routekeysdest.sh $exitkeycode)
-   case "$?" in
+   #clear
+   echo "routing keys to dest: $nextdest" ; [ -z "$nextdest" ] && echo local
+   $nextdest sudo routekeys inp      #'routekeys inp' returns keycode in $?
+   sshdest=$(routekeysdest.sh $?)
+   case "$?" in                      #'routekeysdest' returns 0|1|2 in $?
       0) nextdest="ssh $sshdest" ;;  #key found
       1) break ;;                    #exitLoop requested
       2) nextdest="";                #no key found, return to local comp
    esac
-   echo "all again... nextdest($exitcode)==$nextdest"
 done
 
-echo "loop end."
+echo "shell loop end."

@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
-while read line; do
-   echo $line
-   [ -z $aaa ] && { echo 1111 ; exit 3 ; }
-done < ~/.routekeysrc
-echo aaaaaa
+exit 300
 
 #--------------------------------------------------------------------------------
 # routekeysdest.sh, documentation:
