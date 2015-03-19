@@ -1,9 +1,9 @@
 # example ~/.routekeysrc file 
 # line format: ' keycode : XX : sshdestination '
 
-keycode : 2 : user@192.168.1.45
-keycode : 3 : user@192.168.1.48
-keycode : 4 : user@192.168.1.192
+keycode : 2 : user@192.168.1.45    #key '1' (esc is code 1)
+keycode : 3 : user@192.168.1.48    #key '2'
+keycode : 4 : user@192.168.1.192   #key '3'
 
 # see /usr/include/linux/input.h , or 'showkey' program
-# for key-code values that can be used in above lines
+# for XX key-code values that can be used in above lines
