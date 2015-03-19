@@ -8,7 +8,6 @@ nextdest=""   #route back to local comp
 
 sudo routekeys out $kbd | \
 while true; do
-   #clear
    echo "routing keys to dest: $nextdest" ; [ -z "$nextdest" ] && echo local
    $nextdest sudo routekeys inp      #'routekeys inp' returns keycode in $?
    sshdest=$(routekeysdest.sh $?)

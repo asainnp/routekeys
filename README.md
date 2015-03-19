@@ -1,18 +1,22 @@
 # routekeys
 route keyboard to other computer at low, tty, level
 
-install:  
-> sudo make install
+install on all comps:  
+> git clone https://github.com/asainnp/routekeys.git
+> make && make install  
+>  
+> ... if err, no make on system, try precompilled:  
+> sudo ./install.sh
 
-run test:  
-> sudo make test  
-> or:  
-> routekeys $(routekeyskbd.sh) | routekeys in
+server config:
+> cp .routekeysrc ~/.  
+> edit ~/.routekeysrc add clint IPs  
 
-run to different comp (where routekeys is also installed):  
-> routekeys $(routekeyskbd.sh) | ssh remoteCompIP routekeys in
+run on server's emtpy tty:  
+> routekeysloop  
 
 Note:  
-> all commands needs root permission so add sudo before left  
-> and right part pf pipe and in right ssh command  
-
+> user need to be in sudoers file,   
+>      some parts of script calling sudo and need root perms.  
+> automatic logon without password for server-user need to be  
+>      configured on target-client comps (ssh authorized keys)  
