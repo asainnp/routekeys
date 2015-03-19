@@ -1,8 +1,10 @@
 # routekeys
 route keyboard to other computer at low, tty, level
 
+function like: tty alternative for synergy
+
 install on all comps:  
-> git clone https://github.com/asainnp/routekeys.git
+> git clone https://github.com/asainnp/routekeys.git  
 > make && make install  
 >  
 > ... if err, no make on system, try precompilled:  
