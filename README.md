@@ -14,8 +14,13 @@ server config:
 > cp .routekeysrc ~/.  
 > edit ~/.routekeysrc add clint IPs  
 
-run on server's emtpy tty:  
+run on server:
 > routekeysloop  
+
+Shortcuts:
+> Ctrl-Alt-Shift-Esc == prefix  
+> prefix ... X       == close all  
+> prefix ... someKEY == destination defined in ~/.xroutekeysrc
 
 Note:  
 > user need to be in sudoers file,   
