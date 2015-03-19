@@ -8,10 +8,10 @@ function isnum()
                   *) echo 0 ;; # ok num
    esac
 }
-               [ $(isnum $keycode) -eq 0 ] || \
-               { echo "param 1 must be valid key code (not $1)" >&2 ; exit 1 ; }
+     [ $(isnum $keycode) -eq 0 ] || \
+     { echo "param 1 must be valid key code (not $1)" >&2 ; exit 1 ; } #exitAll
 
-[ $keycode -eq 45 ] && exit 1               #key 'X' code45 - exit all
+[ $keycode -eq 45 ] && exit 1                         #key 'X' code45 - exitAll
 
 while read line; do
    arr=(${line//:/ })   ;     [ ${#arr[@]}       -eq 3 ] || continue
