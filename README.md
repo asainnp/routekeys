@@ -15,7 +15,7 @@ server config:
 > edit ~/.routekeysrc add client IPs  
 
 run on server:
-> routekeysloop  
+> routekeysloop.sh
 
 Shortcuts:
 > Ctrl-Alt-Shift-Esc == prefix  

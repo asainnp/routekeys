@@ -11,7 +11,7 @@ clean:
 	rm $(archdir)/routekeys
 install: 
 	sudo ./install.sh
-gg:
+gg:     all
 	git add . && git commit -m ... && git push ; git status
 #******************************************************************************
 	
@@ -21,7 +21,8 @@ $(archdir):
 $(archdir)/routekeys: $(archdir) routekeys.c
 	gcc routekeys.c -o $(archdir)/routekeys
 
-test: 
-	(sleep 10; pkill routekeys)& #in case that app cause keyboard hangs-up
-	routekeys out $$(routekeyskbd.sh) | routekeys in 
+test: install
+	#kill in case that app cause keyboard hangs-up
+	(sleep 20; pkill -f routekeysloop.sh; pkill routekeys)& 
+	routekeysloop.sh 
 #******************************************************************************
