@@ -12,7 +12,7 @@ install on all comps:
 
 server config:
 > cp .routekeysrc ~/.  
-> edit ~/.routekeysrc add clint IPs  
+> edit ~/.routekeysrc add client IPs  
 
 run on server:
 > routekeysloop  
