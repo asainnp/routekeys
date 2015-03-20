@@ -16,7 +16,7 @@ struct event64   { struct timeval64 time; __u16 type, code; __s32 value; };
 //special key-sequence:
 #define escapelen 4
 char escapekeys[escapelen]={KEY_LEFTCTRL, KEY_LEFTALT, KEY_LEFTSHIFT, KEY_ESC}; //Ctrl-Alt-Shift-Esc
-char escapevals[escapelen]={ 0,  0,  0,  0};
+char escapevals[escapelen]={0,            0,           0,             0      };
 int checkEscapeSequence(struct input_event *ev)
 {  int i, all;
    for (i=0, all=0; i<escapelen; i++) 
@@ -26,7 +26,7 @@ int checkEscapeSequence(struct input_event *ev)
    return all ==escapelen;
 }
 
-//main keyboard functions:
+//TWO keyboard functions:
     struct event64         tmp; const int tmpsize =sizeof(struct event64); 
                                 const int evsize  =sizeof(struct input_event); 
     struct input_event     *ev =(void*)&tmp +sizeof(struct event64)
@@ -51,14 +51,14 @@ int loopKeyboardINP()
 
    while (1)                                   //from stdin - 64bit sized structs comming
    {  if (read (STDIN_FILENO, &tmp, tmpsize) < 0) { close(fdo); return 6; } 
-      //mprintf("\r in: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
+      //mprintf("\rinp: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
 
       if (pressterminate && (ev->type ==1) && (ev->value >0)) { close(fdo); return 1000+ev->code; }
 
       ev->time.tv_sec  =ev->time.tv_usec =0;
       if (write(fdo, ev, evsize)  < 0) { close(fdo); return 7; } //to device send arch-specific 32 or 64bit
       if (checkEscapeSequence(ev))    
-      { mprintf(" in: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
+      { mprintf("inp: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
    }
    if (ioctl(fdo, UI_DEV_DESTROY) < 0) { close(fdo); return 9; }
 
@@ -74,18 +74,27 @@ int loopKeyboardOUT(char *devname)
       //mprintf("\rout: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
 
       tmp.time.tv_sec =tmp.time.tv_usec =0;
-      if (write(STDOUT_FILENO, &tmp, tmpsize) < 0) return 5; //to stdout send 64bit 
+      if (write(STDOUT_FILENO, &tmp, tmpsize)   <0) return 5; //to stdout send 64bit 
 
    }
    close(fdi); close(STDOUT_FILENO); return 0;
 }
+
 //main function: //////////////////////////////////////////////////////////////////////////
-#define die(args...)     if (1) { mprintf(args); goto __end; }
 int main(int argc, char* argv[])
 {   int retval =0, pressterminate =0;
 
-    if      (argc==2 && !strcmp(argv[1], "inp")) retval =loopKeyboardINP(); 
-    else if (argc==3 && !strcmp(argv[1], "out")) retval =loopKeyboardOUT(argv[2]); 
+    if      (argc==2 && !strcmp(argv[1], "inp")) 
+    {  retval =loopKeyboardINP();         //LOOP !!! 
+       mprintf("inp: exiting, org.retval==%d\n", retval);
+       return (retval>1000) ?retval-1000 :0;         // INP-return:  =0 no key selected
+                                                     //              >0 key-code returning
+    }
+    else if (argc==3 && !strcmp(argv[1], "out")) 
+    {  retval =loopKeyboardOUT(argv[2]); //LOOP !!!
+       mprintf("out: exiting, retval==%d\n",    retval);
+       return retval;                                // OUT-return:   errcode
+    }
     else 
     {  mprintf("usage: 1) routekeys in\n"
                "          #... receiving stdin to new virtual keyboard HERE, on this comp\n"
@@ -93,11 +102,6 @@ int main(int argc, char* argv[])
                "          #... blocking, reading device and sending data to stdout\n"
                "\n... btw, size of inputevent here is: %d, and timeval(2xlong): %d\n", 
                sizeof(struct input_event), sizeof(struct timeval)); 
-       return 0;
-    }
-    mprintf("%s: exiting, org.retval==%d\n", argv[1], retval);
-    if (retval >1000) retval -=1000; //key-code
-    return retval; //INP:   0 no key selected
-                   //      >0 key-code returning
-                   //OUT:  errcode
+    }  
+    return 0; 
 }
