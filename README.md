@@ -5,20 +5,20 @@ function like: tty alternative for synergy
 
 install on all comps:  
 > git clone https://github.com/asainnp/routekeys.git  
-> make && make install  
+> make install  
 >  
-> ... if err, no make on system, try precompilled:  
+> ... if err, no make on system, try precompilled binary:  
 > sudo ./install.sh
 
 server config:
 > cp .routekeysrc ~/.  
-> edit ~/.routekeysrc add client IPs  
+> edit ~/.routekeysrc and add client IPs  
 
 run on server:
 > routekeysloop.sh
 
 Shortcuts:
-> Ctrl-Alt-Shift-Esc == prefix  
+> Ctrl-Alt-Shift-Esc == prefix (release after press all 4)
 > prefix ... X       == close all  
 > prefix ... someKEY == destination defined in ~/.xroutekeysrc
 
