@@ -34,18 +34,20 @@ int checkEscapeSequence(struct input_event *ev)
     struct input_event     *ev =(void*)&tmp +sizeof(struct event64)
                                             -sizeof(struct input_event);
 
+#define mreturn(rv) { close(fdo); close(STDIN_FILENO); return rv; }
 int loopKeyboardINP()
 {  struct uinput_user_dev uidev;
-   int i, pressterminate=0,
-       evbits[5] ={ EV_SYN, EV_KEY, EV_MSC, EV_REL, EV_ABS }, //ev_rel added for mouse?
-       fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);                if (fdo < 0)   return 1;
+   #define myEVMAX 6
+   int i, pressterminate=0, fdo =-1,
+       evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
 
+   fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (fdo < 0) mreturn(1);
 
-   for (i=0;i<5;      ++i) if (ioctl(fdo, UI_SET_EVBIT, evbits[i]) < 0) { close(fdo); return 20+i; }
-   for (i=0;i<REL_MAX;++i) if (ioctl(fdo, UI_SET_RELBIT, i)        < 0) { close(fdo); return 30+i; }
-   for (i=0;i<ABS_MAX;++i) if (ioctl(fdo, UI_SET_ABSBIT, i)        < 0) { close(fdo); return 40+i; }
+   for (i=0;i<myEVMAX;++i) if (ioctl(fdo, UI_SET_EVBIT, evbits[i]) < 0) mreturn(20+i);
+   for (i=0;i<REL_MAX;++i) if (ioctl(fdo, UI_SET_RELBIT, i)        < 0) mreturn(30+i);
+   for (i=0;i<ABS_MAX;++i) if (ioctl(fdo, UI_SET_ABSBIT, i)        < 0) mreturn(40+i);
    //turning on all Keys, including all-kbd-keys and all possible mouse-buttons
-   for (i=0;i<KEY_MAX;++i) if (ioctl(fdo, UI_SET_KEYBIT, i)        < 0) { close(fdo); return 5; }
+   for (i=0;i<KEY_MAX;++i) if (ioctl(fdo, UI_SET_KEYBIT, i)        < 0) mreturn(5);
 
    memset(&uidev, 0, sizeof(uidev));
    snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinputroutekeys");
@@ -53,42 +55,46 @@ int loopKeyboardINP()
    uidev.id.version = 1;                uidev.id.product = 0x1;
                                  /*uidev.absmin[ABS_X]=0; uidev.absmax[ABS_X]=5000; uidev.absfuzz[ABS_X]=0; uidev.absflat[ABS_X ]=0;
                                    uidev.absmin[ABS_Y]=0; uidev.absmax[ABS_Y]=5000; uidev.absfuzz[ABS_Y]=0; uidev.absflat[ABS_Y ]=0; */
-   if (write(fdo, &uidev, sizeof(uidev)) < 0) { close(fdo); return 6; }
-   if (ioctl(fdo, UI_DEV_CREATE)         < 0) { close(fdo); return 7; }
+   if (write(fdo, &uidev, sizeof(uidev)) < 0) mreturn(6);
+   if (ioctl(fdo, UI_DEV_CREATE)         < 0) mreturn(7);
 
    mysys("fgnotify 'KEYS ROUTED HERE !'");
 
-   while (1)                                  //from stdin - 64bit sized structs comming
-   {  if (read (STDIN_FILENO, &tmp, tmpsize) < 1) { close(fdo); return 8; } 
+   while (!globalQUIT)                           //from stdin - 64bit sized structs comming
+   {  if (read (STDIN_FILENO, &tmp, tmpsize) < 1) mreturn(8);
       mprintf("\rinp: type: %d, code: %d, val: %d, time=%d:%d\n", ev->type, ev->code, ev->value, ev->time.tv_sec, ev->time.tv_usec); 
 
-      if (pressterminate && (ev->type ==1) && (ev->value >0)) { close(fdo); return 1000+ev->code; }
+      if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
 
       //ev->time.tv_sec  =ev->time.tv_usec =0;  //to device send arch-specific 32 or 64bit
       //gettimeofday(&ev->time, NULL);
-      if (write(fdo, ev, evsize)  < 0)            { close(fdo); return 9; } 
+      if (write(fdo, ev, evsize)  < 0)            mreturn(9);
       if (checkEscapeSequence(ev))    
       { mprintf("inp: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
    }
-   if (ioctl(fdo, UI_DEV_DESTROY) < 0)            { close(fdo); return 10; }
+   if (ioctl(fdo, UI_DEV_DESTROY) < 0)            mreturn(10);
 
-   close(fdo); close(STDIN_FILENO); return 0;
+   mreturn(0);
 }
+#undef  mreturn
+#define mreturn(rv) { close(fdi); close(STDOUT_FILENO); return rv; }
 int loopDeviceOUT(char *devname)
-{  int pressterminate=0,
-       fdi = open(devname, O_RDONLY);  if (fdi  <0) return 1;
-   if (ioctl(fdi, EVIOCGRAB, 1) < 0)  { close(fdi); return 2; }
+{  int pressterminate=0, retval=0,
+       fdi = open(devname, O_RDONLY);  if (fdi  <0) mreturn(1);
+   if (ioctl(fdi, EVIOCGRAB, 1) < 0)                mreturn(2);
 
    while (!globalQUIT)               //from device events could be 32 or 64 bit long
-   {  if (read (fdi, ev, evsize) < 0) { close(fdi); return 3; }
+   {  if (read (fdi, ev, evsize) < 0)               mreturn(3);
       mprintf("\rout: type: %d, code: %d, val: %d, time=%d:%d\n", tmp.type, tmp.code, tmp.value, tmp.time.tv_sec, tmp.time.tv_usec); 
 
       //tmp.time.tv_sec =tmp.time.tv_usec =0;
-      if (write(STDOUT_FILENO, &tmp, tmpsize)   <0) return 5; //to stdout send 64bit 
+      if (write(STDOUT_FILENO, &tmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
 
    }
-   close(fdi); close(STDOUT_FILENO); return 0;
+   mreturn(0);
 }
+#undef  mreturn
+
 void* loopDeviceOUTstart(void *arg) 
 {  void *retval; 
    mprintf("out: thread starting, (dev=%s)\n", arg);
