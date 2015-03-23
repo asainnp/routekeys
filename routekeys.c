@@ -41,8 +41,7 @@ int loopKeyboardINP()
    int i, pressterminate=0, fdo =-1,
        evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
 
-   //fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (fdo < 0) mreturn(1);
-   fdo =open("/dev/uinput", O_WRONLY | O_NDELAY);        if (fdo < 0) mreturn(1);
+   fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (fdo < 0) mreturn(1);
 
    for (i=0;i<myEVMAX;++i) if (ioctl(fdo, UI_SET_EVBIT, evbits[i]) < 0) mreturn(20+i);
    for (i=0;i<REL_MAX;++i) if (ioctl(fdo, UI_SET_RELBIT, i)        < 0) mreturn(30+i);
@@ -56,8 +55,7 @@ int loopKeyboardINP()
    snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinputroutekeys");
    uidev.id.bustype = BUS_USB;          uidev.id.vendor  = 0x1;
    uidev.id.version = 1;                uidev.id.product = 0x1;
-                                 /*uidev.absmin[ABS_X]=0; uidev.absmax[ABS_X]=5000; uidev.absfuzz[ABS_X]=0; uidev.absflat[ABS_X ]=0;
-                                   uidev.absmin[ABS_Y]=0; uidev.absmax[ABS_Y]=5000; uidev.absfuzz[ABS_Y]=0; uidev.absflat[ABS_Y ]=0; */
+
    if (write(fdo, &uidev, sizeof(uidev)) < 0) mreturn(6);
    if (ioctl(fdo, UI_DEV_CREATE)         < 0) mreturn(7);
 
@@ -69,8 +67,7 @@ int loopKeyboardINP()
 
       if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
 
-      //ev->time.tv_sec  =ev->time.tv_usec =0;  //to device send arch-specific 32 or 64bit
-      //gettimeofday(&ev->time, NULL);
+      ev->time.tv_sec  =ev->time.tv_usec =0;  //to device send arch-specific 32 or 64bit
       if (write(fdo, ev, evsize)  < 0)            mreturn(9);
       if (checkEscapeSequence(ev))    
       { mprintf("inp: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
@@ -90,7 +87,7 @@ int loopDeviceOUT(char *devname)
    {  if (read (fdi, ev, evsize) < 0)               mreturn(3);
       mprintf("\rout: type: %d, code: %d, val: %d, time=%d:%d\n", tmp.type, tmp.code, tmp.value, tmp.time.tv_sec, tmp.time.tv_usec); 
 
-      //tmp.time.tv_sec =tmp.time.tv_usec =0;
+      tmp.time.tv_sec =tmp.time.tv_usec =0;
       if (write(STDOUT_FILENO, &tmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
 
    }
