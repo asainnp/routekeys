@@ -41,11 +41,14 @@ int loopKeyboardINP()
    int i, pressterminate=0, fdo =-1,
        evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
 
-   fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (fdo < 0) mreturn(1);
+   //fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (fdo < 0) mreturn(1);
+   fdo =open("/dev/uinput", O_WRONLY | O_NDELAY);        if (fdo < 0) mreturn(1);
 
    for (i=0;i<myEVMAX;++i) if (ioctl(fdo, UI_SET_EVBIT, evbits[i]) < 0) mreturn(20+i);
    for (i=0;i<REL_MAX;++i) if (ioctl(fdo, UI_SET_RELBIT, i)        < 0) mreturn(30+i);
-   for (i=0;i<ABS_MAX;++i) if (ioctl(fdo, UI_SET_ABSBIT, i)        < 0) mreturn(40+i);
+   //!!!! NOT SETTING ABS_X and ABS_Y (0 and 1), Xorg mouse movement not working
+   //     if both REL and ABS x-y bits are on... so ABS starting from 2
+   for (i=2;i<ABS_MAX;++i) if (ioctl(fdo, UI_SET_ABSBIT, i)        < 0) mreturn(40+i);
    //turning on all Keys, including all-kbd-keys and all possible mouse-buttons
    for (i=0;i<KEY_MAX;++i) if (ioctl(fdo, UI_SET_KEYBIT, i)        < 0) mreturn(5);
 
