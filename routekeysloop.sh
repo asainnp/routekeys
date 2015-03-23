@@ -2,6 +2,8 @@
 
 echo "routing keys LOOP from $(tty)"
 kbd=$(routekeyskbd.sh)
+echo -e "devices:\n $kbd"
+
 [ $(whoami) == "root" ] && { echo "no need for sudo/root in start."; exit; }
 
 nextdest=""   #route back to local comp
