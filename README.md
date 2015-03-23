@@ -1,5 +1,5 @@
 # routekeys
-route keyboard to other computer at low, tty, level
+route keyboard and mouse to other computer at low, tty, level
 
 function like: tty alternative for synergy
 
