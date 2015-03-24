@@ -12,7 +12,8 @@ install: all
 	sudo ./install.sh
 
 gg:     all
-	git add . && git commit -m ... && git push ; git status
+	git add . && git commit -m ... ; : 
+	git push ; git status
 ggio:
 	echo -n --------------------------- && cat /etc/hostname
 	git pull && make gg
