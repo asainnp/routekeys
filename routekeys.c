@@ -59,7 +59,7 @@ int loopKeyboardINP()
    if (write(fdo, &uidev, sizeof(uidev)) < 0) mreturn(6);
    if (ioctl(fdo, UI_DEV_CREATE)         < 0) mreturn(7);
 
-   mysys("fgnotify 'KEYS ROUTED HERE !'");
+   mysys("fgnotify 'KEYS ROUTED HERE !(v1.1)'");
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
    {  if (read (STDIN_FILENO, &tmp, tmpsize) < 1) mreturn(8);
