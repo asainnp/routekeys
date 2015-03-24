@@ -21,10 +21,8 @@ ggio:
 ggothers: 
 	scripts/routekeysdest.sh listdestinations |         \
 	while read line; do                                 \
-	   echo $$line-------------------------------- ;    \
-	   (< /dev/null ssh $$line 'cd github/routekeys; make ggio'); \
-	done
-	
+	   (< /dev/null ssh $$line 'cd github/routekeys; make ggio'); done
+	git pull
 #******************************************************************************
 	
 $(archdir):
