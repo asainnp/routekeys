@@ -69,6 +69,7 @@ int loopKeyboardINP()
       if (ev->type ==EV_ABS) 
       {  if (ev->code ==ABS_X) { ev->type=EV_REL; ev->code =REL_X; oldAbsX =ev->value; ev->value -= oldAbsX; } //using REL only
          if (ev->code ==ABS_Y) { ev->type=EV_REL; ev->code =REL_Y; oldAbsY =ev->value; ev->value -= oldAbsY; } // ...converting
+         mprintf("\rinp: type: %d, code: %d, val: %d, time=%d:%d <---new val\n", ev->type, ev->code, ev->value, ev->time.tv_sec, ev->time.tv_usec); 
       }
 
       ev->time.tv_sec  =ev->time.tv_usec =0;  //to device send arch-specific 32 or 64bit
