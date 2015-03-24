@@ -13,12 +13,12 @@ install: all
 
 gg:     all
 	git add . && git commit -m ... ; : 
-	git push ; git status
+	git push
 ggio:
 	echo -n --------------------------- && cat /etc/hostname
 	git pull && make gg
 
-ggothers: 
+ggallcomps: gg
 	scripts/routekeysdest.sh listdestinations |         \
 	while read line; do                                 \
 	   (< /dev/null ssh $$line 'cd github/routekeys; make ggio'); done
