@@ -18,7 +18,7 @@ ggio:
 	make gg
 ggallcomps: gg
 	scripts/routekeysdest.sh listdestinations | \
-	while read line; do $$line make ggio; done 
+	while read line; do ssh $$line make ggio; done 
 	
 #******************************************************************************
 	
