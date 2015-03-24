@@ -38,7 +38,7 @@ int checkEscapeSequence(struct input_event *ev)
 int loopKeyboardINP()
 {  struct uinput_user_dev uidev;
    #define myEVMAX 6
-   int i, pressterminate=0, fdo =-1, oldAbsX =0, oldAbsY =0, tmp =0,
+   int i, pressterminate=0, fdo =-1, oldAbsX =0, oldAbsY =0, itmp =0,
        evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
 
    fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (fdo < 0) mreturn(1);
@@ -63,13 +63,13 @@ int loopKeyboardINP()
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
    {  if (read (STDIN_FILENO, &tmp, tmpsize) < 1) mreturn(8);
-      //mprintf("\rinp: type: %d, code: %d, val: %d, time=%d:%d\n", ev->type, ev->code, ev->value, ev->time.tv_sec, ev->time.tv_usec); 
+      mprintf("\rinp: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
 
       if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
       if (ev->type ==EV_ABS && (ev->code==ABS_X || ev->code==ABS_Y)) 
       {  mprintf("\rinp: type: %d, code: %d, val: %d, oldXY=(%d:%d)\n", ev->type, ev->code, ev->value, oldAbsX, oldAbsY); 
-            if (ev->code ==ABS_X) { ev->type=EV_REL; ev->code =REL_X; tmp =ev->value; ev->value -= oldAbsX; oldAbsX =tmp; } //using REL only
-            if (ev->code ==ABS_Y) { ev->type=EV_REL; ev->code =REL_Y; tmp =ev->value; ev->value -= oldAbsY; oldAbsY =tmp; } // ...converting
+            if (ev->code ==ABS_X) { ev->type=EV_REL; ev->code =REL_X; itmp =ev->value; ev->value -= oldAbsX; oldAbsX =itmp; } //using REL only
+            if (ev->code ==ABS_Y) { ev->type=EV_REL; ev->code =REL_Y; itmp =ev->value; ev->value -= oldAbsY; oldAbsY =itmp; } // ...converting
          mprintf("\rinp: type: %d, code: %d, val: %d, <---new val  \n", ev->type, ev->code, ev->value); 
       }
 
@@ -91,7 +91,7 @@ int loopDeviceOUT(char *devname)
 
    while (!globalQUIT)               //from device events could be 32 or 64 bit long
    {  if (read (fdi, ev, evsize) < 0)               mreturn(3);
-      //mprintf("\rout: type: %d, code: %d, val: %d, time=%d:%d\n", tmp.type, tmp.code, tmp.value, tmp.time.tv_sec, tmp.time.tv_usec); 
+      mprintf("\rout: type: %d, code: %d, val: %d\n", tmp.type, tmp.code, tmp.value); 
 
       tmp.time.tv_sec =tmp.time.tv_usec =0;
       if (write(STDOUT_FILENO, &tmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
@@ -121,7 +121,7 @@ int main(int argc, char* argv[])
        return (retval>1000) ?retval-1000 :0;         // INP-return:  =0 no key selected
                                                      //              >0 key-code returning
     }
-    else if (argc>1 && !strcmp(argv[1], "out")) 
+    else if (argc >2 && !strcmp(argv[1], "out")) 
     {  if (argc>7+2) { mprintf("out: err-max 8 devices allowed"); return 1; }
        for (i=2;i<argc;++i)
           if (0!=pthread_create(&tid[i-2], NULL, &loopDeviceOUTstart, argv[i])) //LOOP !!!
