@@ -43,6 +43,7 @@ exit 2
 # reading ~/.routekeysrc for keycode-sshdestination pairs (keycode:xx:sshdest)
 #
 # routekeysdest.sh listdestinations ... just list destinations and exit 0
+#                                       (used in makefile with such param)
 # routekeysdest.sh listdestinations withcodes ... -||-,      same +codes
 # routekeysdest.sh XX - show destination for code XX (or exit 1/2)
 # return result of script should be:

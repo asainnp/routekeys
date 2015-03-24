@@ -1,6 +1,6 @@
 #******************************************************************************
 SHELL=/bin/bash
-.PHONY: all clean test gg
+.PHONY: clean test gg
 
 archdir=bin/$(shell uname -m)
 #******************************************************************************
@@ -8,14 +8,14 @@ archdir=bin/$(shell uname -m)
 all: $(archdir)/routekeys
 clean: 
 	rm $(archdir)/routekeys
-install: all
-	sudo ./install.sh
+install: $(archdir)/routekeys $(wildcard scripts/*.sh)
+	sudo ./install && touch install
 
 gg:     install
 	git add . && git commit -m ... ; : 
 	git push
 ggio:
-	echo -n --------------------------- && cat /etc/hostname
+	printf "%.0s-" {1..30} && cat /etc/hostname
 	git pull && make gg
 
 ggallcomps: gg
