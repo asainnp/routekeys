@@ -66,7 +66,7 @@ int loopKeyboardINP()
       mprintf("\rinp: type: %d, code: %d, val: %d, time=%d:%d\n", ev->type, ev->code, ev->value, ev->time.tv_sec, ev->time.tv_usec); 
 
       if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
-      if (ev->type ==EV_ABS) 
+      if (ev->type ==EV_ABS && (ev->code==ABS_X || ev->code==ABS_Y)) 
       {  if (ev->code ==ABS_X) { ev->type=EV_REL; ev->code =REL_X; oldAbsX =ev->value; ev->value -= oldAbsX; } //using REL only
          if (ev->code ==ABS_Y) { ev->type=EV_REL; ev->code =REL_Y; oldAbsY =ev->value; ev->value -= oldAbsY; } // ...converting
          mprintf("\rinp: type: %d, code: %d, val: %d, time=%d:%d <---new val\n", ev->type, ev->code, ev->value, ev->time.tv_sec, ev->time.tv_usec); 

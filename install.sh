@@ -7,6 +7,9 @@ dstbin=/usr/bin
 
 [ -f $srcbin/routekeys ] || { echo "routekeys for arch: $arch not compiled"; exit; }
 
+pkill -f routekeysloop.sh
+pkill routekeys
+
 cp -v $srcbin/routekeys $dstbin
 cp -v $srcscr/*.sh $dstbin
 
