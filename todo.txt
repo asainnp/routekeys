@@ -6,3 +6,4 @@
        ... primitive abs->rel translation implemented
       -gpm (tty mouse) worked well with both events
       -so this should be investigated more, or better translation todo.
+       and all of this concerning touch-pads not standard mices
