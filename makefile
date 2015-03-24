@@ -21,7 +21,7 @@ ggallcomps: gg
 	scripts/routekeysdest.sh listdestinations |         \
 	while read line; do                                 \
 	   echo $$line-------------------------------- ;    \
-	   (ssh  $$line 'cd github/routekeys' ; < /dev/null); \
+	   (ssh $$line 'cd github/routekeys; pwd; ls' ; < /dev/null); \
 	   echo $$line-------------------------------- ;    \
 	done
 	echo --------------------------------whileend  ;
