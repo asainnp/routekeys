@@ -17,14 +17,13 @@ gg:     all
 ggio:
 	echo -n --------------------------- && cat /etc/hostname
 	git pull && make gg
-ggallcomps: gg
+
+ggothers: 
 	scripts/routekeysdest.sh listdestinations |         \
 	while read line; do                                 \
 	   echo $$line-------------------------------- ;    \
 	   (< /dev/null ssh $$line 'cd github/routekeys; make ggio'); \
-	   echo $$line-------------------------------- ;    \
 	done
-	echo --------------------------------whileend  ;
 	
 #******************************************************************************
 	
