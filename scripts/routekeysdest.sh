@@ -30,8 +30,8 @@ case "$keycode" in
     *) #search home RC for defined key
        #<-classic '|' pipe to while would cause subshell-exit only
        while read line; do 
-          arr=( $line )
-          [ "$arr[0]" -eq $keycode ] && { echo ${arr[1]} ; exit 0; } #exit script
+          arr=( $line ) ; [ "${arr[0]}" -eq "$keycode" ] && \
+                          { echo ${arr[1]} ; exit 0; } #exit whole script
        done < <($0 listdestinations withcodes)
        exit 2  # no key found, nor exitAll requested
 esac

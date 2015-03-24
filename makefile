@@ -11,7 +11,7 @@ clean:
 install: all
 	sudo ./install.sh
 
-gg:     all
+gg:     install
 	git add . && git commit -m ... ; : 
 	git push
 ggio:
