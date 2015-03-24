@@ -63,12 +63,13 @@ int loopKeyboardINP()
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
    {  if (read (STDIN_FILENO, &tmp, tmpsize) < 1) mreturn(8);
-      mprintf("\rinp: type: %d, code: %d, val: %d, time=%d:%d\n", ev->type, ev->code, ev->value, ev->time.tv_sec, ev->time.tv_usec); 
+      //mprintf("\rinp: type: %d, code: %d, val: %d, time=%d:%d\n", ev->type, ev->code, ev->value, ev->time.tv_sec, ev->time.tv_usec); 
 
       if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
       if (ev->type ==EV_ABS && (ev->code==ABS_X || ev->code==ABS_Y)) 
-      {  if (ev->code ==ABS_X) { ev->type=EV_REL; ev->code =REL_X; oldAbsX =ev->value; ev->value -= oldAbsX; } //using REL only
-         if (ev->code ==ABS_Y) { ev->type=EV_REL; ev->code =REL_Y; oldAbsY =ev->value; ev->value -= oldAbsY; } // ...converting
+      {  mprintf("\rinp: type: %d, code: %d, val: %d, time=%d:%d\n", ev->type, ev->code, ev->value, ev->time.tv_sec, ev->time.tv_usec); 
+            if (ev->code ==ABS_X) { ev->type=EV_REL; ev->code =REL_X; oldAbsX =ev->value; ev->value -= oldAbsX; } //using REL only
+            if (ev->code ==ABS_Y) { ev->type=EV_REL; ev->code =REL_Y; oldAbsY =ev->value; ev->value -= oldAbsY; } // ...converting
          mprintf("\rinp: type: %d, code: %d, val: %d, time=%d:%d <---new val\n", ev->type, ev->code, ev->value, ev->time.tv_sec, ev->time.tv_usec); 
       }
 
@@ -90,7 +91,7 @@ int loopDeviceOUT(char *devname)
 
    while (!globalQUIT)               //from device events could be 32 or 64 bit long
    {  if (read (fdi, ev, evsize) < 0)               mreturn(3);
-      mprintf("\rout: type: %d, code: %d, val: %d, time=%d:%d\n", tmp.type, tmp.code, tmp.value, tmp.time.tv_sec, tmp.time.tv_usec); 
+      //mprintf("\rout: type: %d, code: %d, val: %d, time=%d:%d\n", tmp.type, tmp.code, tmp.value, tmp.time.tv_sec, tmp.time.tv_usec); 
 
       tmp.time.tv_sec =tmp.time.tv_usec =0;
       if (write(STDOUT_FILENO, &tmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
