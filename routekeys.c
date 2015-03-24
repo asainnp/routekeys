@@ -38,7 +38,7 @@ int checkEscapeSequence(struct input_event *ev)
 int loopKeyboardINP()
 {  struct uinput_user_dev uidev;
    #define myEVMAX 6
-   int i, pressterminate=0, fdo =-1, oldAbsX =0, oldAbsY =0,
+   int i, pressterminate=0, fdo =-1, oldAbsX =0, oldAbsY =0, tmp =0,
        evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
 
    fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (fdo < 0) mreturn(1);
@@ -68,8 +68,8 @@ int loopKeyboardINP()
       if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
       if (ev->type ==EV_ABS && (ev->code==ABS_X || ev->code==ABS_Y)) 
       {  mprintf("\rinp: type: %d, code: %d, val: %d, oldXY=(%d:%d)\n", ev->type, ev->code, ev->value, oldAbsX, oldAbsY); 
-            if (ev->code ==ABS_X) { ev->type=EV_REL; ev->code =REL_X; oldAbsX =ev->value; ev->value -= oldAbsX; } //using REL only
-            if (ev->code ==ABS_Y) { ev->type=EV_REL; ev->code =REL_Y; oldAbsY =ev->value; ev->value -= oldAbsY; } // ...converting
+            if (ev->code ==ABS_X) { ev->type=EV_REL; ev->code =REL_X; tmp =ev->value; ev->value -= oldAbsX; oldAbsX =tmp; } //using REL only
+            if (ev->code ==ABS_Y) { ev->type=EV_REL; ev->code =REL_Y; tmp =ev->value; ev->value -= oldAbsY; oldAbsY =tmp; } // ...converting
          mprintf("\rinp: type: %d, code: %d, val: %d, <---new val  \n", ev->type, ev->code, ev->value); 
       }
 
