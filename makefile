@@ -13,6 +13,9 @@ install: all
 	sudo ./install.sh
 gg:     all
 	git add . && git commit -m ... && git push ; git status
+ggio:
+	git pull
+	make gg
 #******************************************************************************
 	
 $(archdir):
