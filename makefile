@@ -16,6 +16,10 @@ gg:     all
 ggio:
 	git pull
 	make gg
+ggallcomps: gg
+	scripts/routekeysdest.sh listdestinations | \
+	while read line; do $$line make ggio; done 
+	
 #******************************************************************************
 	
 $(archdir):
