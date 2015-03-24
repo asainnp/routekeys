@@ -6,22 +6,19 @@ archdir=bin/$(shell uname -m)
 #******************************************************************************
 
 all: $(archdir)/routekeys
-
 clean: 
 	rm $(archdir)/routekeys
 install: all
 	sudo ./install.sh
+
 gg:     all
 	git add . && git commit -m ... && git push ; git status
 ggio:
-	git pull
-	make gg
+	echo -n --------------------------- && cat /etc/hostname
+	git pull && make gg
 ggallcomps: gg
 	scripts/routekeysdest.sh listdestinations | \
-	while read line; do \
-           echo $$line --------------------------- \
-	   ssh $$line 'cd github/routekeys; make ggio' \
-	done 
+	while read line; do ssh $$line 'cd github/routekeys; make ggio'; done
 	
 #******************************************************************************
 	
