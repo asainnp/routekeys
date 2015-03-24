@@ -2,7 +2,7 @@
 SHELL=/bin/bash
 .PHONY: all clean test gg
 
-archdir=bin$(shell uname -m)
+archdir=bin/$(shell uname -m)
 #******************************************************************************
 
 all: $(archdir)/routekeys
@@ -26,6 +26,6 @@ $(archdir)/routekeys: $(archdir) routekeys.c
 
 test: install
 	#kill in case that app cause keyboard hangs-up
-	(echo killink in 30s; sleep 30; sudo pkill -f routekeys\*)& 
+	(echo killing in 30s; sleep 30; sudo pkill -f routekeys\*)& 
 	routekeysloop.sh 
 #******************************************************************************
