@@ -7,11 +7,10 @@ install on all comps:
 > git clone https://github.com/asainnp/routekeys.git  
 > make install  
 >  
-> ... or try precompilled binary:  
-> sudo ./install.sh
+> ... or try precompilled binary:  sudo ./install.sh
 
 server config:
-> cp .routekeysrc ~/.  
+> cp docs/.routekeysrc ~/.  
 > edit ~/.routekeysrc and add client IPs  
 
 run on server:
