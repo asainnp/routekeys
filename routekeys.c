@@ -20,7 +20,7 @@ struct event64   { struct timeval64 time; __u16 type, code; __s32 value; };
 char escapekeys[escapelen]={KEY_LEFTCTRL, KEY_LEFTALT, KEY_LEFTSHIFT, KEY_ESC}; //Ctrl-Alt-Shift-Esc
 char escapevals[escapelen]={0,            0,           0,             0      };
 int checkEscapeSequence(struct input_event *ev)
-{  int i, all;
+{  int i, all;    if (ev->type != EV_KEY) return 0; //check keys only
    for (i=0, all=0; i<escapelen; i++) 
    {  if (escapekeys[i] ==ev->code) escapevals[i] =ev->value;
       if (escapevals[i]) all++;
