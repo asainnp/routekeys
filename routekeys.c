@@ -75,8 +75,7 @@ int loopKeyboardINP()
 
       ev->time.tv_sec  =ev->time.tv_usec =0;  //to device send arch-specific 32 or 64bit
       if (write(fdo, ev, evsize)  < 0)            mreturn(9);
-      if (checkEscapeSequence(ev))    
-      { mprintf("inp: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
+      if (checkEscapeSequence(ev)) { mprintf("inp: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
    }
    if (ioctl(fdo, UI_DEV_DESTROY) < 0)            mreturn(10);
 
@@ -93,9 +92,12 @@ int loopDeviceOUT(char *devname)
    {  if (read (fdi, ev, evsize) < 0)               mreturn(3);
       mprintf("\rout: type: %d, code: %d, val: %d\n", tmp.type, tmp.code, tmp.value); 
 
+      if (pressterminate && (ev->type ==1) && (ev->value >0))
+         if (ev->code==111) { mprintf("out: Del after Escape-Sequence, terminating");  mreturn(4); } 
+         else pressterminate=0;
       tmp.time.tv_sec =tmp.time.tv_usec =0;
       if (write(STDOUT_FILENO, &tmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
-
+      if (checkEscapeSequence(ev)) { mprintf("out: Escape-Sequence detected\n"); pressterminate=1; }
    }
    mreturn(0);
 }
