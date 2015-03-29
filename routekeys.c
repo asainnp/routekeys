@@ -32,14 +32,15 @@ int checkEscapeSequence(struct input_event *ev)
     struct event64         tmp; const int tmpsize =sizeof(struct event64); 
                                 const int evsize  =sizeof(struct input_event); 
     struct input_event     *ev =(void*)&tmp +sizeof(struct event64)
-                                            -sizeof(struct input_event);
+                                            -sizeof(struct input_event), sevprev, *evprev =&sevprev;
 
 #define mreturn(rv) { close(fdo); close(STDIN_FILENO); return rv; }
 int loopKeyboardINP()
 {  struct uinput_user_dev uidev;
    #define myEVMAX 6
-   int i, pressterminate=0, fdo =-1, oldAbsX =0, oldAbsY =0, itmp =0,
+   int i, pressterminate=0, pressX=0,pressY=0,prevPress=0, fdo =-1, oldAbsX =0, oldAbsY =0, itmp =0,
        evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
+   int once=1;
 
    fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (fdo < 0) mreturn(1);
 
@@ -52,9 +53,11 @@ int loopKeyboardINP()
    for (i=0;i<KEY_MAX;++i) if (ioctl(fdo, UI_SET_KEYBIT, i)        < 0) mreturn(5);
 
    memset(&uidev, 0, sizeof(uidev));
-   snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinputroutekeys");
+   snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinputroutekeysABS");
    uidev.id.bustype = BUS_USB;          uidev.id.vendor  = 0x1;
    uidev.id.version = 1;                uidev.id.product = 0x1;
+   //uidev.absmin[ABS_X]=0; uidev.absmin[ABS_X]=1024;
+   //uidev.absmin[ABS_Y]=0; uidev.absmin[ABS_Y]=1080;
 
    if (write(fdo, &uidev, sizeof(uidev)) < 0) mreturn(6);
    if (ioctl(fdo, UI_DEV_CREATE)         < 0) mreturn(7);
@@ -66,15 +69,26 @@ int loopKeyboardINP()
       mprintf("\rinp: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
 
       if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
-      if (ev->type ==EV_ABS && (ev->code==ABS_X || ev->code==ABS_Y)) 
-      {  mprintf("\rinp: type: %d, code: %d, val: %d, oldXY=(%d:%d)\n", ev->type, ev->code, ev->value, oldAbsX, oldAbsY); 
-            if (ev->code ==ABS_X) { ev->type=EV_REL; ev->code =REL_X; itmp =ev->value; ev->value -= oldAbsX; oldAbsX =itmp; } //using REL only
-            if (ev->code ==ABS_Y) { ev->type=EV_REL; ev->code =REL_Y; itmp =ev->value; ev->value -= oldAbsY; oldAbsY =itmp; } // ...converting
-         mprintf("\rinp: type: %d, code: %d, val: %d, <---new val  \n", ev->type, ev->code, ev->value); 
+      //translate mouse abs
+      if (ev->type ==EV_ABS)
+      {  if (ev->code==ABS_PRESSURE) { mprintf("pressure....val=%d, prev=%d\n", ev->value, prevPress);
+                                       if ( ev->value >0 && !prevPress) { pressX=1; pressY=1; mprintf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n"); }
+                                       prevPress =ev->value; }
+         if (evprev->code==ABS_X || evprev->code==ABS_Y)
+         {  mprintf("\rinp: type: %d, code: %d, val: %d, oldXY=(%d:%d), pressXY=(%d:%d)\n", evprev->type, (int)evprev->code, evprev->value, oldAbsX, oldAbsY, pressX, pressY); 
+               if (evprev->code ==ABS_X) { if (pressX) { oldAbsX=evprev->value; pressX =0; mprintf("X reset ------------------------------------------------------------\n"); }; evprev->type=EV_REL; evprev->code =REL_X; itmp =evprev->value; evprev->value -= oldAbsX; oldAbsX =itmp; } //using REL only
+               if (evprev->code ==ABS_Y) { if (pressY) { oldAbsY=evprev->value; pressY =0; mprintf("Y reset ------------------------------------------------------------\n"); }; evprev->type=EV_REL; evprev->code =REL_Y; itmp =evprev->value; evprev->value -= oldAbsY; oldAbsY =itmp; } // ...converting
+            mprintf("\rinp: type: %d, code: %d, val: %d, <---new val  \n", evprev->type, evprev->code, evprev->value); 
+         }
       }
 
-      ev->time.tv_sec  =ev->time.tv_usec =0;  //to device send arch-specific 32 or 64bit
-      if (write(fdo, ev, evsize)  < 0)            mreturn(9);
+      ev->time.tv_sec =ev->time.tv_usec =0;  //to device send arch-specific 32 or 64bit
+      if (once)
+      {  once =0;
+         *evprev =*ev; 
+      }
+      else { *evprev =*ev;
+             if (write(fdo, evprev, evsize)  < 0)            mreturn(9); }
       if (checkEscapeSequence(ev)) { mprintf("inp: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
    }
    if (ioctl(fdo, UI_DEV_DESTROY) < 0)            mreturn(10);

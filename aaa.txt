@@ -1,0 +1,5110 @@
+gcc routekeys.c -o bin/x86_64/routekeys -lpthread
+sudo ./install && touch install
+‘bin/x86_64/routekeys’ -> ‘/usr/bin/routekeys’
+‘scripts/routekeysdest.sh’ -> ‘/usr/bin/routekeysdest.sh’
+‘scripts/routekeysdevs.sh’ -> ‘/usr/bin/routekeysdevs.sh’
+‘scripts/routekeysloop.sh’ -> ‘/usr/bin/routekeysloop.sh’
+#kill in case that app cause keyboard hangs-up
+(echo killing in 30s; sleep 30; sudo ./install justkill)& 
+killing in 30s
+routekeysloop.sh 
+routing keys LOOP from /dev/pts/0
+devices:
+ /dev/input/event0
+/dev/input/event15
+/dev/input/event9
+routing keys to dest: 
+local
+out: thread starting, (dev=/dev/input/event15)
+out: thread starting, (dev=/dev/input/event9)
+out: thread starting, (dev=/dev/input/event0)
+out: type: 3, code: 57, val: 962
+out: type: 3, code: 53, val: 3508
+out: type: 3, code: 54, val: 3361
+out: type: 3, code: 58, val: 50
+out: type: 1, code: 330, val: 1
+out: type: 3, code: 0, val: 3508
+out: type: 3, code: 1, val: 3361
+out: type: 3, code: 24, val: 50
+out: type: 1, code: 325, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 57, val: 962
+inp: type: 3, code: 53, val: 3508
+inp: type: 3, code: 54, val: 3361
+inp: type: 3, code: 58, val: 50
+inp: type: 1, code: 330, val: 1
+inp: type: 3, code: 0, val: 3508
+inp: type: 3, code: 0, val: 3508, oldXY=(0:0), pressXY=(0:0)
+inp: type: 2, code: 0, val: 3508, <---new val  
+inp: type: 3, code: 1, val: 3361
+inp: type: 3, code: 1, val: 3361, oldXY=(3508:0), pressXY=(0:0)
+inp: type: 2, code: 1, val: 3361, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=0
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+inp: type: 1, code: 325, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 24, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3458
+out: type: 3, code: 54, val: 3330
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 3458
+out: type: 3, code: 1, val: 3330
+out: type: 3, code: 24, val: 53
+inp: type: 3, code: 53, val: 3458
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3330
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 3458
+inp: type: 3, code: 0, val: 3458, oldXY=(3508:3361), pressXY=(1:1)
+X reset ------------------------------------------------------------
+inp: type: 2, code: 0, val: 0, <---new val  
+inp: type: 3, code: 1, val: 3330
+inp: type: 3, code: 1, val: 3330, oldXY=(3458:3361), pressXY=(0:1)
+Y reset ------------------------------------------------------------
+inp: type: 2, code: 1, val: 0, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3453
+out: type: 3, code: 54, val: 3322
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 3453
+out: type: 3, code: 1, val: 3322
+out: type: 3, code: 24, val: 52
+inp: type: 3, code: 53, val: 3453
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3322
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 3453
+inp: type: 3, code: 0, val: 3453, oldXY=(3458:3330), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 3322
+inp: type: 3, code: 1, val: 3322, oldXY=(3453:3330), pressXY=(0:0)
+inp: type: 2, code: 1, val: -8, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3434
+out: type: 3, code: 54, val: 3298
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 3434
+out: type: 3, code: 1, val: 3298
+out: type: 3, code: 24, val: 53
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3434
+inp: type: 3, code: 54, val: 3298
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 3434
+inp: type: 3, code: 0, val: 3434, oldXY=(3453:3322), pressXY=(0:0)
+inp: type: 2, code: 0, val: -19, <---new val  
+inp: type: 3, code: 1, val: 3298
+inp: type: 3, code: 1, val: 3298, oldXY=(3434:3322), pressXY=(0:0)
+inp: type: 2, code: 1, val: -24, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3429
+out: type: 3, code: 54, val: 3279
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 3429
+out: type: 3, code: 1, val: 3279
+out: type: 3, code: 24, val: 52
+inp: type: 3, code: 53, val: 3429
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3279
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 3429
+inp: type: 3, code: 0, val: 3429, oldXY=(3434:3298), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 3279
+inp: type: 3, code: 1, val: 3279, oldXY=(3429:3298), pressXY=(0:0)
+inp: type: 2, code: 1, val: -19, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3405
+out: type: 3, code: 54, val: 3255
+out: type: 3, code: 58, val: 54
+out: type: 3, code: 0, val: 3405
+out: type: 3, code: 1, val: 3255
+out: type: 3, code: 24, val: 54
+inp: type: 3, code: 53, val: 3405
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3255
+inp: type: 3, code: 58, val: 54
+inp: type: 3, code: 0, val: 3405
+inp: type: 3, code: 0, val: 3405, oldXY=(3429:3279), pressXY=(0:0)
+inp: type: 2, code: 0, val: -24, <---new val  
+inp: type: 3, code: 1, val: 3255
+inp: type: 3, code: 1, val: 3255, oldXY=(3405:3279), pressXY=(0:0)
+inp: type: 2, code: 1, val: -24, <---new val  
+inp: type: 3, code: 24, val: 54
+pressure....val=54, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3388
+out: type: 3, code: 54, val: 3248
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 0, val: 3388
+out: type: 3, code: 1, val: 3248
+out: type: 3, code: 24, val: 51
+inp: type: 3, code: 53, val: 3388
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3248
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 0, val: 3388
+inp: type: 3, code: 0, val: 3388, oldXY=(3405:3255), pressXY=(0:0)
+inp: type: 2, code: 0, val: -17, <---new val  
+inp: type: 3, code: 1, val: 3248
+inp: type: 3, code: 1, val: 3248, oldXY=(3388:3255), pressXY=(0:0)
+inp: type: 2, code: 1, val: -7, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=54
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3382
+out: type: 3, code: 54, val: 3215
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 3382
+out: type: 3, code: 1, val: 3215
+out: type: 3, code: 24, val: 53
+inp: type: 3, code: 53, val: 3382
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3215
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 3382
+inp: type: 3, code: 0, val: 3382, oldXY=(3388:3248), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 3215
+inp: type: 3, code: 1, val: 3215, oldXY=(3382:3248), pressXY=(0:0)
+inp: type: 2, code: 1, val: -33, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3363
+out: type: 3, code: 54, val: 3207
+out: type: 3, code: 0, val: 3363
+out: type: 3, code: 1, val: 3207
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3363
+inp: type: 3, code: 54, val: 3207
+inp: type: 3, code: 0, val: 3363
+inp: type: 3, code: 0, val: 3363, oldXY=(3382:3215), pressXY=(0:0)
+inp: type: 2, code: 0, val: -19, <---new val  
+inp: type: 3, code: 1, val: 3207
+inp: type: 3, code: 1, val: 3207, oldXY=(3363:3215), pressXY=(0:0)
+inp: type: 2, code: 1, val: -8, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3357
+out: type: 3, code: 54, val: 3180
+out: type: 3, code: 0, val: 3357
+out: type: 3, code: 1, val: 3180
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3357
+inp: type: 3, code: 54, val: 3180
+inp: type: 3, code: 0, val: 3357
+inp: type: 3, code: 0, val: 3357, oldXY=(3363:3207), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 3180
+inp: type: 3, code: 1, val: 3180, oldXY=(3357:3207), pressXY=(0:0)
+inp: type: 2, code: 1, val: -27, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3340
+out: type: 3, code: 54, val: 3174
+out: type: 3, code: 0, val: 3340
+out: type: 3, code: 1, val: 3174
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3340
+inp: type: 3, code: 54, val: 3174
+inp: type: 3, code: 0, val: 3340
+inp: type: 3, code: 0, val: 3340, oldXY=(3357:3180), pressXY=(0:0)
+inp: type: 2, code: 0, val: -17, <---new val  
+inp: type: 3, code: 1, val: 3174
+inp: type: 3, code: 1, val: 3174, oldXY=(3340:3180), pressXY=(0:0)
+inp: type: 2, code: 1, val: -6, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3335
+out: type: 3, code: 54, val: 3154
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3335
+out: type: 3, code: 1, val: 3154
+out: type: 3, code: 24, val: 56
+inp: type: 3, code: 53, val: 3335
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3154
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3335
+inp: type: 3, code: 0, val: 3335, oldXY=(3340:3174), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 3154
+inp: type: 3, code: 1, val: 3154, oldXY=(3335:3174), pressXY=(0:0)
+inp: type: 2, code: 1, val: -20, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3328
+out: type: 3, code: 58, val: 54
+out: type: 3, code: 0, val: 3328
+out: type: 3, code: 24, val: 54
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3328
+inp: type: 3, code: 58, val: 54
+inp: type: 3, code: 0, val: 3328
+inp: type: 3, code: 0, val: 3328, oldXY=(3335:3154), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 24, val: 54
+pressure....val=54, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3322
+out: type: 3, code: 54, val: 3149
+out: type: 3, code: 58, val: 55
+out: type: 3, code: 0, val: 3322
+out: type: 3, code: 1, val: 3149
+out: type: 3, code: 24, val: 55
+inp: type: 3, code: 53, val: 3322
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3149
+inp: type: 3, code: 58, val: 55
+inp: type: 3, code: 0, val: 3322
+inp: type: 3, code: 0, val: 3322, oldXY=(3328:3154), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 3149
+inp: type: 3, code: 1, val: 3149, oldXY=(3322:3154), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 55
+pressure....val=55, prev=54
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3320
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3320
+out: type: 3, code: 24, val: 56
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3320
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3320
+inp: type: 3, code: 0, val: 3320, oldXY=(3322:3149), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=55
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3315
+out: type: 3, code: 54, val: 3143
+out: type: 3, code: 58, val: 55
+out: type: 3, code: 0, val: 3315
+out: type: 3, code: 1, val: 3143
+out: type: 3, code: 24, val: 55
+inp: type: 3, code: 53, val: 3315
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3143
+inp: type: 3, code: 58, val: 55
+inp: type: 3, code: 0, val: 3315
+inp: type: 3, code: 0, val: 3315, oldXY=(3320:3149), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 3143
+inp: type: 3, code: 1, val: 3143, oldXY=(3315:3149), pressXY=(0:0)
+inp: type: 2, code: 1, val: -6, <---new val  
+inp: type: 3, code: 24, val: 55
+pressure....val=55, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3313
+out: type: 3, code: 54, val: 3139
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 3313
+out: type: 3, code: 1, val: 3139
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 53, val: 3313
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3139
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 3313
+inp: type: 3, code: 0, val: 3313, oldXY=(3315:3143), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 3139
+inp: type: 3, code: 1, val: 3139, oldXY=(3313:3143), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=55
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3312
+out: type: 3, code: 54, val: 3138
+out: type: 3, code: 58, val: 55
+out: type: 3, code: 0, val: 3312
+out: type: 3, code: 1, val: 3138
+out: type: 3, code: 24, val: 55
+inp: type: 3, code: 53, val: 3312
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3138
+inp: type: 3, code: 58, val: 55
+inp: type: 3, code: 0, val: 3312
+inp: type: 3, code: 0, val: 3312, oldXY=(3313:3139), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 3138
+inp: type: 3, code: 1, val: 3138, oldXY=(3312:3139), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 55
+pressure....val=55, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3310
+out: type: 3, code: 54, val: 3137
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3310
+out: type: 3, code: 1, val: 3137
+out: type: 3, code: 24, val: 56
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3310
+inp: type: 3, code: 54, val: 3137
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3310
+inp: type: 3, code: 0, val: 3310, oldXY=(3312:3138), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 3137
+inp: type: 3, code: 1, val: 3137, oldXY=(3310:3138), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=55
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3308
+out: type: 3, code: 0, val: 3308
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3308
+inp: type: 3, code: 0, val: 3308
+inp: type: 3, code: 0, val: 3308, oldXY=(3310:3137), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3138
+out: type: 3, code: 1, val: 3138
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3138
+inp: type: 3, code: 1, val: 3138
+inp: type: 3, code: 1, val: 3138, oldXY=(3308:3137), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3304
+out: type: 3, code: 58, val: 54
+out: type: 3, code: 0, val: 3304
+out: type: 3, code: 24, val: 54
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3304
+inp: type: 3, code: 58, val: 54
+inp: type: 3, code: 0, val: 3304
+inp: type: 3, code: 0, val: 3304, oldXY=(3308:3138), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 54
+pressure....val=54, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3303
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3303
+out: type: 3, code: 24, val: 56
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3303
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3303
+inp: type: 3, code: 0, val: 3303, oldXY=(3304:3138), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=54
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3295
+out: type: 3, code: 54, val: 3131
+out: type: 3, code: 58, val: 55
+out: type: 3, code: 0, val: 3295
+out: type: 3, code: 1, val: 3131
+out: type: 3, code: 24, val: 55
+inp: type: 3, code: 53, val: 3295
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3131
+inp: type: 3, code: 58, val: 55
+inp: type: 3, code: 0, val: 3295
+inp: type: 3, code: 0, val: 3295, oldXY=(3303:3138), pressXY=(0:0)
+inp: type: 2, code: 0, val: -8, <---new val  
+inp: type: 3, code: 1, val: 3131
+inp: type: 3, code: 1, val: 3131, oldXY=(3295:3138), pressXY=(0:0)
+inp: type: 2, code: 1, val: -7, <---new val  
+inp: type: 3, code: 24, val: 55
+pressure....val=55, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3288
+out: type: 3, code: 54, val: 3124
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3288
+out: type: 3, code: 1, val: 3124
+out: type: 3, code: 24, val: 56
+inp: type: 3, code: 53, val: 3288
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3124
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3288
+inp: type: 3, code: 0, val: 3288, oldXY=(3295:3131), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 3124
+inp: type: 3, code: 1, val: 3124, oldXY=(3288:3131), pressXY=(0:0)
+inp: type: 2, code: 1, val: -7, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=55
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3272
+out: type: 3, code: 54, val: 3105
+out: type: 3, code: 58, val: 55
+out: type: 3, code: 0, val: 3272
+out: type: 3, code: 1, val: 3105
+out: type: 3, code: 24, val: 55
+inp: type: 3, code: 53, val: 3272
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3105
+inp: type: 3, code: 58, val: 55
+inp: type: 3, code: 0, val: 3272
+inp: type: 3, code: 0, val: 3272, oldXY=(3288:3124), pressXY=(0:0)
+inp: type: 2, code: 0, val: -16, <---new val  
+inp: type: 3, code: 1, val: 3105
+inp: type: 3, code: 1, val: 3105, oldXY=(3272:3124), pressXY=(0:0)
+inp: type: 2, code: 1, val: -19, <---new val  
+inp: type: 3, code: 24, val: 55
+pressure....val=55, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3266
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3266
+out: type: 3, code: 24, val: 56
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3266
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3266
+inp: type: 3, code: 0, val: 3266, oldXY=(3272:3105), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=55
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3241
+out: type: 3, code: 54, val: 3098
+out: type: 3, code: 58, val: 55
+out: type: 3, code: 0, val: 3241
+out: type: 3, code: 1, val: 3098
+out: type: 3, code: 24, val: 55
+inp: type: 3, code: 53, val: 3241
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3098
+inp: type: 3, code: 58, val: 55
+inp: type: 3, code: 0, val: 3241
+inp: type: 3, code: 0, val: 3241, oldXY=(3266:3105), pressXY=(0:0)
+inp: type: 2, code: 0, val: -25, <---new val  
+inp: type: 3, code: 1, val: 3098
+inp: type: 3, code: 1, val: 3098, oldXY=(3241:3105), pressXY=(0:0)
+inp: type: 2, code: 1, val: -7, <---new val  
+inp: type: 3, code: 24, val: 55
+pressure....val=55, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3235
+out: type: 3, code: 54, val: 3092
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3235
+out: type: 3, code: 1, val: 3092
+out: type: 3, code: 24, val: 56
+inp: type: 3, code: 53, val: 3235
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3092
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3235
+inp: type: 3, code: 0, val: 3235, oldXY=(3241:3098), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 3092
+inp: type: 3, code: 1, val: 3092, oldXY=(3235:3098), pressXY=(0:0)
+inp: type: 2, code: 1, val: -6, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=55
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3227
+out: type: 3, code: 54, val: 3084
+out: type: 3, code: 58, val: 55
+out: type: 3, code: 0, val: 3227
+out: type: 3, code: 1, val: 3084
+out: type: 3, code: 24, val: 55
+inp: type: 3, code: 53, val: 3227
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3084
+inp: type: 3, code: 58, val: 55
+inp: type: 3, code: 0, val: 3227
+inp: type: 3, code: 0, val: 3227, oldXY=(3235:3092), pressXY=(0:0)
+inp: type: 2, code: 0, val: -8, <---new val  
+inp: type: 3, code: 1, val: 3084
+inp: type: 3, code: 1, val: 3084, oldXY=(3227:3092), pressXY=(0:0)
+inp: type: 2, code: 1, val: -8, <---new val  
+inp: type: 3, code: 24, val: 55
+pressure....val=55, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3220
+out: type: 3, code: 54, val: 3067
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3220
+out: type: 3, code: 1, val: 3067
+out: type: 3, code: 24, val: 56
+inp: type: 3, code: 53, val: 3220
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3067
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3220
+inp: type: 3, code: 0, val: 3220, oldXY=(3227:3084), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 3067
+inp: type: 3, code: 1, val: 3067, oldXY=(3220:3084), pressXY=(0:0)
+inp: type: 2, code: 1, val: -17, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=55
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3213
+out: type: 3, code: 0, val: 3213
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3213
+inp: type: 3, code: 0, val: 3213
+inp: type: 3, code: 0, val: 3213, oldXY=(3220:3067), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3205
+out: type: 3, code: 0, val: 3205
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3205
+inp: type: 3, code: 0, val: 3205
+inp: type: 3, code: 0, val: 3205, oldXY=(3213:3067), pressXY=(0:0)
+inp: type: 2, code: 0, val: -8, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3199
+out: type: 3, code: 54, val: 3066
+out: type: 3, code: 0, val: 3199
+out: type: 3, code: 1, val: 3066
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3199
+inp: type: 3, code: 54, val: 3066
+inp: type: 3, code: 0, val: 3199
+inp: type: 3, code: 0, val: 3199, oldXY=(3205:3067), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 3066
+inp: type: 3, code: 1, val: 3066, oldXY=(3199:3067), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3183
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 3183
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3183
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 3183
+inp: type: 3, code: 0, val: 3183, oldXY=(3199:3066), pressXY=(0:0)
+inp: type: 2, code: 0, val: -16, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3176
+out: type: 3, code: 54, val: 3065
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3176
+out: type: 3, code: 1, val: 3065
+out: type: 3, code: 24, val: 56
+inp: type: 3, code: 53, val: 3176
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3065
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3176
+inp: type: 3, code: 0, val: 3176, oldXY=(3183:3066), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 3065
+inp: type: 3, code: 1, val: 3065, oldXY=(3176:3066), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3169
+out: type: 3, code: 0, val: 3169
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3169
+inp: type: 3, code: 0, val: 3169
+inp: type: 3, code: 0, val: 3169, oldXY=(3176:3065), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3148
+out: type: 3, code: 54, val: 3064
+out: type: 3, code: 0, val: 3148
+out: type: 3, code: 1, val: 3064
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 3148
+inp: type: 3, code: 54, val: 3064
+inp: type: 3, code: 0, val: 3148
+inp: type: 3, code: 0, val: 3148, oldXY=(3169:3065), pressXY=(0:0)
+inp: type: 2, code: 0, val: -21, <---new val  
+inp: type: 3, code: 1, val: 3064
+inp: type: 3, code: 1, val: 3064, oldXY=(3148:3065), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3141
+out: type: 3, code: 54, val: 3062
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 3141
+out: type: 3, code: 1, val: 3062
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 53, val: 3141
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3062
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 3141
+inp: type: 3, code: 0, val: 3141, oldXY=(3148:3064), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 3062
+inp: type: 3, code: 1, val: 3062, oldXY=(3141:3064), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3121
+out: type: 3, code: 54, val: 3056
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3121
+out: type: 3, code: 1, val: 3056
+out: type: 3, code: 24, val: 56
+inp: type: 3, code: 53, val: 3121
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3056
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3121
+inp: type: 3, code: 0, val: 3121, oldXY=(3141:3062), pressXY=(0:0)
+inp: type: 2, code: 0, val: -20, <---new val  
+inp: type: 3, code: 1, val: 3056
+inp: type: 3, code: 1, val: 3056, oldXY=(3121:3062), pressXY=(0:0)
+inp: type: 2, code: 1, val: -6, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3102
+out: type: 3, code: 54, val: 3051
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 3102
+out: type: 3, code: 1, val: 3051
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 53, val: 3102
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3051
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 3102
+inp: type: 3, code: 0, val: 3102, oldXY=(3121:3056), pressXY=(0:0)
+inp: type: 2, code: 0, val: -19, <---new val  
+inp: type: 3, code: 1, val: 3051
+inp: type: 3, code: 1, val: 3051, oldXY=(3102:3056), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3084
+out: type: 3, code: 54, val: 3044
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3084
+out: type: 3, code: 1, val: 3044
+out: type: 3, code: 24, val: 56
+inp: type: 3, code: 53, val: 3084
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3044
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3084
+inp: type: 3, code: 0, val: 3084, oldXY=(3102:3051), pressXY=(0:0)
+inp: type: 2, code: 0, val: -18, <---new val  
+inp: type: 3, code: 1, val: 3044
+inp: type: 3, code: 1, val: 3044, oldXY=(3084:3051), pressXY=(0:0)
+inp: type: 2, code: 1, val: -7, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3064
+out: type: 3, code: 54, val: 3042
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 3064
+out: type: 3, code: 1, val: 3042
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 53, val: 3064
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3042
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 3064
+inp: type: 3, code: 0, val: 3064, oldXY=(3084:3044), pressXY=(0:0)
+inp: type: 2, code: 0, val: -20, <---new val  
+inp: type: 3, code: 1, val: 3042
+inp: type: 3, code: 1, val: 3042, oldXY=(3064:3044), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3048
+out: type: 3, code: 54, val: 3035
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3048
+out: type: 3, code: 1, val: 3035
+out: type: 3, code: 24, val: 56
+inp: type: 3, code: 53, val: 3048
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3035
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3048
+inp: type: 3, code: 0, val: 3048, oldXY=(3064:3042), pressXY=(0:0)
+inp: type: 2, code: 0, val: -16, <---new val  
+inp: type: 3, code: 1, val: 3035
+inp: type: 3, code: 1, val: 3035, oldXY=(3048:3042), pressXY=(0:0)
+inp: type: 2, code: 1, val: -7, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3031
+out: type: 3, code: 54, val: 3029
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 3031
+out: type: 3, code: 1, val: 3029
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 53, val: 3031
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3029
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 3031
+inp: type: 3, code: 0, val: 3031, oldXY=(3048:3035), pressXY=(0:0)
+inp: type: 2, code: 0, val: -17, <---new val  
+inp: type: 3, code: 1, val: 3029
+inp: type: 3, code: 1, val: 3029, oldXY=(3031:3035), pressXY=(0:0)
+inp: type: 2, code: 1, val: -6, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3007
+out: type: 3, code: 54, val: 3012
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 3007
+out: type: 3, code: 1, val: 3012
+out: type: 3, code: 24, val: 56
+inp: type: 3, code: 53, val: 3007
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3012
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 3007
+inp: type: 3, code: 0, val: 3007, oldXY=(3031:3029), pressXY=(0:0)
+inp: type: 2, code: 0, val: -24, <---new val  
+inp: type: 3, code: 1, val: 3012
+inp: type: 3, code: 1, val: 3012, oldXY=(3007:3029), pressXY=(0:0)
+inp: type: 2, code: 1, val: -17, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 3000
+out: type: 3, code: 54, val: 3010
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 3000
+out: type: 3, code: 1, val: 3010
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 53, val: 3000
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3010
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 3000
+inp: type: 3, code: 0, val: 3000, oldXY=(3007:3012), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 3010
+inp: type: 3, code: 1, val: 3010, oldXY=(3000:3012), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2998
+out: type: 3, code: 54, val: 3009
+out: type: 3, code: 0, val: 2998
+out: type: 3, code: 1, val: 3009
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2998
+inp: type: 3, code: 54, val: 3009
+inp: type: 3, code: 0, val: 2998
+inp: type: 3, code: 0, val: 2998, oldXY=(3000:3010), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 3009
+inp: type: 3, code: 1, val: 3009, oldXY=(2998:3010), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2960
+out: type: 3, code: 54, val: 3003
+out: type: 3, code: 0, val: 2960
+out: type: 3, code: 1, val: 3003
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2960
+inp: type: 3, code: 54, val: 3003
+inp: type: 3, code: 0, val: 2960
+inp: type: 3, code: 0, val: 2960, oldXY=(2998:3009), pressXY=(0:0)
+inp: type: 2, code: 0, val: -38, <---new val  
+inp: type: 3, code: 1, val: 3003
+inp: type: 3, code: 1, val: 3003, oldXY=(2960:3009), pressXY=(0:0)
+inp: type: 2, code: 1, val: -6, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2942
+out: type: 3, code: 54, val: 3001
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2942
+out: type: 3, code: 1, val: 3001
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2942
+inp: type: 3, code: 54, val: 3001
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2942
+inp: type: 3, code: 0, val: 2942, oldXY=(2960:3003), pressXY=(0:0)
+inp: type: 2, code: 0, val: -18, <---new val  
+inp: type: 3, code: 1, val: 3001
+inp: type: 3, code: 1, val: 3001, oldXY=(2942:3003), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2935
+out: type: 3, code: 54, val: 2996
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2935
+out: type: 3, code: 1, val: 2996
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 53, val: 2935
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2996
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2935
+inp: type: 3, code: 0, val: 2935, oldXY=(2942:3001), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 2996
+inp: type: 3, code: 1, val: 2996, oldXY=(2935:3001), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2918
+out: type: 3, code: 0, val: 2918
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2918
+inp: type: 3, code: 0, val: 2918
+inp: type: 3, code: 0, val: 2918, oldXY=(2935:2996), pressXY=(0:0)
+inp: type: 2, code: 0, val: -17, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2911
+out: type: 3, code: 54, val: 2989
+out: type: 3, code: 0, val: 2911
+out: type: 3, code: 1, val: 2989
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2911
+inp: type: 3, code: 54, val: 2989
+inp: type: 3, code: 0, val: 2911
+inp: type: 3, code: 0, val: 2911, oldXY=(2918:2996), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 2989
+inp: type: 3, code: 1, val: 2989, oldXY=(2911:2996), pressXY=(0:0)
+inp: type: 2, code: 1, val: -7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2905
+out: type: 3, code: 54, val: 2987
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2905
+out: type: 3, code: 1, val: 2987
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 53, val: 2905
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2987
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2905
+inp: type: 3, code: 0, val: 2905, oldXY=(2911:2989), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 2987
+inp: type: 3, code: 1, val: 2987, oldXY=(2905:2989), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2898
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2898
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2898
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2898
+inp: type: 3, code: 0, val: 2898, oldXY=(2905:2987), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2894
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2894
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2894
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2894
+inp: type: 3, code: 0, val: 2894, oldXY=(2898:2987), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2893
+out: type: 3, code: 0, val: 2893
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2893
+inp: type: 3, code: 0, val: 2893
+inp: type: 3, code: 0, val: 2893, oldXY=(2894:2987), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2891
+out: type: 3, code: 0, val: 2891
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2891
+inp: type: 3, code: 0, val: 2891
+inp: type: 3, code: 0, val: 2891, oldXY=(2893:2987), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2890
+out: type: 3, code: 54, val: 2988
+out: type: 3, code: 0, val: 2890
+out: type: 3, code: 1, val: 2988
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2890
+inp: type: 3, code: 54, val: 2988
+inp: type: 3, code: 0, val: 2890
+inp: type: 3, code: 0, val: 2890, oldXY=(2891:2987), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2988
+inp: type: 3, code: 1, val: 2988, oldXY=(2890:2987), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2987
+out: type: 3, code: 1, val: 2987
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2987
+inp: type: 3, code: 1, val: 2987
+inp: type: 3, code: 1, val: 2987, oldXY=(2890:2988), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2888
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2888
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2888
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2888
+inp: type: 3, code: 0, val: 2888, oldXY=(2890:2987), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2867
+out: type: 3, code: 54, val: 2985
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2867
+out: type: 3, code: 1, val: 2985
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 53, val: 2867
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2985
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2867
+inp: type: 3, code: 0, val: 2867, oldXY=(2888:2987), pressXY=(0:0)
+inp: type: 2, code: 0, val: -21, <---new val  
+inp: type: 3, code: 1, val: 2985
+inp: type: 3, code: 1, val: 2985, oldXY=(2867:2987), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2983
+out: type: 3, code: 1, val: 2983
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2983
+inp: type: 3, code: 1, val: 2983
+inp: type: 3, code: 1, val: 2983, oldXY=(2867:2985), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2862
+out: type: 3, code: 54, val: 2981
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2862
+out: type: 3, code: 1, val: 2981
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 53, val: 2862
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2981
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2862
+inp: type: 3, code: 0, val: 2862, oldXY=(2867:2983), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2981
+inp: type: 3, code: 1, val: 2981, oldXY=(2862:2983), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2860
+out: type: 3, code: 54, val: 2979
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2860
+out: type: 3, code: 1, val: 2979
+out: type: 3, code: 24, val: 59
+inp: type: 3, code: 53, val: 2860
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2979
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 0, val: 2860
+inp: type: 3, code: 0, val: 2860, oldXY=(2862:2981), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2979
+inp: type: 3, code: 1, val: 2979, oldXY=(2860:2981), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2856
+out: type: 3, code: 0, val: 2856
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2856
+inp: type: 3, code: 0, val: 2856
+inp: type: 3, code: 0, val: 2856, oldXY=(2860:2979), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2855
+out: type: 3, code: 0, val: 2855
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2855
+inp: type: 3, code: 0, val: 2855
+inp: type: 3, code: 0, val: 2855, oldXY=(2856:2979), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2978
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 1, val: 2978
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2978
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 1, val: 2978
+inp: type: 3, code: 1, val: 2978, oldXY=(2855:2979), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2853
+out: type: 3, code: 0, val: 2853
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2853
+inp: type: 3, code: 0, val: 2853
+inp: type: 3, code: 0, val: 2853, oldXY=(2855:2978), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2854
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2854
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2854
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 0, val: 2854
+inp: type: 3, code: 0, val: 2854, oldXY=(2853:2978), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2852
+out: type: 3, code: 54, val: 2976
+out: type: 3, code: 0, val: 2852
+out: type: 3, code: 1, val: 2976
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2852
+inp: type: 3, code: 54, val: 2976
+inp: type: 3, code: 0, val: 2852
+inp: type: 3, code: 0, val: 2852, oldXY=(2854:2978), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2976
+inp: type: 3, code: 1, val: 2976, oldXY=(2852:2978), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2848
+out: type: 3, code: 58, val: 56
+out: type: 3, code: 0, val: 2848
+out: type: 3, code: 24, val: 56
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2848
+inp: type: 3, code: 58, val: 56
+inp: type: 3, code: 0, val: 2848
+inp: type: 3, code: 0, val: 2848, oldXY=(2852:2976), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 56
+pressure....val=56, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2844
+out: type: 3, code: 54, val: 2974
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2844
+out: type: 3, code: 1, val: 2974
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 53, val: 2844
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2974
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2844
+inp: type: 3, code: 0, val: 2844, oldXY=(2848:2976), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 1, val: 2974
+inp: type: 3, code: 1, val: 2974, oldXY=(2844:2976), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=56
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2842
+out: type: 3, code: 54, val: 2973
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2842
+inp: type: 3, code: 53, val: 2842
+out: type: 3, code: 1, val: 2973
+inp: type: 3, code: 54, val: 2973
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 58, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2842
+inp: type: 3, code: 0, val: 2842, oldXY=(2844:2974), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2973
+inp: type: 3, code: 1, val: 2973, oldXY=(2842:2974), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2971
+out: type: 3, code: 1, val: 2971
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2971
+inp: type: 3, code: 1, val: 2971
+inp: type: 3, code: 1, val: 2971, oldXY=(2842:2973), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2838
+out: type: 3, code: 0, val: 2838
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2838
+inp: type: 3, code: 0, val: 2838
+inp: type: 3, code: 0, val: 2838, oldXY=(2842:2971), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2836
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2836
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2836
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2836
+inp: type: 3, code: 0, val: 2836, oldXY=(2838:2971), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2970
+out: type: 3, code: 1, val: 2970
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2970
+inp: type: 3, code: 1, val: 2970
+inp: type: 3, code: 1, val: 2970, oldXY=(2836:2971), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2830
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2830
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2830
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2830
+inp: type: 3, code: 0, val: 2830, oldXY=(2836:2970), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2828
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2828
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2828
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2828
+inp: type: 3, code: 0, val: 2828, oldXY=(2830:2970), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2826
+out: type: 3, code: 54, val: 2969
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2826
+out: type: 3, code: 1, val: 2969
+inp: type: 3, code: 53, val: 2826
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 54, val: 2969
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2826
+inp: type: 3, code: 0, val: 2826, oldXY=(2828:2970), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2969
+inp: type: 3, code: 1, val: 2969, oldXY=(2826:2970), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2820
+out: type: 3, code: 54, val: 2967
+out: type: 3, code: 0, val: 2820
+inp: type: 3, code: 53, val: 2820
+out: type: 3, code: 1, val: 2967
+inp: type: 3, code: 54, val: 2967
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2820
+inp: type: 3, code: 0, val: 2820, oldXY=(2826:2969), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 2967
+inp: type: 3, code: 1, val: 2967, oldXY=(2820:2969), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2814
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2814
+out: type: 3, code: 24, val: 59
+inp: type: 3, code: 53, val: 2814
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 0, val: 2814
+inp: type: 3, code: 0, val: 2814, oldXY=(2820:2967), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2812
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2812
+inp: type: 3, code: 53, val: 2812
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 58, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2812
+inp: type: 3, code: 0, val: 2812, oldXY=(2814:2967), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2805
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2805
+inp: type: 3, code: 53, val: 2805
+out: type: 3, code: 24, val: 59
+inp: type: 3, code: 58, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2805
+inp: type: 3, code: 0, val: 2805, oldXY=(2812:2967), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2799
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2799
+inp: type: 3, code: 53, val: 2799
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 58, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2799
+inp: type: 3, code: 0, val: 2799, oldXY=(2805:2967), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2793
+out: type: 3, code: 0, val: 2793
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2793
+inp: type: 3, code: 0, val: 2793
+inp: type: 3, code: 0, val: 2793, oldXY=(2799:2967), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2787
+out: type: 3, code: 0, val: 2787
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2787
+inp: type: 3, code: 0, val: 2787
+inp: type: 3, code: 0, val: 2787, oldXY=(2793:2967), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2783
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2783
+inp: type: 3, code: 53, val: 2783
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 58, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2783
+inp: type: 3, code: 0, val: 2783, oldXY=(2787:2967), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2781
+out: type: 3, code: 54, val: 2965
+out: type: 3, code: 58, val: 58
+inp: type: 3, code: 53, val: 2781
+out: type: 3, code: 0, val: 2781
+inp: type: 3, code: 54, val: 2965
+out: type: 3, code: 1, val: 2965
+inp: type: 3, code: 58, val: 58
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 0, val: 2781
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2781, oldXY=(2783:2967), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2965
+inp: type: 3, code: 1, val: 2965, oldXY=(2781:2967), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2779
+out: type: 3, code: 0, val: 2779
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2779
+inp: type: 3, code: 0, val: 2779
+inp: type: 3, code: 0, val: 2779, oldXY=(2781:2965), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2777
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2777
+inp: type: 3, code: 53, val: 2777
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 58, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2777
+inp: type: 3, code: 0, val: 2777, oldXY=(2779:2965), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2773
+out: type: 3, code: 54, val: 2963
+out: type: 3, code: 58, val: 58
+inp: type: 3, code: 53, val: 2773
+out: type: 3, code: 0, val: 2773
+inp: type: 3, code: 54, val: 2963
+out: type: 3, code: 1, val: 2963
+inp: type: 3, code: 58, val: 58
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 0, val: 2773
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2773, oldXY=(2777:2965), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 1, val: 2963
+inp: type: 3, code: 1, val: 2963, oldXY=(2773:2965), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2772
+out: type: 3, code: 54, val: 2962
+out: type: 3, code: 58, val: 57
+inp: type: 3, code: 53, val: 2772
+out: type: 3, code: 0, val: 2772
+inp: type: 3, code: 54, val: 2962
+out: type: 3, code: 1, val: 2962
+inp: type: 3, code: 58, val: 57
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 0, val: 2772
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2772, oldXY=(2773:2963), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2962
+inp: type: 3, code: 1, val: 2962, oldXY=(2772:2963), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2767
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2767
+inp: type: 3, code: 53, val: 2767
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 58, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2767
+inp: type: 3, code: 0, val: 2767, oldXY=(2772:2962), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2766
+out: type: 3, code: 0, val: 2766
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2766
+inp: type: 3, code: 0, val: 2766
+inp: type: 3, code: 0, val: 2766, oldXY=(2767:2962), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2759
+out: type: 3, code: 54, val: 2960
+out: type: 3, code: 58, val: 57
+inp: type: 3, code: 53, val: 2759
+out: type: 3, code: 0, val: 2759
+inp: type: 3, code: 54, val: 2960
+out: type: 3, code: 1, val: 2960
+inp: type: 3, code: 58, val: 57
+out: type: 3, code: 24, val: 57
+inp: type: 3, code: 0, val: 2759
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2759, oldXY=(2766:2962), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 2960
+inp: type: 3, code: 1, val: 2960, oldXY=(2759:2962), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2755
+out: type: 3, code: 54, val: 2961
+out: type: 3, code: 58, val: 58
+inp: type: 3, code: 53, val: 2755
+out: type: 3, code: 0, val: 2755
+inp: type: 3, code: 54, val: 2961
+out: type: 3, code: 1, val: 2961
+inp: type: 3, code: 58, val: 58
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 0, val: 2755
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2755, oldXY=(2759:2960), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 1, val: 2961
+inp: type: 3, code: 1, val: 2961, oldXY=(2755:2960), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2754
+out: type: 3, code: 0, val: 2754
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2754
+inp: type: 3, code: 0, val: 2754
+inp: type: 3, code: 0, val: 2754, oldXY=(2755:2961), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2749
+out: type: 3, code: 0, val: 2749
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2749
+inp: type: 3, code: 0, val: 2749
+inp: type: 3, code: 0, val: 2749, oldXY=(2754:2961), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2743
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2743
+inp: type: 3, code: 53, val: 2743
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 58, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2743
+inp: type: 3, code: 0, val: 2743, oldXY=(2749:2961), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2736
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2736
+inp: type: 3, code: 53, val: 2736
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 58, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2736
+inp: type: 3, code: 0, val: 2736, oldXY=(2743:2961), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2731
+out: type: 3, code: 0, val: 2731
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2731
+inp: type: 3, code: 0, val: 2731
+inp: type: 3, code: 0, val: 2731, oldXY=(2736:2961), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2724
+out: type: 3, code: 54, val: 2956
+out: type: 3, code: 0, val: 2724
+inp: type: 3, code: 53, val: 2724
+out: type: 3, code: 1, val: 2956
+inp: type: 3, code: 54, val: 2956
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2724
+inp: type: 3, code: 0, val: 2724, oldXY=(2731:2961), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 2956
+inp: type: 3, code: 1, val: 2956, oldXY=(2724:2961), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2718
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2718
+inp: type: 3, code: 53, val: 2718
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 58, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2718
+inp: type: 3, code: 0, val: 2718, oldXY=(2724:2956), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2711
+out: type: 3, code: 0, val: 2711
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2711
+inp: type: 3, code: 0, val: 2711
+inp: type: 3, code: 0, val: 2711, oldXY=(2718:2956), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2704
+out: type: 3, code: 0, val: 2704
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2704
+inp: type: 3, code: 0, val: 2704
+inp: type: 3, code: 0, val: 2704, oldXY=(2711:2956), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2697
+out: type: 3, code: 54, val: 2954
+out: type: 3, code: 58, val: 59
+inp: type: 3, code: 53, val: 2697
+out: type: 3, code: 0, val: 2697
+inp: type: 3, code: 54, val: 2954
+out: type: 3, code: 1, val: 2954
+inp: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+inp: type: 3, code: 0, val: 2697
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2697, oldXY=(2704:2956), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 2954
+inp: type: 3, code: 1, val: 2954, oldXY=(2697:2956), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2691
+out: type: 3, code: 54, val: 2952
+out: type: 3, code: 58, val: 60
+inp: type: 3, code: 53, val: 2691
+out: type: 3, code: 0, val: 2691
+inp: type: 3, code: 54, val: 2952
+out: type: 3, code: 1, val: 2952
+inp: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 0, val: 2691
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2691, oldXY=(2697:2954), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 2952
+inp: type: 3, code: 1, val: 2952, oldXY=(2691:2954), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2674
+out: type: 3, code: 54, val: 2947
+out: type: 3, code: 58, val: 61
+inp: type: 3, code: 53, val: 2674
+out: type: 3, code: 0, val: 2674
+inp: type: 3, code: 54, val: 2947
+out: type: 3, code: 1, val: 2947
+inp: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 0, val: 2674
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2674, oldXY=(2691:2952), pressXY=(0:0)
+inp: type: 2, code: 0, val: -17, <---new val  
+inp: type: 3, code: 1, val: 2947
+inp: type: 3, code: 1, val: 2947, oldXY=(2674:2952), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2945
+out: type: 3, code: 1, val: 2945
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2945
+inp: type: 3, code: 1, val: 2945
+inp: type: 3, code: 1, val: 2945, oldXY=(2674:2947), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2667
+out: type: 3, code: 54, val: 2941
+out: type: 3, code: 58, val: 60
+inp: type: 3, code: 53, val: 2667
+out: type: 3, code: 0, val: 2667
+inp: type: 3, code: 54, val: 2941
+out: type: 3, code: 1, val: 2941
+inp: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 0, val: 2667
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2667, oldXY=(2674:2945), pressXY=(0:0)
+inp: type: 2, code: 0, val: -7, <---new val  
+inp: type: 3, code: 1, val: 2941
+inp: type: 3, code: 1, val: 2941, oldXY=(2667:2945), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2661
+out: type: 3, code: 54, val: 2937
+out: type: 3, code: 58, val: 61
+inp: type: 3, code: 53, val: 2661
+out: type: 3, code: 0, val: 2661
+inp: type: 3, code: 54, val: 2937
+out: type: 3, code: 1, val: 2937
+inp: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 0, val: 2661
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2661, oldXY=(2667:2941), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 2937
+inp: type: 3, code: 1, val: 2937, oldXY=(2661:2941), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2656
+out: type: 3, code: 54, val: 2936
+out: type: 3, code: 0, val: 2656
+inp: type: 3, code: 53, val: 2656
+out: type: 3, code: 1, val: 2936
+inp: type: 3, code: 54, val: 2936
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2656
+inp: type: 3, code: 0, val: 2656, oldXY=(2661:2937), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2936
+inp: type: 3, code: 1, val: 2936, oldXY=(2656:2937), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2651
+out: type: 3, code: 54, val: 2935
+out: type: 3, code: 58, val: 62
+inp: type: 3, code: 53, val: 2651
+out: type: 3, code: 0, val: 2651
+inp: type: 3, code: 54, val: 2935
+out: type: 3, code: 1, val: 2935
+inp: type: 3, code: 58, val: 62
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 0, val: 2651
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2651, oldXY=(2656:2936), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2935
+inp: type: 3, code: 1, val: 2935, oldXY=(2651:2936), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2649
+out: type: 3, code: 54, val: 2934
+inp: type: 3, code: 53, val: 2649
+out: type: 3, code: 0, val: 2649
+inp: type: 3, code: 54, val: 2934
+out: type: 3, code: 1, val: 2934
+inp: type: 3, code: 0, val: 2649
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2649, oldXY=(2651:2935), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2934
+inp: type: 3, code: 1, val: 2934, oldXY=(2649:2935), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2644
+out: type: 3, code: 54, val: 2929
+out: type: 3, code: 0, val: 2644
+inp: type: 3, code: 53, val: 2644
+out: type: 3, code: 1, val: 2929
+inp: type: 3, code: 54, val: 2929
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2644
+inp: type: 3, code: 0, val: 2644, oldXY=(2649:2934), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2929
+inp: type: 3, code: 1, val: 2929, oldXY=(2644:2934), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2642
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 0, val: 2642
+inp: type: 3, code: 53, val: 2642
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 58, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2642
+inp: type: 3, code: 0, val: 2642, oldXY=(2644:2929), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2640
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2640
+inp: type: 3, code: 53, val: 2640
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 58, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2640
+inp: type: 3, code: 0, val: 2640, oldXY=(2642:2929), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2636
+out: type: 3, code: 54, val: 2928
+out: type: 3, code: 58, val: 61
+inp: type: 3, code: 53, val: 2636
+out: type: 3, code: 0, val: 2636
+inp: type: 3, code: 54, val: 2928
+out: type: 3, code: 1, val: 2928
+inp: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 0, val: 2636
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2636, oldXY=(2640:2929), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 1, val: 2928
+inp: type: 3, code: 1, val: 2928, oldXY=(2636:2929), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2632
+out: type: 3, code: 58, val: 62
+inp: type: 3, code: 53, val: 2632
+out: type: 3, code: 0, val: 2632
+inp: type: 3, code: 58, val: 62
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 0, val: 2632
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2632, oldXY=(2636:2928), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2630
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2630
+inp: type: 3, code: 53, val: 2630
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 58, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2630
+inp: type: 3, code: 0, val: 2630, oldXY=(2632:2928), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2625
+out: type: 3, code: 54, val: 2926
+out: type: 3, code: 58, val: 62
+inp: type: 3, code: 53, val: 2625
+out: type: 3, code: 0, val: 2625
+inp: type: 3, code: 54, val: 2926
+out: type: 3, code: 1, val: 2926
+inp: type: 3, code: 58, val: 62
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 0, val: 2625
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2625, oldXY=(2630:2928), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2926
+inp: type: 3, code: 1, val: 2926, oldXY=(2625:2928), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2621
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 0, val: 2621
+inp: type: 3, code: 53, val: 2621
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 58, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2621
+inp: type: 3, code: 0, val: 2621, oldXY=(2625:2926), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2619
+out: type: 3, code: 0, val: 2619
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2619
+inp: type: 3, code: 0, val: 2619
+inp: type: 3, code: 0, val: 2619, oldXY=(2621:2926), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2613
+out: type: 3, code: 54, val: 2924
+out: type: 3, code: 0, val: 2613
+inp: type: 3, code: 53, val: 2613
+out: type: 3, code: 1, val: 2924
+inp: type: 3, code: 54, val: 2924
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2613
+inp: type: 3, code: 0, val: 2613, oldXY=(2619:2926), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 2924
+inp: type: 3, code: 1, val: 2924, oldXY=(2613:2926), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2608
+out: type: 3, code: 0, val: 2608
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2608
+inp: type: 3, code: 0, val: 2608
+inp: type: 3, code: 0, val: 2608, oldXY=(2613:2924), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2607
+out: type: 3, code: 0, val: 2607
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2607
+inp: type: 3, code: 0, val: 2607
+inp: type: 3, code: 0, val: 2607, oldXY=(2608:2924), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2605
+out: type: 3, code: 58, val: 63
+out: type: 3, code: 0, val: 2605
+inp: type: 3, code: 53, val: 2605
+out: type: 3, code: 24, val: 63
+inp: type: 3, code: 58, val: 63
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2605
+inp: type: 3, code: 0, val: 2605, oldXY=(2607:2924), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 63
+pressure....val=63, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2600
+out: type: 3, code: 54, val: 2922
+out: type: 3, code: 58, val: 60
+inp: type: 3, code: 53, val: 2600
+out: type: 3, code: 0, val: 2600
+inp: type: 3, code: 54, val: 2922
+out: type: 3, code: 1, val: 2922
+inp: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 0, val: 2600
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2600, oldXY=(2605:2924), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2922
+inp: type: 3, code: 1, val: 2922, oldXY=(2600:2924), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=63
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2598
+out: type: 3, code: 54, val: 2918
+out: type: 3, code: 58, val: 62
+inp: type: 3, code: 53, val: 2598
+out: type: 3, code: 0, val: 2598
+inp: type: 3, code: 54, val: 2918
+out: type: 3, code: 1, val: 2918
+inp: type: 3, code: 58, val: 62
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 0, val: 2598
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2598, oldXY=(2600:2922), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2918
+inp: type: 3, code: 1, val: 2918, oldXY=(2598:2922), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2594
+out: type: 3, code: 54, val: 2917
+out: type: 3, code: 58, val: 61
+inp: type: 3, code: 53, val: 2594
+out: type: 3, code: 0, val: 2594
+inp: type: 3, code: 54, val: 2917
+out: type: 3, code: 1, val: 2917
+inp: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 0, val: 2594
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2594, oldXY=(2598:2918), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 1, val: 2917
+inp: type: 3, code: 1, val: 2917, oldXY=(2594:2918), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2592
+out: type: 3, code: 54, val: 2912
+out: type: 3, code: 58, val: 63
+inp: type: 3, code: 53, val: 2592
+out: type: 3, code: 0, val: 2592
+inp: type: 3, code: 54, val: 2912
+out: type: 3, code: 1, val: 2912
+inp: type: 3, code: 58, val: 63
+out: type: 3, code: 24, val: 63
+inp: type: 3, code: 0, val: 2592
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2592, oldXY=(2594:2917), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2912
+inp: type: 3, code: 1, val: 2912, oldXY=(2592:2917), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 63
+pressure....val=63, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2587
+out: type: 3, code: 54, val: 2910
+out: type: 3, code: 58, val: 61
+inp: type: 3, code: 53, val: 2587
+out: type: 3, code: 0, val: 2587
+inp: type: 3, code: 54, val: 2910
+out: type: 3, code: 1, val: 2910
+inp: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 0, val: 2587
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2587, oldXY=(2592:2912), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2910
+inp: type: 3, code: 1, val: 2910, oldXY=(2587:2912), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=63
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2582
+out: type: 3, code: 54, val: 2906
+out: type: 3, code: 58, val: 62
+inp: type: 3, code: 53, val: 2582
+out: type: 3, code: 0, val: 2582
+inp: type: 3, code: 54, val: 2906
+out: type: 3, code: 1, val: 2906
+inp: type: 3, code: 58, val: 62
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 0, val: 2582
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2582, oldXY=(2587:2910), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2906
+inp: type: 3, code: 1, val: 2906, oldXY=(2582:2910), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2904
+out: type: 3, code: 1, val: 2904
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2904
+inp: type: 3, code: 1, val: 2904
+inp: type: 3, code: 1, val: 2904, oldXY=(2582:2906), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2578
+out: type: 3, code: 0, val: 2578
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2578
+inp: type: 3, code: 0, val: 2578
+inp: type: 3, code: 0, val: 2578, oldXY=(2582:2904), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2577
+out: type: 3, code: 54, val: 2902
+out: type: 3, code: 58, val: 61
+inp: type: 3, code: 53, val: 2577
+out: type: 3, code: 0, val: 2577
+inp: type: 3, code: 54, val: 2902
+out: type: 3, code: 1, val: 2902
+inp: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 0, val: 2577
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2577, oldXY=(2578:2904), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2902
+inp: type: 3, code: 1, val: 2902, oldXY=(2577:2904), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2573
+out: type: 3, code: 54, val: 2900
+out: type: 3, code: 58, val: 62
+inp: type: 3, code: 53, val: 2573
+out: type: 3, code: 0, val: 2573
+inp: type: 3, code: 54, val: 2900
+out: type: 3, code: 1, val: 2900
+inp: type: 3, code: 58, val: 62
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 0, val: 2573
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2573, oldXY=(2577:2902), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 1, val: 2900
+inp: type: 3, code: 1, val: 2900, oldXY=(2573:2902), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2571
+out: type: 3, code: 54, val: 2899
+out: type: 3, code: 0, val: 2571
+inp: type: 3, code: 53, val: 2571
+out: type: 3, code: 1, val: 2899
+inp: type: 3, code: 54, val: 2899
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2571
+inp: type: 3, code: 0, val: 2571, oldXY=(2573:2900), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2899
+inp: type: 3, code: 1, val: 2899, oldXY=(2571:2900), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2570
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 0, val: 2570
+inp: type: 3, code: 53, val: 2570
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 58, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2570
+inp: type: 3, code: 0, val: 2570, oldXY=(2571:2899), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2568
+out: type: 3, code: 0, val: 2568
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2568
+inp: type: 3, code: 0, val: 2568
+inp: type: 3, code: 0, val: 2568, oldXY=(2570:2899), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2563
+out: type: 3, code: 58, val: 62
+out: type: 3, code: 0, val: 2563
+inp: type: 3, code: 53, val: 2563
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 58, val: 62
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2563
+inp: type: 3, code: 0, val: 2563, oldXY=(2568:2899), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2561
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 0, val: 2561
+inp: type: 3, code: 53, val: 2561
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 58, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2561
+inp: type: 3, code: 0, val: 2561, oldXY=(2563:2899), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2897
+out: type: 3, code: 1, val: 2897
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2897
+inp: type: 3, code: 1, val: 2897
+inp: type: 3, code: 1, val: 2897, oldXY=(2561:2899), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2559
+out: type: 3, code: 54, val: 2896
+out: type: 3, code: 0, val: 2559
+inp: type: 3, code: 53, val: 2559
+out: type: 3, code: 1, val: 2896
+inp: type: 3, code: 54, val: 2896
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2559
+inp: type: 3, code: 0, val: 2559, oldXY=(2561:2897), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2896
+inp: type: 3, code: 1, val: 2896, oldXY=(2559:2897), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2554
+out: type: 3, code: 54, val: 2891
+out: type: 3, code: 58, val: 62
+inp: type: 3, code: 53, val: 2554
+out: type: 3, code: 0, val: 2554
+inp: type: 3, code: 54, val: 2891
+out: type: 3, code: 1, val: 2891
+inp: type: 3, code: 58, val: 62
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 0, val: 2554
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2554, oldXY=(2559:2896), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2891
+inp: type: 3, code: 1, val: 2891, oldXY=(2554:2896), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2552
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 0, val: 2552
+inp: type: 3, code: 53, val: 2552
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 58, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2552
+inp: type: 3, code: 0, val: 2552, oldXY=(2554:2891), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2551
+out: type: 3, code: 54, val: 2889
+out: type: 3, code: 0, val: 2551
+inp: type: 3, code: 53, val: 2551
+out: type: 3, code: 1, val: 2889
+inp: type: 3, code: 54, val: 2889
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2551
+inp: type: 3, code: 0, val: 2551, oldXY=(2552:2891), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2889
+inp: type: 3, code: 1, val: 2889, oldXY=(2551:2891), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2549
+out: type: 3, code: 0, val: 2549
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2549
+inp: type: 3, code: 0, val: 2549
+inp: type: 3, code: 0, val: 2549, oldXY=(2551:2889), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2547
+out: type: 3, code: 0, val: 2547
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2547
+inp: type: 3, code: 0, val: 2547
+inp: type: 3, code: 0, val: 2547, oldXY=(2549:2889), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2543
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2543
+inp: type: 3, code: 53, val: 2543
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 58, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2543
+inp: type: 3, code: 0, val: 2543, oldXY=(2547:2889), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2539
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 0, val: 2539
+inp: type: 3, code: 53, val: 2539
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 58, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2539
+inp: type: 3, code: 0, val: 2539, oldXY=(2543:2889), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2538
+out: type: 3, code: 54, val: 2884
+out: type: 3, code: 58, val: 60
+inp: type: 3, code: 53, val: 2538
+out: type: 3, code: 0, val: 2538
+inp: type: 3, code: 54, val: 2884
+out: type: 3, code: 1, val: 2884
+inp: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 0, val: 2538
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2538, oldXY=(2539:2889), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2884
+inp: type: 3, code: 1, val: 2884, oldXY=(2538:2889), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2534
+out: type: 3, code: 58, val: 62
+out: type: 3, code: 0, val: 2534
+inp: type: 3, code: 53, val: 2534
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 58, val: 62
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2534
+inp: type: 3, code: 0, val: 2534, oldXY=(2538:2884), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2532
+out: type: 3, code: 54, val: 2883
+out: type: 3, code: 58, val: 60
+inp: type: 3, code: 53, val: 2532
+out: type: 3, code: 0, val: 2532
+inp: type: 3, code: 54, val: 2883
+out: type: 3, code: 1, val: 2883
+inp: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 0, val: 2532
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2532, oldXY=(2534:2884), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2883
+inp: type: 3, code: 1, val: 2883, oldXY=(2532:2884), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2526
+out: type: 3, code: 54, val: 2877
+out: type: 3, code: 58, val: 61
+inp: type: 3, code: 53, val: 2526
+out: type: 3, code: 0, val: 2526
+inp: type: 3, code: 54, val: 2877
+out: type: 3, code: 1, val: 2877
+inp: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 0, val: 2526
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2526, oldXY=(2532:2883), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 2877
+inp: type: 3, code: 1, val: 2877, oldXY=(2526:2883), pressXY=(0:0)
+inp: type: 2, code: 1, val: -6, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2520
+out: type: 3, code: 54, val: 2871
+out: type: 3, code: 58, val: 62
+inp: type: 3, code: 53, val: 2520
+out: type: 3, code: 0, val: 2520
+inp: type: 3, code: 54, val: 2871
+out: type: 3, code: 1, val: 2871
+inp: type: 3, code: 58, val: 62
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 0, val: 2520
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2520, oldXY=(2526:2877), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 2871
+inp: type: 3, code: 1, val: 2871, oldXY=(2520:2877), pressXY=(0:0)
+inp: type: 2, code: 1, val: -6, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2515
+out: type: 3, code: 54, val: 2869
+out: type: 3, code: 0, val: 2515
+inp: type: 3, code: 53, val: 2515
+out: type: 3, code: 1, val: 2869
+inp: type: 3, code: 54, val: 2869
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2515
+inp: type: 3, code: 0, val: 2515, oldXY=(2520:2871), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2869
+inp: type: 3, code: 1, val: 2869, oldXY=(2515:2871), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2511
+out: type: 3, code: 54, val: 2867
+out: type: 3, code: 58, val: 60
+inp: type: 3, code: 53, val: 2511
+out: type: 3, code: 0, val: 2511
+inp: type: 3, code: 54, val: 2867
+out: type: 3, code: 1, val: 2867
+inp: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 0, val: 2511
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2511, oldXY=(2515:2869), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 1, val: 2867
+inp: type: 3, code: 1, val: 2867, oldXY=(2511:2869), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2507
+out: type: 3, code: 58, val: 62
+out: type: 3, code: 0, val: 2507
+inp: type: 3, code: 53, val: 2507
+out: type: 3, code: 24, val: 62
+inp: type: 3, code: 58, val: 62
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2507
+inp: type: 3, code: 0, val: 2507, oldXY=(2511:2867), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 62
+pressure....val=62, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2502
+out: type: 3, code: 54, val: 2862
+out: type: 3, code: 58, val: 61
+inp: type: 3, code: 53, val: 2502
+out: type: 3, code: 0, val: 2502
+inp: type: 3, code: 54, val: 2862
+out: type: 3, code: 1, val: 2862
+inp: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 0, val: 2502
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2502, oldXY=(2507:2867), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2862
+inp: type: 3, code: 1, val: 2862, oldXY=(2502:2867), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=62
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2501
+out: type: 3, code: 54, val: 2861
+out: type: 3, code: 0, val: 2501
+inp: type: 3, code: 53, val: 2501
+out: type: 3, code: 1, val: 2861
+inp: type: 3, code: 54, val: 2861
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2501
+inp: type: 3, code: 0, val: 2501, oldXY=(2502:2862), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2861
+inp: type: 3, code: 1, val: 2861, oldXY=(2501:2862), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2499
+out: type: 3, code: 54, val: 2862
+out: type: 3, code: 0, val: 2499
+inp: type: 3, code: 53, val: 2499
+out: type: 3, code: 1, val: 2862
+inp: type: 3, code: 54, val: 2862
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2499
+inp: type: 3, code: 0, val: 2499, oldXY=(2501:2861), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2862
+inp: type: 3, code: 1, val: 2862, oldXY=(2499:2861), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2498
+out: type: 3, code: 54, val: 2860
+out: type: 3, code: 58, val: 59
+inp: type: 3, code: 53, val: 2498
+out: type: 3, code: 0, val: 2498
+inp: type: 3, code: 54, val: 2860
+out: type: 3, code: 1, val: 2860
+inp: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+inp: type: 3, code: 0, val: 2498
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2498, oldXY=(2499:2862), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2860
+inp: type: 3, code: 1, val: 2860, oldXY=(2498:2862), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 60
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2496
+out: type: 3, code: 54, val: 2856
+out: type: 3, code: 0, val: 2496
+inp: type: 3, code: 53, val: 2496
+out: type: 3, code: 1, val: 2856
+inp: type: 3, code: 54, val: 2856
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2496
+inp: type: 3, code: 0, val: 2496, oldXY=(2498:2860), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2856
+inp: type: 3, code: 1, val: 2856, oldXY=(2496:2860), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2494
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2494
+inp: type: 3, code: 53, val: 2494
+out: type: 3, code: 24, val: 59
+inp: type: 3, code: 58, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2494
+inp: type: 3, code: 0, val: 2494, oldXY=(2496:2856), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2852
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 1, val: 2852
+inp: type: 3, code: 54, val: 2852
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 58, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 1, val: 2852
+inp: type: 3, code: 1, val: 2852, oldXY=(2494:2856), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2492
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 0, val: 2492
+inp: type: 3, code: 53, val: 2492
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 58, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2492
+inp: type: 3, code: 0, val: 2492, oldXY=(2494:2852), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 61
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2491
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2491
+inp: type: 3, code: 53, val: 2491
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 58, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2491
+inp: type: 3, code: 0, val: 2491, oldXY=(2492:2852), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2489
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2489
+inp: type: 3, code: 53, val: 2489
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 58, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2489
+inp: type: 3, code: 0, val: 2489, oldXY=(2491:2852), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2487
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2487
+inp: type: 3, code: 53, val: 2487
+out: type: 3, code: 24, val: 59
+inp: type: 3, code: 58, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2487
+inp: type: 3, code: 0, val: 2487, oldXY=(2489:2852), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2485
+out: type: 3, code: 54, val: 2850
+out: type: 3, code: 0, val: 2485
+inp: type: 3, code: 53, val: 2485
+out: type: 3, code: 1, val: 2850
+inp: type: 3, code: 54, val: 2850
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2485
+inp: type: 3, code: 0, val: 2485, oldXY=(2487:2852), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2850
+inp: type: 3, code: 1, val: 2850, oldXY=(2485:2852), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2483
+out: type: 3, code: 54, val: 2846
+out: type: 3, code: 0, val: 2483
+inp: type: 3, code: 53, val: 2483
+out: type: 3, code: 1, val: 2846
+inp: type: 3, code: 54, val: 2846
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2483
+inp: type: 3, code: 0, val: 2483, oldXY=(2485:2850), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2846
+inp: type: 3, code: 1, val: 2846, oldXY=(2483:2850), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2481
+out: type: 3, code: 54, val: 2844
+out: type: 3, code: 0, val: 2481
+inp: type: 3, code: 53, val: 2481
+out: type: 3, code: 1, val: 2844
+inp: type: 3, code: 54, val: 2844
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2481
+inp: type: 3, code: 0, val: 2481, oldXY=(2483:2846), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2844
+inp: type: 3, code: 1, val: 2844, oldXY=(2481:2846), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2475
+out: type: 3, code: 54, val: 2839
+out: type: 3, code: 58, val: 61
+inp: type: 3, code: 53, val: 2475
+out: type: 3, code: 0, val: 2475
+inp: type: 3, code: 54, val: 2839
+out: type: 3, code: 1, val: 2839
+inp: type: 3, code: 58, val: 61
+out: type: 3, code: 24, val: 61
+inp: type: 3, code: 0, val: 2475
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2475, oldXY=(2481:2844), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 2839
+inp: type: 3, code: 1, val: 2839, oldXY=(2475:2844), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2470
+out: type: 3, code: 54, val: 2835
+out: type: 3, code: 58, val: 60
+inp: type: 3, code: 53, val: 2470
+out: type: 3, code: 0, val: 2470
+inp: type: 3, code: 54, val: 2835
+out: type: 3, code: 1, val: 2835
+inp: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 0, val: 2470
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2470, oldXY=(2475:2839), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2835
+inp: type: 3, code: 1, val: 2835, oldXY=(2470:2839), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2466
+out: type: 3, code: 54, val: 2830
+out: type: 3, code: 0, val: 2466
+inp: type: 3, code: 53, val: 2466
+out: type: 3, code: 1, val: 2830
+inp: type: 3, code: 54, val: 2830
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2466
+inp: type: 3, code: 0, val: 2466, oldXY=(2470:2835), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 1, val: 2830
+inp: type: 3, code: 1, val: 2830, oldXY=(2466:2835), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2461
+out: type: 3, code: 54, val: 2825
+out: type: 3, code: 58, val: 59
+inp: type: 3, code: 53, val: 2461
+out: type: 3, code: 0, val: 2461
+inp: type: 3, code: 54, val: 2825
+out: type: 3, code: 1, val: 2825
+inp: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+inp: type: 3, code: 0, val: 2461
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2461, oldXY=(2466:2830), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 3, code: 1, val: 2825
+inp: type: 3, code: 1, val: 2825, oldXY=(2461:2830), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2459
+out: type: 3, code: 54, val: 2823
+out: type: 3, code: 58, val: 60
+inp: type: 3, code: 53, val: 2459
+out: type: 3, code: 0, val: 2459
+inp: type: 3, code: 54, val: 2823
+out: type: 3, code: 1, val: 2823
+inp: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 0, val: 2459
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2459, oldXY=(2461:2825), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2823
+inp: type: 3, code: 1, val: 2823, oldXY=(2459:2825), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2457
+out: type: 3, code: 0, val: 2457
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2457
+inp: type: 3, code: 0, val: 2457
+inp: type: 3, code: 0, val: 2457, oldXY=(2459:2823), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2819
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 1, val: 2819
+out: type: 3, code: 24, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2819
+inp: type: 3, code: 58, val: 61
+inp: type: 3, code: 1, val: 2819
+inp: type: 3, code: 1, val: 2819, oldXY=(2457:2823), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2455
+out: type: 3, code: 0, val: 2455
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2455
+inp: type: 3, code: 0, val: 2455
+inp: type: 3, code: 0, val: 2455, oldXY=(2457:2819), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 60
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2453
+out: type: 3, code: 54, val: 2820
+out: type: 3, code: 0, val: 2453
+out: type: 3, code: 1, val: 2820
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2453
+inp: type: 3, code: 54, val: 2820
+inp: type: 3, code: 0, val: 2453
+inp: type: 3, code: 0, val: 2453, oldXY=(2455:2819), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2820
+inp: type: 3, code: 1, val: 2820, oldXY=(2453:2819), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2818
+out: type: 3, code: 58, val: 61
+out: type: 3, code: 1, val: 2818
+out: type: 3, code: 24, val: 61
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2818
+inp: type: 3, code: 58, val: 61
+inp: type: 3, code: 1, val: 2818
+inp: type: 3, code: 1, val: 2818, oldXY=(2453:2820), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 61
+pressure....val=61, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2823
+out: type: 3, code: 1, val: 2823
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2823
+inp: type: 3, code: 1, val: 2823
+inp: type: 3, code: 1, val: 2823, oldXY=(2453:2818), pressXY=(0:0)
+inp: type: 2, code: 1, val: 5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2821
+out: type: 3, code: 1, val: 2821
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2821
+inp: type: 3, code: 1, val: 2821
+inp: type: 3, code: 1, val: 2821, oldXY=(2453:2823), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2451
+out: type: 3, code: 0, val: 2451
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2451
+inp: type: 3, code: 0, val: 2451
+inp: type: 3, code: 0, val: 2451, oldXY=(2453:2821), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2820
+out: type: 3, code: 1, val: 2820
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2820
+inp: type: 3, code: 1, val: 2820
+inp: type: 3, code: 1, val: 2820, oldXY=(2451:2821), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2449
+out: type: 3, code: 54, val: 2818
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2449
+out: type: 3, code: 1, val: 2818
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 53, val: 2449
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2818
+inp: type: 3, code: 58, val: 60
+inp: type: 3, code: 0, val: 2449
+inp: type: 3, code: 0, val: 2449, oldXY=(2451:2820), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2818
+inp: type: 3, code: 1, val: 2818, oldXY=(2449:2820), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=61
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2817
+out: type: 3, code: 1, val: 2817
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2817
+inp: type: 3, code: 1, val: 2817
+inp: type: 3, code: 1, val: 2817, oldXY=(2449:2818), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2447
+out: type: 3, code: 54, val: 2816
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2447
+out: type: 3, code: 1, val: 2816
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 53, val: 2447
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2816
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2447
+inp: type: 3, code: 0, val: 2447, oldXY=(2449:2817), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2816
+inp: type: 3, code: 1, val: 2816, oldXY=(2447:2817), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2446
+out: type: 3, code: 54, val: 2820
+out: type: 3, code: 0, val: 2446
+out: type: 3, code: 1, val: 2820
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2446
+inp: type: 3, code: 54, val: 2820
+inp: type: 3, code: 0, val: 2446
+inp: type: 3, code: 0, val: 2446, oldXY=(2447:2816), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2820
+inp: type: 3, code: 1, val: 2820, oldXY=(2446:2816), pressXY=(0:0)
+inp: type: 2, code: 1, val: 4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2444
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2444
+out: type: 3, code: 24, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2444
+inp: type: 3, code: 58, val: 60
+inp: type: 3, code: 0, val: 2444
+inp: type: 3, code: 0, val: 2444, oldXY=(2446:2820), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2443
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2443
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2443
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2443
+inp: type: 3, code: 0, val: 2443, oldXY=(2444:2820), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2442
+out: type: 3, code: 54, val: 2819
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2442
+out: type: 3, code: 1, val: 2819
+out: type: 3, code: 24, val: 59
+inp: type: 3, code: 53, val: 2442
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2819
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 0, val: 2442
+inp: type: 3, code: 0, val: 2442, oldXY=(2443:2820), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2819
+inp: type: 3, code: 1, val: 2819, oldXY=(2442:2820), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2440
+out: type: 3, code: 54, val: 2817
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2440
+out: type: 3, code: 1, val: 2817
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 53, val: 2440
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2817
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2440
+inp: type: 3, code: 0, val: 2440, oldXY=(2442:2819), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2817
+inp: type: 3, code: 1, val: 2817, oldXY=(2440:2819), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2438
+out: type: 3, code: 54, val: 2815
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2438
+out: type: 3, code: 1, val: 2815
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 53, val: 2438
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2815
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2438
+inp: type: 3, code: 0, val: 2438, oldXY=(2440:2817), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2815
+inp: type: 3, code: 1, val: 2815, oldXY=(2438:2817), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2436
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 0, val: 2436
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2436
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 0, val: 2436
+inp: type: 3, code: 0, val: 2436, oldXY=(2438:2815), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2813
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 1, val: 2813
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2813
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 1, val: 2813
+inp: type: 3, code: 1, val: 2813, oldXY=(2436:2815), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2811
+out: type: 3, code: 1, val: 2811
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2811
+inp: type: 3, code: 1, val: 2811
+inp: type: 3, code: 1, val: 2811, oldXY=(2436:2813), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2810
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 1, val: 2810
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2810
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 1, val: 2810
+inp: type: 3, code: 1, val: 2810, oldXY=(2436:2811), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2431
+out: type: 3, code: 0, val: 2431
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2431
+inp: type: 3, code: 0, val: 2431
+inp: type: 3, code: 0, val: 2431, oldXY=(2436:2810), pressXY=(0:0)
+inp: type: 2, code: 0, val: -5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2425
+out: type: 3, code: 54, val: 2805
+out: type: 3, code: 0, val: 2425
+out: type: 3, code: 1, val: 2805
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2425
+inp: type: 3, code: 54, val: 2805
+inp: type: 3, code: 0, val: 2425
+inp: type: 3, code: 0, val: 2425, oldXY=(2431:2810), pressXY=(0:0)
+inp: type: 2, code: 0, val: -6, <---new val  
+inp: type: 3, code: 1, val: 2805
+inp: type: 3, code: 1, val: 2805, oldXY=(2425:2810), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2423
+out: type: 3, code: 0, val: 2423
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2423
+inp: type: 3, code: 0, val: 2423
+inp: type: 3, code: 0, val: 2423, oldXY=(2425:2805), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2804
+out: type: 3, code: 1, val: 2804
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2804
+inp: type: 3, code: 1, val: 2804
+inp: type: 3, code: 1, val: 2804, oldXY=(2423:2805), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 60
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2421
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2421
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2421
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 0, val: 2421
+inp: type: 3, code: 0, val: 2421, oldXY=(2423:2804), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 24, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 60
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2420
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2420
+out: type: 3, code: 24, val: 60
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2420
+inp: type: 3, code: 58, val: 60
+inp: type: 3, code: 0, val: 2420
+inp: type: 3, code: 0, val: 2420, oldXY=(2421:2804), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2418
+out: type: 3, code: 0, val: 2418
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2418
+inp: type: 3, code: 0, val: 2418
+inp: type: 3, code: 0, val: 2418, oldXY=(2420:2804), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2417
+out: type: 3, code: 54, val: 2802
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2417
+out: type: 3, code: 1, val: 2802
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 53, val: 2417
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2802
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2417
+inp: type: 3, code: 0, val: 2417, oldXY=(2418:2804), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 3, code: 1, val: 2802
+inp: type: 3, code: 1, val: 2802, oldXY=(2417:2804), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2415
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2415
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2415
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 0, val: 2415
+inp: type: 3, code: 0, val: 2415, oldXY=(2417:2802), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2411
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2411
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2411
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2411
+inp: type: 3, code: 0, val: 2411, oldXY=(2415:2802), pressXY=(0:0)
+inp: type: 2, code: 0, val: -4, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2409
+out: type: 3, code: 54, val: 2801
+out: type: 3, code: 58, val: 60
+out: type: 3, code: 0, val: 2409
+out: type: 3, code: 1, val: 2801
+out: type: 3, code: 24, val: 60
+inp: type: 3, code: 53, val: 2409
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2801
+inp: type: 3, code: 58, val: 60
+inp: type: 3, code: 0, val: 2409
+inp: type: 3, code: 0, val: 2409, oldXY=(2411:2802), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2801
+inp: type: 3, code: 1, val: 2801, oldXY=(2409:2802), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 60
+pressure....val=60, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2407
+out: type: 3, code: 58, val: 59
+out: type: 3, code: 0, val: 2407
+out: type: 3, code: 24, val: 59
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2407
+inp: type: 3, code: 58, val: 59
+inp: type: 3, code: 0, val: 2407
+inp: type: 3, code: 0, val: 2407, oldXY=(2409:2801), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 24, val: 59
+pressure....val=59, prev=60
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2405
+out: type: 3, code: 54, val: 2800
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 0, val: 2405
+out: type: 3, code: 1, val: 2800
+inp: type: 3, code: 53, val: 2405
+out: type: 3, code: 24, val: 58
+inp: type: 3, code: 54, val: 2800
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 0, val: 2405
+inp: type: 3, code: 0, val: 2405, oldXY=(2407:2801), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 2800
+inp: type: 3, code: 1, val: 2800, oldXY=(2405:2801), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=59
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2404
+out: type: 3, code: 0, val: 2404
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2404
+inp: type: 3, code: 0, val: 2404
+inp: type: 3, code: 0, val: 2404, oldXY=(2405:2800), pressXY=(0:0)
+inp: type: 2, code: 0, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 2801
+out: type: 3, code: 58, val: 57
+out: type: 3, code: 1, val: 2801
+out: type: 3, code: 24, val: 57
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2801
+inp: type: 3, code: 58, val: 57
+inp: type: 3, code: 1, val: 2801
+inp: type: 3, code: 1, val: 2801, oldXY=(2404:2800), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 57
+pressure....val=57, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 58
+out: type: 3, code: 24, val: 58
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 58
+inp: type: 3, code: 24, val: 58
+pressure....val=58, prev=57
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2409
+out: type: 3, code: 0, val: 2409
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2409
+inp: type: 3, code: 0, val: 2409
+inp: type: 3, code: 0, val: 2409, oldXY=(2404:2801), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2425
+out: type: 3, code: 54, val: 2796
+out: type: 3, code: 58, val: 48
+out: type: 3, code: 0, val: 2425
+out: type: 3, code: 1, val: 2796
+out: type: 3, code: 24, val: 48
+inp: type: 3, code: 53, val: 2425
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2796
+inp: type: 3, code: 58, val: 48
+inp: type: 3, code: 0, val: 2425
+inp: type: 3, code: 0, val: 2425, oldXY=(2409:2801), pressXY=(0:0)
+inp: type: 2, code: 0, val: 16, <---new val  
+inp: type: 3, code: 1, val: 2796
+inp: type: 3, code: 1, val: 2796, oldXY=(2425:2801), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 48
+pressure....val=48, prev=58
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2455
+out: type: 3, code: 54, val: 2792
+out: type: 3, code: 58, val: 28
+out: type: 3, code: 0, val: 2455
+out: type: 3, code: 1, val: 2792
+inp: type: 3, code: 53, val: 2455
+out: type: 3, code: 24, val: 28
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 2792
+inp: type: 3, code: 58, val: 28
+inp: type: 3, code: 0, val: 2455
+inp: type: 3, code: 0, val: 2455, oldXY=(2425:2796), pressXY=(0:0)
+inp: type: 2, code: 0, val: 30, <---new val  
+inp: type: 3, code: 1, val: 2792
+inp: type: 3, code: 1, val: 2792, oldXY=(2455:2796), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 3, code: 24, val: 28
+pressure....val=28, prev=48
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 57, val: -1
+out: type: 1, code: 330, val: 0
+out: type: 3, code: 24, val: 0
+out: type: 1, code: 325, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 57, val: -1
+inp: type: 1, code: 330, val: 0
+inp: type: 3, code: 24, val: 0
+pressure....val=0, prev=28
+inp: type: 1, code: 325, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 57, val: 963
+out: type: 3, code: 53, val: 2379
+out: type: 3, code: 54, val: 3208
+out: type: 3, code: 58, val: 39
+out: type: 1, code: 330, val: 1
+inp: type: 3, code: 57, val: 963
+out: type: 3, code: 0, val: 2379
+inp: type: 3, code: 53, val: 2379
+out: type: 3, code: 1, val: 3208
+inp: type: 3, code: 54, val: 3208
+out: type: 3, code: 24, val: 39
+inp: type: 3, code: 58, val: 39
+out: type: 1, code: 325, val: 1
+inp: type: 1, code: 330, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2379
+inp: type: 3, code: 0, val: 2379, oldXY=(2455:2792), pressXY=(0:0)
+inp: type: 2, code: 0, val: -76, <---new val  
+inp: type: 3, code: 1, val: 3208
+inp: type: 3, code: 1, val: 3208, oldXY=(2379:2792), pressXY=(0:0)
+inp: type: 2, code: 1, val: 416, <---new val  
+inp: type: 3, code: 24, val: 39
+pressure....val=39, prev=0
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+inp: type: 1, code: 325, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 43
+out: type: 3, code: 24, val: 43
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 43
+inp: type: 3, code: 24, val: 43
+pressure....val=43, prev=39
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 45
+out: type: 3, code: 24, val: 45
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 45
+inp: type: 3, code: 24, val: 45
+pressure....val=45, prev=43
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 48
+out: type: 3, code: 24, val: 48
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 48
+inp: type: 3, code: 24, val: 48
+pressure....val=48, prev=45
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 24, val: 49
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 49
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=48
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 24, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2424
+out: type: 3, code: 0, val: 2424
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2424
+inp: type: 3, code: 0, val: 2424
+inp: type: 3, code: 0, val: 2424, oldXY=(2379:3208), pressXY=(1:1)
+X reset ------------------------------------------------------------
+inp: type: 2, code: 0, val: 0, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2429
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 2429
+out: type: 3, code: 24, val: 53
+inp: type: 3, code: 53, val: 2429
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 2429
+inp: type: 3, code: 0, val: 2429, oldXY=(2424:3208), pressXY=(0:1)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2450
+out: type: 3, code: 54, val: 3209
+out: type: 3, code: 58, val: 54
+out: type: 3, code: 0, val: 2450
+out: type: 3, code: 1, val: 3209
+inp: type: 3, code: 53, val: 2450
+out: type: 3, code: 24, val: 54
+inp: type: 3, code: 54, val: 3209
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 54
+inp: type: 3, code: 0, val: 2450
+inp: type: 3, code: 0, val: 2450, oldXY=(2429:3208), pressXY=(0:1)
+inp: type: 2, code: 0, val: 21, <---new val  
+inp: type: 3, code: 1, val: 3209
+inp: type: 3, code: 1, val: 3209, oldXY=(2450:3208), pressXY=(0:1)
+Y reset ------------------------------------------------------------
+inp: type: 2, code: 1, val: 0, <---new val  
+inp: type: 3, code: 24, val: 54
+pressure....val=54, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2454
+out: type: 3, code: 54, val: 3216
+out: type: 3, code: 0, val: 2454
+out: type: 3, code: 1, val: 3216
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2454
+inp: type: 3, code: 54, val: 3216
+inp: type: 3, code: 0, val: 2454
+inp: type: 3, code: 0, val: 2454, oldXY=(2450:3209), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 1, val: 3216
+inp: type: 3, code: 1, val: 3216, oldXY=(2454:3209), pressXY=(0:0)
+inp: type: 2, code: 1, val: 7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2470
+out: type: 3, code: 0, val: 2470
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2470
+inp: type: 3, code: 0, val: 2470
+inp: type: 3, code: 0, val: 2470, oldXY=(2454:3216), pressXY=(0:0)
+inp: type: 2, code: 0, val: 16, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2471
+out: type: 3, code: 54, val: 3220
+out: type: 3, code: 58, val: 55
+out: type: 3, code: 0, val: 2471
+out: type: 3, code: 1, val: 3220
+inp: type: 3, code: 53, val: 2471
+out: type: 3, code: 24, val: 55
+inp: type: 3, code: 54, val: 3220
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 55
+inp: type: 3, code: 0, val: 2471
+inp: type: 3, code: 0, val: 2471, oldXY=(2470:3216), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3220
+inp: type: 3, code: 1, val: 3220, oldXY=(2471:3216), pressXY=(0:0)
+inp: type: 2, code: 1, val: 4, <---new val  
+inp: type: 3, code: 24, val: 55
+pressure....val=55, prev=54
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2478
+out: type: 3, code: 54, val: 3221
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 2478
+out: type: 3, code: 1, val: 3221
+inp: type: 3, code: 53, val: 2478
+out: type: 3, code: 24, val: 53
+inp: type: 3, code: 54, val: 3221
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 2478
+inp: type: 3, code: 0, val: 2478, oldXY=(2471:3220), pressXY=(0:0)
+inp: type: 2, code: 0, val: 7, <---new val  
+inp: type: 3, code: 1, val: 3221
+inp: type: 3, code: 1, val: 3221, oldXY=(2478:3220), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=55
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2495
+out: type: 3, code: 54, val: 3228
+out: type: 3, code: 0, val: 2495
+out: type: 3, code: 1, val: 3228
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2495
+inp: type: 3, code: 54, val: 3228
+inp: type: 3, code: 0, val: 2495
+inp: type: 3, code: 0, val: 2495, oldXY=(2478:3221), pressXY=(0:0)
+inp: type: 2, code: 0, val: 17, <---new val  
+inp: type: 3, code: 1, val: 3228
+inp: type: 3, code: 1, val: 3228, oldXY=(2495:3221), pressXY=(0:0)
+inp: type: 2, code: 1, val: 7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2496
+out: type: 3, code: 54, val: 3229
+out: type: 3, code: 58, val: 54
+inp: type: 3, code: 53, val: 2496
+out: type: 3, code: 0, val: 2496
+inp: type: 3, code: 54, val: 3229
+out: type: 3, code: 1, val: 3229
+inp: type: 3, code: 58, val: 54
+out: type: 3, code: 24, val: 54
+inp: type: 3, code: 0, val: 2496
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2496, oldXY=(2495:3228), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3229
+inp: type: 3, code: 1, val: 3229, oldXY=(2496:3228), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 54
+pressure....val=54, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2502
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 2502
+out: type: 3, code: 24, val: 53
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2502
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 2502
+inp: type: 3, code: 0, val: 2502, oldXY=(2496:3229), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=54
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2508
+out: type: 3, code: 0, val: 2508
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2508
+inp: type: 3, code: 0, val: 2508
+inp: type: 3, code: 0, val: 2508, oldXY=(2502:3229), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2514
+out: type: 3, code: 0, val: 2514
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2514
+inp: type: 3, code: 0, val: 2514
+inp: type: 3, code: 0, val: 2514, oldXY=(2508:3229), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2521
+out: type: 3, code: 0, val: 2521
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2521
+inp: type: 3, code: 0, val: 2521
+inp: type: 3, code: 0, val: 2521, oldXY=(2514:3229), pressXY=(0:0)
+inp: type: 2, code: 0, val: 7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2541
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2541
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2541
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 2541
+inp: type: 3, code: 0, val: 2541, oldXY=(2521:3229), pressXY=(0:0)
+inp: type: 2, code: 0, val: 20, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2542
+out: type: 3, code: 58, val: 54
+out: type: 3, code: 0, val: 2542
+out: type: 3, code: 24, val: 54
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2542
+inp: type: 3, code: 58, val: 54
+inp: type: 3, code: 0, val: 2542
+inp: type: 3, code: 0, val: 2542, oldXY=(2541:3229), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 54
+pressure....val=54, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2546
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2546
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2546
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 2546
+inp: type: 3, code: 0, val: 2546, oldXY=(2542:3229), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=54
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2551
+out: type: 3, code: 54, val: 3230
+out: type: 3, code: 0, val: 2551
+out: type: 3, code: 1, val: 3230
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2551
+inp: type: 3, code: 54, val: 3230
+inp: type: 3, code: 0, val: 2551
+inp: type: 3, code: 0, val: 2551, oldXY=(2546:3229), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 3, code: 1, val: 3230
+inp: type: 3, code: 1, val: 3230, oldXY=(2551:3229), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2567
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 2567
+out: type: 3, code: 24, val: 53
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2567
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 2567
+inp: type: 3, code: 0, val: 2567, oldXY=(2551:3230), pressXY=(0:0)
+inp: type: 2, code: 0, val: 16, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3231
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 1, val: 3231
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3231
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 1, val: 3231
+inp: type: 3, code: 1, val: 3231, oldXY=(2567:3230), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2568
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 2568
+out: type: 3, code: 24, val: 53
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2568
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 2568
+inp: type: 3, code: 0, val: 2568, oldXY=(2567:3231), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2574
+out: type: 3, code: 54, val: 3232
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2574
+out: type: 3, code: 1, val: 3232
+out: type: 3, code: 24, val: 52
+inp: type: 3, code: 53, val: 2574
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3232
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 2574
+inp: type: 3, code: 0, val: 2574, oldXY=(2568:3231), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 3, code: 1, val: 3232
+inp: type: 3, code: 1, val: 3232, oldXY=(2574:3231), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2580
+out: type: 3, code: 54, val: 3233
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 2580
+out: type: 3, code: 1, val: 3233
+out: type: 3, code: 24, val: 53
+inp: type: 3, code: 53, val: 2580
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3233
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 2580
+inp: type: 3, code: 0, val: 2580, oldXY=(2574:3232), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 3, code: 1, val: 3233
+inp: type: 3, code: 1, val: 3233, oldXY=(2580:3232), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2581
+out: type: 3, code: 54, val: 3234
+out: type: 3, code: 0, val: 2581
+out: type: 3, code: 1, val: 3234
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2581
+inp: type: 3, code: 54, val: 3234
+inp: type: 3, code: 0, val: 2581
+inp: type: 3, code: 0, val: 2581, oldXY=(2580:3233), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3234
+inp: type: 3, code: 1, val: 3234, oldXY=(2581:3233), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2599
+out: type: 3, code: 54, val: 3235
+out: type: 3, code: 0, val: 2599
+out: type: 3, code: 1, val: 3235
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2599
+inp: type: 3, code: 54, val: 3235
+inp: type: 3, code: 0, val: 2599
+inp: type: 3, code: 0, val: 2599, oldXY=(2581:3234), pressXY=(0:0)
+inp: type: 2, code: 0, val: 18, <---new val  
+inp: type: 3, code: 1, val: 3235
+inp: type: 3, code: 1, val: 3235, oldXY=(2599:3234), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2600
+out: type: 3, code: 54, val: 3242
+out: type: 3, code: 0, val: 2600
+out: type: 3, code: 1, val: 3242
+inp: type: 3, code: 53, val: 2600
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3242
+inp: type: 3, code: 0, val: 2600
+inp: type: 3, code: 0, val: 2600, oldXY=(2599:3235), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3242
+inp: type: 3, code: 1, val: 3242, oldXY=(2600:3235), pressXY=(0:0)
+inp: type: 2, code: 1, val: 7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2616
+out: type: 3, code: 0, val: 2616
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2616
+inp: type: 3, code: 0, val: 2616
+inp: type: 3, code: 0, val: 2616, oldXY=(2600:3242), pressXY=(0:0)
+inp: type: 2, code: 0, val: 16, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2620
+out: type: 3, code: 54, val: 3243
+out: type: 3, code: 58, val: 54
+out: type: 3, code: 0, val: 2620
+out: type: 3, code: 1, val: 3243
+out: type: 3, code: 24, val: 54
+inp: type: 3, code: 53, val: 2620
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3243
+inp: type: 3, code: 58, val: 54
+inp: type: 3, code: 0, val: 2620
+inp: type: 3, code: 0, val: 2620, oldXY=(2616:3242), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 1, val: 3243
+inp: type: 3, code: 1, val: 3243, oldXY=(2620:3242), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 54
+pressure....val=54, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2636
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2636
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2636
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 2636
+inp: type: 3, code: 0, val: 2636, oldXY=(2620:3243), pressXY=(0:0)
+inp: type: 2, code: 0, val: 16, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=54
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2637
+out: type: 3, code: 54, val: 3244
+out: type: 3, code: 0, val: 2637
+out: type: 3, code: 1, val: 3244
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2637
+inp: type: 3, code: 54, val: 3244
+inp: type: 3, code: 0, val: 2637
+inp: type: 3, code: 0, val: 2637, oldXY=(2636:3243), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3244
+inp: type: 3, code: 1, val: 3244, oldXY=(2637:3243), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2654
+out: type: 3, code: 54, val: 3245
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 0, val: 2654
+out: type: 3, code: 1, val: 3245
+out: type: 3, code: 24, val: 51
+inp: type: 3, code: 53, val: 2654
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3245
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 0, val: 2654
+inp: type: 3, code: 0, val: 2654, oldXY=(2637:3244), pressXY=(0:0)
+inp: type: 2, code: 0, val: 17, <---new val  
+inp: type: 3, code: 1, val: 3245
+inp: type: 3, code: 1, val: 3245, oldXY=(2654:3244), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2655
+out: type: 3, code: 54, val: 3249
+out: type: 3, code: 0, val: 2655
+out: type: 3, code: 1, val: 3249
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2655
+inp: type: 3, code: 54, val: 3249
+inp: type: 3, code: 0, val: 2655
+inp: type: 3, code: 0, val: 2655, oldXY=(2654:3245), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3249
+inp: type: 3, code: 1, val: 3249, oldXY=(2655:3245), pressXY=(0:0)
+inp: type: 2, code: 1, val: 4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2671
+out: type: 3, code: 0, val: 2671
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2671
+inp: type: 3, code: 0, val: 2671
+inp: type: 3, code: 0, val: 2671, oldXY=(2655:3249), pressXY=(0:0)
+inp: type: 2, code: 0, val: 16, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2672
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2672
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2672
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 2672
+inp: type: 3, code: 0, val: 2672, oldXY=(2671:3249), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2676
+out: type: 3, code: 54, val: 3250
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 0, val: 2676
+out: type: 3, code: 1, val: 3250
+out: type: 3, code: 24, val: 51
+inp: type: 3, code: 53, val: 2676
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3250
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 0, val: 2676
+inp: type: 3, code: 0, val: 2676, oldXY=(2672:3249), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 1, val: 3250
+inp: type: 3, code: 1, val: 3250, oldXY=(2676:3249), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2677
+out: type: 3, code: 54, val: 3251
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2677
+out: type: 3, code: 1, val: 3251
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2677
+inp: type: 3, code: 54, val: 3251
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 2677
+inp: type: 3, code: 0, val: 2677, oldXY=(2676:3250), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3251
+inp: type: 3, code: 1, val: 3251, oldXY=(2677:3250), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2683
+out: type: 3, code: 54, val: 3255
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 0, val: 2683
+out: type: 3, code: 1, val: 3255
+out: type: 3, code: 24, val: 51
+inp: type: 3, code: 53, val: 2683
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3255
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 0, val: 2683
+inp: type: 3, code: 0, val: 2683, oldXY=(2677:3251), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 3, code: 1, val: 3255
+inp: type: 3, code: 1, val: 3255, oldXY=(2683:3251), pressXY=(0:0)
+inp: type: 2, code: 1, val: 4, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2684
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2684
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2684
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 2684
+inp: type: 3, code: 0, val: 2684, oldXY=(2683:3255), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2691
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 0, val: 2691
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2691
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 0, val: 2691
+inp: type: 3, code: 0, val: 2691, oldXY=(2684:3255), pressXY=(0:0)
+inp: type: 2, code: 0, val: 7, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2696
+out: type: 3, code: 54, val: 3254
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 0, val: 2696
+out: type: 3, code: 1, val: 3254
+out: type: 3, code: 24, val: 51
+inp: type: 3, code: 53, val: 2696
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3254
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 0, val: 2696
+inp: type: 3, code: 0, val: 2696, oldXY=(2691:3255), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 3, code: 1, val: 3254
+inp: type: 3, code: 1, val: 3254, oldXY=(2696:3255), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2702
+out: type: 3, code: 54, val: 3252
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 0, val: 2702
+out: type: 3, code: 1, val: 3252
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2702
+inp: type: 3, code: 54, val: 3252
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 0, val: 2702
+inp: type: 3, code: 0, val: 2702, oldXY=(2696:3254), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 3, code: 1, val: 3252
+inp: type: 3, code: 1, val: 3252, oldXY=(2702:3254), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2709
+out: type: 3, code: 54, val: 3247
+out: type: 3, code: 58, val: 53
+out: type: 3, code: 0, val: 2709
+out: type: 3, code: 1, val: 3247
+out: type: 3, code: 24, val: 53
+inp: type: 3, code: 53, val: 2709
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3247
+inp: type: 3, code: 58, val: 53
+inp: type: 3, code: 0, val: 2709
+inp: type: 3, code: 0, val: 2709, oldXY=(2702:3252), pressXY=(0:0)
+inp: type: 2, code: 0, val: 7, <---new val  
+inp: type: 3, code: 1, val: 3247
+inp: type: 3, code: 1, val: 3247, oldXY=(2709:3252), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 53
+pressure....val=53, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2715
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 0, val: 2715
+out: type: 3, code: 24, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2715
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 0, val: 2715
+inp: type: 3, code: 0, val: 2715, oldXY=(2709:3247), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=53
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2721
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 0, val: 2721
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2721
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 0, val: 2721
+inp: type: 3, code: 0, val: 2721, oldXY=(2715:3247), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2727
+out: type: 3, code: 0, val: 2727
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2727
+inp: type: 3, code: 0, val: 2727
+inp: type: 3, code: 0, val: 2727, oldXY=(2721:3247), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2746
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 0, val: 2746
+out: type: 3, code: 24, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2746
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 0, val: 2746
+inp: type: 3, code: 0, val: 2746, oldXY=(2727:3247), pressXY=(0:0)
+inp: type: 2, code: 0, val: 19, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3246
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 1, val: 3246
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3246
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 1, val: 3246
+inp: type: 3, code: 1, val: 3246, oldXY=(2746:3247), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2751
+out: type: 3, code: 0, val: 2751
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2751
+inp: type: 3, code: 0, val: 2751
+inp: type: 3, code: 0, val: 2751, oldXY=(2746:3246), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2756
+out: type: 3, code: 54, val: 3245
+out: type: 3, code: 0, val: 2756
+out: type: 3, code: 1, val: 3245
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2756
+inp: type: 3, code: 54, val: 3245
+inp: type: 3, code: 0, val: 2756
+inp: type: 3, code: 0, val: 2756, oldXY=(2751:3246), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 3, code: 1, val: 3245
+inp: type: 3, code: 1, val: 3245, oldXY=(2756:3246), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2763
+out: type: 3, code: 0, val: 2763
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2763
+inp: type: 3, code: 0, val: 2763
+inp: type: 3, code: 0, val: 2763, oldXY=(2756:3245), pressXY=(0:0)
+inp: type: 2, code: 0, val: 7, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2781
+out: type: 3, code: 54, val: 3243
+out: type: 3, code: 0, val: 2781
+out: type: 3, code: 1, val: 3243
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2781
+inp: type: 3, code: 54, val: 3243
+inp: type: 3, code: 0, val: 2781
+inp: type: 3, code: 0, val: 2781, oldXY=(2763:3245), pressXY=(0:0)
+inp: type: 2, code: 0, val: 18, <---new val  
+inp: type: 3, code: 1, val: 3243
+inp: type: 3, code: 1, val: 3243, oldXY=(2781:3245), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2782
+out: type: 3, code: 0, val: 2782
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2782
+inp: type: 3, code: 0, val: 2782
+inp: type: 3, code: 0, val: 2782, oldXY=(2781:3243), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2789
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 0, val: 2789
+out: type: 3, code: 24, val: 49
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2789
+inp: type: 3, code: 58, val: 49
+inp: type: 3, code: 0, val: 2789
+inp: type: 3, code: 0, val: 2789, oldXY=(2782:3243), pressXY=(0:0)
+inp: type: 2, code: 0, val: 7, <---new val  
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2811
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 0, val: 2811
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2811
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 0, val: 2811
+inp: type: 3, code: 0, val: 2811, oldXY=(2789:3243), pressXY=(0:0)
+inp: type: 2, code: 0, val: 22, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2815
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 0, val: 2815
+inp: type: 3, code: 53, val: 2815
+out: type: 3, code: 24, val: 49
+inp: type: 3, code: 58, val: 49
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2815
+inp: type: 3, code: 0, val: 2815, oldXY=(2811:3243), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2837
+out: type: 3, code: 54, val: 3239
+out: type: 3, code: 0, val: 2837
+out: type: 3, code: 1, val: 3239
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2837
+inp: type: 3, code: 54, val: 3239
+inp: type: 3, code: 0, val: 2837
+inp: type: 3, code: 0, val: 2837, oldXY=(2815:3243), pressXY=(0:0)
+inp: type: 2, code: 0, val: 22, <---new val  
+inp: type: 3, code: 1, val: 3239
+inp: type: 3, code: 1, val: 3239, oldXY=(2837:3243), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2841
+out: type: 3, code: 54, val: 3237
+out: type: 3, code: 0, val: 2841
+out: type: 3, code: 1, val: 3237
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2841
+inp: type: 3, code: 54, val: 3237
+inp: type: 3, code: 0, val: 2841
+inp: type: 3, code: 0, val: 2841, oldXY=(2837:3239), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 1, val: 3237
+inp: type: 3, code: 1, val: 3237, oldXY=(2841:3239), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2848
+out: type: 3, code: 54, val: 3235
+out: type: 3, code: 58, val: 48
+out: type: 3, code: 0, val: 2848
+out: type: 3, code: 1, val: 3235
+out: type: 3, code: 24, val: 48
+inp: type: 3, code: 53, val: 2848
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3235
+inp: type: 3, code: 58, val: 48
+inp: type: 3, code: 0, val: 2848
+inp: type: 3, code: 0, val: 2848, oldXY=(2841:3237), pressXY=(0:0)
+inp: type: 2, code: 0, val: 7, <---new val  
+inp: type: 3, code: 1, val: 3235
+inp: type: 3, code: 1, val: 3235, oldXY=(2848:3237), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 48
+pressure....val=48, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2855
+out: type: 3, code: 54, val: 3230
+out: type: 3, code: 0, val: 2855
+out: type: 3, code: 1, val: 3230
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2855
+inp: type: 3, code: 54, val: 3230
+inp: type: 3, code: 0, val: 2855
+inp: type: 3, code: 0, val: 2855, oldXY=(2848:3235), pressXY=(0:0)
+inp: type: 2, code: 0, val: 7, <---new val  
+inp: type: 3, code: 1, val: 3230
+inp: type: 3, code: 1, val: 3230, oldXY=(2855:3235), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2874
+out: type: 3, code: 54, val: 3229
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 0, val: 2874
+out: type: 3, code: 1, val: 3229
+out: type: 3, code: 24, val: 49
+inp: type: 3, code: 53, val: 2874
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3229
+inp: type: 3, code: 58, val: 49
+inp: type: 3, code: 0, val: 2874
+inp: type: 3, code: 0, val: 2874, oldXY=(2855:3230), pressXY=(0:0)
+inp: type: 2, code: 0, val: 19, <---new val  
+inp: type: 3, code: 1, val: 3229
+inp: type: 3, code: 1, val: 3229, oldXY=(2874:3230), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=48
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3228
+out: type: 3, code: 58, val: 48
+out: type: 3, code: 1, val: 3228
+out: type: 3, code: 24, val: 48
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3228
+inp: type: 3, code: 58, val: 48
+inp: type: 3, code: 1, val: 3228
+inp: type: 3, code: 1, val: 3228, oldXY=(2874:3229), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 48
+pressure....val=48, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2879
+out: type: 3, code: 54, val: 3226
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 0, val: 2879
+out: type: 3, code: 1, val: 3226
+inp: type: 3, code: 53, val: 2879
+out: type: 3, code: 24, val: 49
+inp: type: 3, code: 54, val: 3226
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 49
+inp: type: 3, code: 0, val: 2879
+inp: type: 3, code: 0, val: 2879, oldXY=(2874:3228), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 3, code: 1, val: 3226
+inp: type: 3, code: 1, val: 3226, oldXY=(2879:3228), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=48
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2880
+out: type: 3, code: 54, val: 3225
+out: type: 3, code: 0, val: 2880
+out: type: 3, code: 1, val: 3225
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2880
+inp: type: 3, code: 54, val: 3225
+inp: type: 3, code: 0, val: 2880
+inp: type: 3, code: 0, val: 2880, oldXY=(2879:3226), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3225
+inp: type: 3, code: 1, val: 3225, oldXY=(2880:3226), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2885
+out: type: 3, code: 54, val: 3223
+out: type: 3, code: 0, val: 2885
+out: type: 3, code: 1, val: 3223
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2885
+inp: type: 3, code: 54, val: 3223
+inp: type: 3, code: 0, val: 2885
+inp: type: 3, code: 0, val: 2885, oldXY=(2880:3225), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 3, code: 1, val: 3223
+inp: type: 3, code: 1, val: 3223, oldXY=(2885:3225), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2890
+out: type: 3, code: 58, val: 48
+out: type: 3, code: 0, val: 2890
+out: type: 3, code: 24, val: 48
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2890
+inp: type: 3, code: 58, val: 48
+inp: type: 3, code: 0, val: 2890
+inp: type: 3, code: 0, val: 2890, oldXY=(2885:3223), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 3, code: 24, val: 48
+pressure....val=48, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2891
+out: type: 3, code: 54, val: 3221
+out: type: 3, code: 0, val: 2891
+out: type: 3, code: 1, val: 3221
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2891
+inp: type: 3, code: 54, val: 3221
+inp: type: 3, code: 0, val: 2891
+inp: type: 3, code: 0, val: 2891, oldXY=(2890:3223), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3221
+inp: type: 3, code: 1, val: 3221, oldXY=(2891:3223), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2896
+out: type: 3, code: 0, val: 2896
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2896
+inp: type: 3, code: 0, val: 2896
+inp: type: 3, code: 0, val: 2896, oldXY=(2891:3221), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2901
+out: type: 3, code: 0, val: 2901
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2901
+inp: type: 3, code: 0, val: 2901
+inp: type: 3, code: 0, val: 2901, oldXY=(2896:3221), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2905
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 0, val: 2905
+out: type: 3, code: 24, val: 49
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2905
+inp: type: 3, code: 58, val: 49
+inp: type: 3, code: 0, val: 2905
+inp: type: 3, code: 0, val: 2905, oldXY=(2901:3221), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=48
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2906
+out: type: 3, code: 54, val: 3219
+out: type: 3, code: 58, val: 48
+out: type: 3, code: 0, val: 2906
+out: type: 3, code: 1, val: 3219
+out: type: 3, code: 24, val: 48
+inp: type: 3, code: 53, val: 2906
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3219
+inp: type: 3, code: 58, val: 48
+inp: type: 3, code: 0, val: 2906
+inp: type: 3, code: 0, val: 2906, oldXY=(2905:3221), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3219
+inp: type: 3, code: 1, val: 3219, oldXY=(2906:3221), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 48
+pressure....val=48, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2910
+out: type: 3, code: 54, val: 3217
+out: type: 3, code: 0, val: 2910
+out: type: 3, code: 1, val: 3217
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2910
+inp: type: 3, code: 54, val: 3217
+inp: type: 3, code: 0, val: 2910
+inp: type: 3, code: 0, val: 2910, oldXY=(2906:3219), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 1, val: 3217
+inp: type: 3, code: 1, val: 3217, oldXY=(2910:3219), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2915
+out: type: 3, code: 54, val: 3212
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 0, val: 2915
+out: type: 3, code: 1, val: 3212
+inp: type: 3, code: 53, val: 2915
+out: type: 3, code: 24, val: 50
+inp: type: 3, code: 54, val: 3212
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 0, val: 2915
+inp: type: 3, code: 0, val: 2915, oldXY=(2910:3217), pressXY=(0:0)
+inp: type: 2, code: 0, val: 5, <---new val  
+inp: type: 3, code: 1, val: 3212
+inp: type: 3, code: 1, val: 3212, oldXY=(2915:3217), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=48
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2916
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 0, val: 2916
+out: type: 3, code: 24, val: 49
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2916
+inp: type: 3, code: 58, val: 49
+inp: type: 3, code: 0, val: 2916
+inp: type: 3, code: 0, val: 2916, oldXY=(2915:3212), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2917
+out: type: 3, code: 54, val: 3211
+out: type: 3, code: 0, val: 2917
+out: type: 3, code: 1, val: 3211
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2917
+inp: type: 3, code: 54, val: 3211
+inp: type: 3, code: 0, val: 2917
+inp: type: 3, code: 0, val: 2917, oldXY=(2916:3212), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3211
+inp: type: 3, code: 1, val: 3211, oldXY=(2917:3212), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2918
+out: type: 3, code: 54, val: 3212
+out: type: 3, code: 58, val: 48
+out: type: 3, code: 0, val: 2918
+out: type: 3, code: 1, val: 3212
+inp: type: 3, code: 53, val: 2918
+out: type: 3, code: 24, val: 48
+inp: type: 3, code: 54, val: 3212
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 48
+inp: type: 3, code: 0, val: 2918
+inp: type: 3, code: 0, val: 2918, oldXY=(2917:3211), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3212
+inp: type: 3, code: 1, val: 3212, oldXY=(2918:3211), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 48
+pressure....val=48, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2919
+out: type: 3, code: 54, val: 3207
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 0, val: 2919
+out: type: 3, code: 1, val: 3207
+inp: type: 3, code: 53, val: 2919
+out: type: 3, code: 24, val: 49
+inp: type: 3, code: 54, val: 3207
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 49
+inp: type: 3, code: 0, val: 2919
+inp: type: 3, code: 0, val: 2919, oldXY=(2918:3212), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3207
+inp: type: 3, code: 1, val: 3207, oldXY=(2919:3212), pressXY=(0:0)
+inp: type: 2, code: 1, val: -5, <---new val  
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=48
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2920
+out: type: 3, code: 0, val: 2920
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2920
+inp: type: 3, code: 0, val: 2920
+inp: type: 3, code: 0, val: 2920, oldXY=(2919:3207), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2921
+out: type: 3, code: 54, val: 3205
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 0, val: 2921
+out: type: 3, code: 1, val: 3205
+out: type: 3, code: 24, val: 50
+inp: type: 3, code: 53, val: 2921
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3205
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 0, val: 2921
+inp: type: 3, code: 0, val: 2921, oldXY=(2920:3207), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3205
+inp: type: 3, code: 1, val: 3205, oldXY=(2921:3207), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2925
+out: type: 3, code: 0, val: 2925
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2925
+inp: type: 3, code: 0, val: 2925
+inp: type: 3, code: 0, val: 2925, oldXY=(2921:3205), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 24, val: 49
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 49
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2926
+out: type: 3, code: 54, val: 3203
+out: type: 3, code: 0, val: 2926
+out: type: 3, code: 1, val: 3203
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2926
+inp: type: 3, code: 54, val: 3203
+inp: type: 3, code: 0, val: 2926
+inp: type: 3, code: 0, val: 2926, oldXY=(2925:3205), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3203
+inp: type: 3, code: 1, val: 3203, oldXY=(2926:3205), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2927
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 0, val: 2927
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2927
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 0, val: 2927
+inp: type: 3, code: 0, val: 2927, oldXY=(2926:3203), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2933
+out: type: 3, code: 0, val: 2933
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2933
+inp: type: 3, code: 0, val: 2933
+inp: type: 3, code: 0, val: 2933, oldXY=(2927:3203), pressXY=(0:0)
+inp: type: 2, code: 0, val: 6, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2937
+out: type: 3, code: 54, val: 3199
+out: type: 3, code: 0, val: 2937
+out: type: 3, code: 1, val: 3199
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2937
+inp: type: 3, code: 54, val: 3199
+inp: type: 3, code: 0, val: 2937
+inp: type: 3, code: 0, val: 2937, oldXY=(2933:3203), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 1, val: 3199
+inp: type: 3, code: 1, val: 3199, oldXY=(2937:3203), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2938
+out: type: 3, code: 58, val: 49
+out: type: 3, code: 0, val: 2938
+out: type: 3, code: 24, val: 49
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2938
+inp: type: 3, code: 58, val: 49
+inp: type: 3, code: 0, val: 2938
+inp: type: 3, code: 0, val: 2938, oldXY=(2937:3199), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2942
+out: type: 3, code: 0, val: 2942
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2942
+inp: type: 3, code: 0, val: 2942
+inp: type: 3, code: 0, val: 2942, oldXY=(2938:3199), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2963
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2963
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2963
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 0, val: 2963
+inp: type: 3, code: 0, val: 2963, oldXY=(2942:3199), pressXY=(0:0)
+inp: type: 2, code: 0, val: 21, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3198
+out: type: 3, code: 1, val: 3198
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3198
+inp: type: 3, code: 1, val: 3198
+inp: type: 3, code: 1, val: 3198, oldXY=(2963:3199), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2964
+out: type: 3, code: 0, val: 2964
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2964
+inp: type: 3, code: 0, val: 2964
+inp: type: 3, code: 0, val: 2964, oldXY=(2963:3198), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2968
+out: type: 3, code: 0, val: 2968
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2968
+inp: type: 3, code: 0, val: 2968
+inp: type: 3, code: 0, val: 2968, oldXY=(2964:3198), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3196
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 1, val: 3196
+inp: type: 3, code: 54, val: 3196
+out: type: 3, code: 24, val: 51
+inp: type: 3, code: 58, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 1, val: 3196
+inp: type: 3, code: 1, val: 3196, oldXY=(2968:3198), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2969
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2969
+inp: type: 3, code: 53, val: 2969
+out: type: 3, code: 24, val: 52
+inp: type: 3, code: 58, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2969
+inp: type: 3, code: 0, val: 2969, oldXY=(2968:3196), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2970
+out: type: 3, code: 54, val: 3194
+out: type: 3, code: 58, val: 50
+inp: type: 3, code: 53, val: 2970
+out: type: 3, code: 0, val: 2970
+inp: type: 3, code: 54, val: 3194
+out: type: 3, code: 1, val: 3194
+inp: type: 3, code: 58, val: 50
+out: type: 3, code: 24, val: 50
+inp: type: 3, code: 0, val: 2970
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2970, oldXY=(2969:3196), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3194
+inp: type: 3, code: 1, val: 3194, oldXY=(2970:3196), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3192
+out: type: 3, code: 1, val: 3192
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3192
+inp: type: 3, code: 1, val: 3192
+inp: type: 3, code: 1, val: 3192, oldXY=(2970:3194), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3193
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 1, val: 3193
+inp: type: 3, code: 54, val: 3193
+out: type: 3, code: 24, val: 51
+inp: type: 3, code: 58, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 1, val: 3193
+inp: type: 3, code: 1, val: 3193, oldXY=(2970:3192), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 52
+inp: type: 3, code: 58, val: 52
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2974
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 0, val: 2974
+inp: type: 3, code: 53, val: 2974
+out: type: 3, code: 24, val: 50
+inp: type: 3, code: 58, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2974
+inp: type: 3, code: 0, val: 2974, oldXY=(2970:3193), pressXY=(0:0)
+inp: type: 2, code: 0, val: 4, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3192
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 1, val: 3192
+inp: type: 3, code: 54, val: 3192
+out: type: 3, code: 24, val: 51
+inp: type: 3, code: 58, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 1, val: 3192
+inp: type: 3, code: 1, val: 3192, oldXY=(2974:3193), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2975
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 0, val: 2975
+inp: type: 3, code: 53, val: 2975
+out: type: 3, code: 24, val: 52
+inp: type: 3, code: 58, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 0, val: 2975
+inp: type: 3, code: 0, val: 2975, oldXY=(2974:3192), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3190
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 1, val: 3190
+inp: type: 3, code: 54, val: 3190
+out: type: 3, code: 24, val: 50
+inp: type: 3, code: 58, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 1, val: 3190
+inp: type: 3, code: 1, val: 3190, oldXY=(2975:3192), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 24, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2976
+out: type: 3, code: 0, val: 2976
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2976
+inp: type: 3, code: 0, val: 2976
+inp: type: 3, code: 0, val: 2976, oldXY=(2975:3190), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 24, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3189
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 1, val: 3189
+out: type: 3, code: 24, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3189
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 1, val: 3189
+inp: type: 3, code: 1, val: 3189, oldXY=(2976:3190), pressXY=(0:0)
+inp: type: 2, code: 1, val: -1, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3185
+out: type: 3, code: 1, val: 3185
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3185
+inp: type: 3, code: 1, val: 3185
+inp: type: 3, code: 1, val: 3185, oldXY=(2976:3189), pressXY=(0:0)
+inp: type: 2, code: 1, val: -4, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2977
+out: type: 3, code: 0, val: 2977
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2977
+inp: type: 3, code: 0, val: 2977
+inp: type: 3, code: 0, val: 2977, oldXY=(2976:3185), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3186
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 1, val: 3186
+out: type: 3, code: 24, val: 51
+inp: type: 3, code: 54, val: 3186
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 1, val: 3186
+inp: type: 3, code: 1, val: 3186, oldXY=(2977:3185), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3187
+out: type: 3, code: 1, val: 3187
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3187
+inp: type: 3, code: 1, val: 3187
+inp: type: 3, code: 1, val: 3187, oldXY=(2977:3186), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 50
+out: type: 3, code: 24, val: 50
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 50
+inp: type: 3, code: 24, val: 50
+pressure....val=50, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 24, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=50
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2978
+out: type: 3, code: 54, val: 3188
+out: type: 3, code: 0, val: 2978
+out: type: 3, code: 1, val: 3188
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 53, val: 2978
+inp: type: 3, code: 54, val: 3188
+inp: type: 3, code: 0, val: 2978
+inp: type: 3, code: 0, val: 2978, oldXY=(2977:3187), pressXY=(0:0)
+inp: type: 2, code: 0, val: 1, <---new val  
+inp: type: 3, code: 1, val: 3188
+inp: type: 3, code: 1, val: 3188, oldXY=(2978:3187), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3189
+out: type: 3, code: 1, val: 3189
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3189
+inp: type: 3, code: 1, val: 3189
+inp: type: 3, code: 1, val: 3189, oldXY=(2978:3188), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 52
+out: type: 3, code: 24, val: 52
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 52
+inp: type: 3, code: 24, val: 52
+pressure....val=52, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3187
+out: type: 3, code: 58, val: 51
+out: type: 3, code: 1, val: 3187
+out: type: 3, code: 24, val: 51
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3187
+inp: type: 3, code: 58, val: 51
+inp: type: 3, code: 1, val: 3187
+inp: type: 3, code: 1, val: 3187, oldXY=(2978:3189), pressXY=(0:0)
+inp: type: 2, code: 1, val: -2, <---new val  
+inp: type: 3, code: 24, val: 51
+pressure....val=51, prev=52
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3188
+out: type: 3, code: 1, val: 3188
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3188
+inp: type: 3, code: 1, val: 3188
+inp: type: 3, code: 1, val: 3188, oldXY=(2978:3187), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1, <---new val  
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 54, val: 3192
+out: type: 3, code: 58, val: 47
+out: type: 3, code: 1, val: 3192
+out: type: 3, code: 24, val: 47
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3192
+inp: type: 3, code: 58, val: 47
+inp: type: 3, code: 1, val: 3192
+inp: type: 3, code: 1, val: 3192, oldXY=(2978:3188), pressXY=(0:0)
+inp: type: 2, code: 1, val: 4, <---new val  
+inp: type: 3, code: 24, val: 47
+pressure....val=47, prev=51
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 53, val: 2976
+out: type: 3, code: 54, val: 3197
+out: type: 3, code: 58, val: 32
+out: type: 3, code: 0, val: 2976
+out: type: 3, code: 1, val: 3197
+out: type: 3, code: 24, val: 32
+inp: type: 3, code: 53, val: 2976
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 54, val: 3197
+inp: type: 3, code: 58, val: 32
+inp: type: 3, code: 0, val: 2976
+inp: type: 3, code: 0, val: 2976, oldXY=(2978:3192), pressXY=(0:0)
+inp: type: 2, code: 0, val: -2, <---new val  
+inp: type: 3, code: 1, val: 3197
+inp: type: 3, code: 1, val: 3197, oldXY=(2976:3192), pressXY=(0:0)
+inp: type: 2, code: 1, val: 5, <---new val  
+inp: type: 3, code: 24, val: 32
+pressure....val=32, prev=47
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 57, val: -1
+out: type: 1, code: 330, val: 0
+out: type: 3, code: 24, val: 0
+out: type: 1, code: 325, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 57, val: -1
+inp: type: 1, code: 330, val: 0
+inp: type: 3, code: 24, val: 0
+pressure....val=0, prev=32
+inp: type: 1, code: 325, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 28
+out: type: 1, code: 28, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 28
+inp: type: 1, code: 28, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 57, val: 964
+out: type: 3, code: 53, val: 4621
+out: type: 3, code: 54, val: 4455
+inp: type: 3, code: 57, val: 964
+out: type: 3, code: 58, val: 49
+inp: type: 3, code: 53, val: 4621
+out: type: 1, code: 330, val: 1
+inp: type: 3, code: 54, val: 4455
+out: type: 3, code: 0, val: 4621
+inp: type: 3, code: 58, val: 49
+out: type: 3, code: 1, val: 4455
+inp: type: 1, code: 330, val: 1
+out: type: 3, code: 24, val: 49
+inp: type: 3, code: 0, val: 4621
+out: type: 1, code: 325, val: 1
+inp: type: 3, code: 0, val: 4621, oldXY=(2976:3197), pressXY=(0:0)
+out: type: 0, code: 0, val: 0
+inp: type: 2, code: 0, val: 1645, <---new val  
+inp: type: 3, code: 1, val: 4455
+inp: type: 3, code: 1, val: 4455, oldXY=(4621:3197), pressXY=(0:0)
+inp: type: 2, code: 1, val: 1258, <---new val  
+inp: type: 3, code: 24, val: 49
+pressure....val=49, prev=0
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+inp: type: 1, code: 325, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 58, val: 36
+out: type: 3, code: 24, val: 36
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 58, val: 36
+inp: type: 3, code: 24, val: 36
+pressure....val=36, prev=49
+inp: type: 0, code: 0, val: 0
+out: type: 3, code: 57, val: -1
+out: type: 1, code: 330, val: 0
+out: type: 3, code: 24, val: 0
+inp: type: 3, code: 57, val: -1
+out: type: 1, code: 325, val: 0
+inp: type: 1, code: 330, val: 0
+out: type: 0, code: 0, val: 0
+inp: type: 3, code: 24, val: 0
+pressure....val=0, prev=36
+inp: type: 1, code: 325, val: 0
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 29
+out: type: 1, code: 29, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 29
+inp: type: 1, code: 29, val: 1
+inp: type: 0, code: 0, val: 0
+out: type: 4, code: 4, val: 46
+out: type: 1, code: 46, val: 1
+out: type: 0, code: 0, val: 0
+inp: type: 4, code: 4, val: 46
+inp: type: 1, code: 46, val: 1
+inp: type: 0, code: 0, val: 0
+routing keys to dest: 
+local
+inp: exiting, org.retval==8
+param 1 must be valid key code (not 0)
+shell break
+shell loop end.
