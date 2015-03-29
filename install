@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+function justkill()
+{  pkill -f routekeysloop.sh
+   pkill '^routekeys$'
+}
+[ "$1" == "justkill" ] && { justkill ; exit 0; }
+
 arch=$(uname -m)
 srcbin=bin/$arch
 srcscr=scripts
@@ -7,8 +13,7 @@ dstbin=/usr/bin
 
 [ -f $srcbin/routekeys ] || { echo "routekeys for arch: $arch not compiled"; exit; }
 
-pkill -f routekeysloop.sh
-pkill routekeys
+justkill
 
 cp -v $srcbin/routekeys $dstbin
 cp -v $srcscr/*.sh $dstbin

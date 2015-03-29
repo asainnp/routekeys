@@ -84,19 +84,23 @@ int loopKeyboardINP()
 #undef  mreturn
 #define mreturn(rv) { close(fdi); close(STDOUT_FILENO); return rv; }
 int loopDeviceOUT(char *devname)
-{  int pressterminate=0, retval=0,
-       fdi = open(devname, O_RDONLY);  if (fdi  <0) mreturn(1);
+{  int pressterminate=0, retval=0; fd_set fds; struct timeval tv;
+   int fdi = open(devname, O_RDONLY);  if (fdi  <0) mreturn(1);
    if (ioctl(fdi, EVIOCGRAB, 1) < 0)                mreturn(2);
-
+  
+    
    while (!globalQUIT)               //from device events could be 32 or 64 bit long
-   {  if (read (fdi, ev, evsize) < 0)               mreturn(3);
+   {  FD_ZERO(&fds); FD_SET(fdi, &fds); tv.tv_sec =0; tv.tv_usec =50000; //50ms
+      if (-1 ==select(fdi+1,&fds,NULL,NULL, &tv))   mreturn(3);
+      if (!FD_ISSET(fdi, &fds)) continue;
+      if (read (fdi, ev, evsize) < 0)               mreturn(4);
       mprintf("\rout: type: %d, code: %d, val: %d\n", tmp.type, tmp.code, tmp.value); 
 
-      if (pressterminate && (ev->type ==1) && (ev->value >0))
-         if (ev->code==111) { mprintf("out: Del after Escape-Sequence, terminating");  mreturn(4); } 
-         else pressterminate=0;
       tmp.time.tv_sec =tmp.time.tv_usec =0;
       if (write(STDOUT_FILENO, &tmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
+      if (pressterminate && (ev->type ==1) && (ev->value >0))
+         if (ev->code==111) { mprintf("out: Del after Escape-Sequence, terminating");  mreturn(6); } 
+         else pressterminate=0;
       if (checkEscapeSequence(ev)) { mprintf("out: Escape-Sequence detected\n"); pressterminate=1; }
    }
    mreturn(0);
@@ -107,7 +111,7 @@ void* loopDeviceOUTstart(void *arg)
 {  void *retval; 
    mprintf("out: thread starting, (dev=%s)\n", arg);
    *((int*)&retval) =loopDeviceOUT((char*)arg); 
-   globalQUIT =1;
+   globalQUIT =1; // 1 down -> all down
    mprintf("out: thread exiting, retval==%d (dev=%s)\n", retval, arg);
    return retval;
 }

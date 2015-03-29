@@ -33,6 +33,6 @@ $(archdir)/routekeys: $(archdir) routekeys.c
 
 test: install
 	#kill in case that app cause keyboard hangs-up
-	(echo killing in 30s; sleep 30; sudo pkill -f routekeys\*)& 
+	(echo killing in 30s; sleep 30; sudo ./install justkill)& 
 	routekeysloop.sh 
 #******************************************************************************

@@ -25,15 +25,15 @@ keycode=$1
 (isnum $keycode) || \
 { echo "param 1 must be valid key code (not $keycode)" >&2 ; exit 1 ; } #exitAll
 case "$keycode" in
-    0) exit 1 ;;
-   45) exit 1 ;;                                       #key 'X' code45 - exitAll
-    *) #search home RC for defined key
-       #<-classic '|' pipe to while would cause subshell-exit only
-       while read line; do 
-          arr=( $line ) ; [ "${arr[0]}" -eq "$keycode" ] && \
-                          { echo ${arr[1]} ; exit 0; } #exit whole script
-       done < <($0 listdestinations withcodes)
-       exit 2  # no key found, nor exitAll requested
+     0) exit 1 ;;
+45|111) exit 1 ;;                         #key 'X' or 'del' code45/111 - exitAll
+     *) #search home RC for defined key
+        #<-classic '|' pipe to while would cause subshell-exit only
+        while read line; do 
+           arr=( $line ) ; [ "${arr[0]}" -eq "$keycode" ] && \
+                           { echo ${arr[1]} ; exit 0; } #exit whole script
+        done < <($0 listdestinations withcodes)
+        exit 2  ;; # no key found, nor exitAll requested
 esac
 exit 2
 
