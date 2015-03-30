@@ -80,7 +80,7 @@ int loopKeyboardINP()
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
    {  if (read (STDIN_FILENO, &evtmp, tmpsize) < 1) mreturn(8);
-      mprintf2("\rinp: type: %d, code: %d, val: %di, all=%d\n", ev->type, ev->code, ev->value, glbAll); 
+      mprintf("\rinp: type: %d, code: %d, val: %di, all=%d\n", ev->type, ev->code, ev->value, glbAll); 
       cnt++;
       if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
       //translate mouse abs
@@ -120,7 +120,7 @@ int loopDeviceOUT(char *devname)
       if (-1 ==select(fdi+1,&fds,NULL,NULL, &tv))   mreturn(3);
       if (!FD_ISSET(fdi, &fds)) continue;
       if (read (fdi, ev, evsize) < 0)               mreturn(4);
-      mprintf2("\rout: type: %d, code: %d, val: %d, all=%d\n", evtmp.type, evtmp.code, evtmp.value, glbAll); 
+      mprintf("\rout: type: %d, code: %d, val: %d, all=%d\n", evtmp.type, evtmp.code, evtmp.value, glbAll); 
 
       evtmp.time.tv_sec =evtmp.time.tv_usec =0;
       if (write(STDOUT_FILENO, &evtmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
