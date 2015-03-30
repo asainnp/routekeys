@@ -20,12 +20,14 @@ struct event64   { struct timeval64 time; __u16 type, code; __s32 value; };
 #define escapelen 4
 char escapekeys[escapelen]={KEY_LEFTCTRL, KEY_LEFTALT, KEY_LEFTSHIFT, KEY_ESC}; //Ctrl-Alt-Shift-Esc
 char escapevals[escapelen]={0,            0,           0,             0      };
-int checkEscapeSequence(struct input_event *ev)
-{  int i, all;    if (ev->type != EV_KEY) return 0; //check keys only
+int glbAll =0;
+int checkEscapeSequence(struct input_event *iev)
+{  int i, all;    if (iev->type != EV_KEY) return 0; //check keys only
    for (i=0, all=0; i<escapelen; i++) 
-   {  if (escapekeys[i] ==ev->code) escapevals[i] =ev->value;
+   {  if (escapekeys[i] ==iev->code) escapevals[i] =iev->value;
       if (escapevals[i]) all++;
    }  
+   glbAll=all;
    return all ==escapelen;
 }
 
@@ -38,12 +40,11 @@ int checkEscapeSequence(struct input_event *ev)
 int oldAbsX =0, oldAbsY =0; 
 int writeEvent(int fdo, struct input_event *wev)
 {   int itmp;
-    if (wev->type ==EV_ABS && wev->code==ABS_X || wev->code==ABS_Y)
+    if (wev->type ==EV_ABS && (wev->code==ABS_X || wev->code==ABS_Y))
     {  if (wev->code ==ABS_X) { wev->type=EV_REL; wev->code =REL_X; itmp =wev->value; wev->value -= oldAbsX; oldAbsX =itmp; } //using REL only
        if (wev->code ==ABS_Y) { wev->type=EV_REL; wev->code =REL_Y; itmp =wev->value; wev->value -= oldAbsY; oldAbsY =itmp; } // ...converting
     }
     wev->time.tv_sec =wev->time.tv_usec =0;  
-    mprintf("writing...%d %d %d\n", wev->type, wev->code, wev->value);
     if (write(fdo, wev, evsize)  < 0) return 1;
     return 0;
 }
@@ -79,7 +80,7 @@ int loopKeyboardINP()
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
    {  if (read (STDIN_FILENO, &evtmp, tmpsize) < 1) mreturn(8);
-      mprintf("\rinp: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
+      mprintf2("\rinp: type: %d, code: %d, val: %di, all=%d\n", ev->type, ev->code, ev->value, glbAll); 
       cnt++;
       if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
       //translate mouse abs
@@ -100,7 +101,7 @@ int loopKeyboardINP()
       if (yy) { yy=0; mprintf2("%d return Y %d\n", cnt, savey.value); if (writeEvent(fdo, &savey)) mreturn(12); }
 
       if (writeEvent(fdo, ev))                     mreturn(13);
-      if (checkEscapeSequence(ev)) { mprintf("inp: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
+      if (checkEscapeSequence(ev)) { mprintf2("inp: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
    }
    if (ioctl(fdo, UI_DEV_DESTROY) < 0)            mreturn(10);
 
@@ -119,14 +120,14 @@ int loopDeviceOUT(char *devname)
       if (-1 ==select(fdi+1,&fds,NULL,NULL, &tv))   mreturn(3);
       if (!FD_ISSET(fdi, &fds)) continue;
       if (read (fdi, ev, evsize) < 0)               mreturn(4);
-      mprintf("\rout: type: %d, code: %d, val: %d\n", evtmp.type, evtmp.code, evtmp.value); 
+      mprintf2("\rout: type: %d, code: %d, val: %d, all=%d\n", evtmp.type, evtmp.code, evtmp.value, glbAll); 
 
       evtmp.time.tv_sec =evtmp.time.tv_usec =0;
       if (write(STDOUT_FILENO, &evtmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
       if (pressterminate && (ev->type ==1) && (ev->value >0))
-         if (ev->code==111) { mprintf("out: Del after Escape-Sequence, terminating");  mreturn(6); } 
-         else pressterminate=0;
-      if (checkEscapeSequence(ev)) { mprintf("out: Escape-Sequence detected\n"); pressterminate=1; }
+         if (ev->code==111) { mprintf2("out: Del after Escape-Sequence, terminating");  mreturn(6); } 
+         else { pressterminate=0; mprintf2("out: continuing...\n"); }
+      if (checkEscapeSequence(ev)) { mprintf2("out: Escape-Sequence detected\n"); pressterminate=1; }
    }
    mreturn(0);
 }
