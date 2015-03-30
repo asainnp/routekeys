@@ -8,7 +8,8 @@
 #include <linux/uinput.h>
 #include <pthread.h>
 
-#define mprintf(args...) fprintf(stderr, args)
+#define mprintf(args...)  //fprintf(stderr, args)
+#define mprintf2(args...) fprintf(stderr, args)
 int globalQUIT =0;
 
 void   mysys(char *cmd) { char allcmd[512]; snprintf(allcmd, 512, "%s &>/dev/null &", cmd); system(allcmd); }
@@ -29,16 +30,28 @@ int checkEscapeSequence(struct input_event *ev)
 }
 
 //TWO keyboard functions:
-    struct event64         tmp; const int tmpsize =sizeof(struct event64); 
-                                const int evsize  =sizeof(struct input_event); 
-    struct input_event     *ev =(void*)&tmp +sizeof(struct event64)
-                                            -sizeof(struct input_event), sevprev, *evprev =&sevprev;
-
+    struct event64         evtmp; const int tmpsize =sizeof(struct event64); 
+                                  const int evsize  =sizeof(struct input_event); 
+    struct input_event     *ev =(void*)&evtmp +sizeof(struct event64)
+                                              -sizeof(struct input_event),
+                           savex, savey;
+int oldAbsX =0, oldAbsY =0; 
+int writeEvent(int fdo, struct input_event *wev)
+{   int itmp;
+    if (wev->type ==EV_ABS && wev->code==ABS_X || wev->code==ABS_Y)
+    {  if (wev->code ==ABS_X) { wev->type=EV_REL; wev->code =REL_X; itmp =wev->value; wev->value -= oldAbsX; oldAbsX =itmp; } //using REL only
+       if (wev->code ==ABS_Y) { wev->type=EV_REL; wev->code =REL_Y; itmp =wev->value; wev->value -= oldAbsY; oldAbsY =itmp; } // ...converting
+    }
+    wev->time.tv_sec =wev->time.tv_usec =0;  
+    mprintf("writing...%d %d %d\n", wev->type, wev->code, wev->value);
+    if (write(fdo, wev, evsize)  < 0) return 1;
+    return 0;
+}
 #define mreturn(rv) { close(fdo); close(STDIN_FILENO); return rv; }
 int loopKeyboardINP()
 {  struct uinput_user_dev uidev;
    #define myEVMAX 6
-   int i, pressterminate=0, pressX=0,pressY=0,prevPress=0, fdo =-1, oldAbsX =0, oldAbsY =0, itmp =0,
+   int i, pressterminate=0, pressX=0,pressY=0,prevPress=0, fdo =-1, itmp =0, cnt=0,xx=0,yy=0,
        evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
    int once=1;
 
@@ -53,7 +66,7 @@ int loopKeyboardINP()
    for (i=0;i<KEY_MAX;++i) if (ioctl(fdo, UI_SET_KEYBIT, i)        < 0) mreturn(5);
 
    memset(&uidev, 0, sizeof(uidev));
-   snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinputroutekeysABS");
+   snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinputroutekeys");
    uidev.id.bustype = BUS_USB;          uidev.id.vendor  = 0x1;
    uidev.id.version = 1;                uidev.id.product = 0x1;
    //uidev.absmin[ABS_X]=0; uidev.absmin[ABS_X]=1024;
@@ -65,30 +78,28 @@ int loopKeyboardINP()
    mysys("fgnotify 'KEYS ROUTED HERE !(v1.1)'");
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
-   {  if (read (STDIN_FILENO, &tmp, tmpsize) < 1) mreturn(8);
+   {  if (read (STDIN_FILENO, &evtmp, tmpsize) < 1) mreturn(8);
       mprintf("\rinp: type: %d, code: %d, val: %d\n", ev->type, ev->code, ev->value); 
-
+      cnt++;
       if (pressterminate && (ev->type ==1) && (ev->value >0)) mreturn(1000+ev->code);
       //translate mouse abs
       if (ev->type ==EV_ABS)
-      {  if (ev->code==ABS_PRESSURE) { mprintf("pressure....val=%d, prev=%d\n", ev->value, prevPress);
-                                       if ( ev->value >0 && !prevPress) { pressX=1; pressY=1; mprintf("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n"); }
-                                       prevPress =ev->value; }
-         if (evprev->code==ABS_X || evprev->code==ABS_Y)
-         {  mprintf("\rinp: type: %d, code: %d, val: %d, oldXY=(%d:%d), pressXY=(%d:%d)\n", evprev->type, (int)evprev->code, evprev->value, oldAbsX, oldAbsY, pressX, pressY); 
-               if (evprev->code ==ABS_X) { if (pressX) { oldAbsX=evprev->value; pressX =0; mprintf("X reset ------------------------------------------------------------\n"); }; evprev->type=EV_REL; evprev->code =REL_X; itmp =evprev->value; evprev->value -= oldAbsX; oldAbsX =itmp; } //using REL only
-               if (evprev->code ==ABS_Y) { if (pressY) { oldAbsY=evprev->value; pressY =0; mprintf("Y reset ------------------------------------------------------------\n"); }; evprev->type=EV_REL; evprev->code =REL_Y; itmp =evprev->value; evprev->value -= oldAbsY; oldAbsY =itmp; } // ...converting
-            mprintf("\rinp: type: %d, code: %d, val: %d, <---new val  \n", evprev->type, evprev->code, evprev->value); 
+      {  switch (ev->code)
+         {  case ABS_PRESSURE: if (ev->value>0 && prevPress==0 && xx==1 && yy==1) 
+                               {  mprintf2("old chang from %d:%d\n", oldAbsX, oldAbsY);
+                                  oldAbsX=savex.value;
+                                  oldAbsY=savey.value;
+                                  mprintf2("old changed to %d:%d\n", oldAbsX, oldAbsY);
+                               } 
+                               prevPress =ev->value; break;
+            case ABS_X:        savex=*ev; xx=1;  mprintf2("%d continue X %d\n", cnt, ev->value);    continue; 
+            case ABS_Y:        savey=*ev; yy=1;  mprintf2("%d continue Y %d\n", cnt, ev->value);     continue; 
          }
       }
+      if (xx) { xx=0; mprintf2("%d return X %d\n", cnt, savex.value); if (writeEvent(fdo, &savex)) mreturn(11); }
+      if (yy) { yy=0; mprintf2("%d return Y %d\n", cnt, savey.value); if (writeEvent(fdo, &savey)) mreturn(12); }
 
-      ev->time.tv_sec =ev->time.tv_usec =0;  //to device send arch-specific 32 or 64bit
-      if (once)
-      {  once =0;
-         *evprev =*ev; 
-      }
-      else { *evprev =*ev;
-             if (write(fdo, evprev, evsize)  < 0)            mreturn(9); }
+      if (writeEvent(fdo, ev))                     mreturn(13);
       if (checkEscapeSequence(ev)) { mprintf("inp: Escape-Sequence detected, terminating on next-PRESS\n"); pressterminate=1; }
    }
    if (ioctl(fdo, UI_DEV_DESTROY) < 0)            mreturn(10);
@@ -108,10 +119,10 @@ int loopDeviceOUT(char *devname)
       if (-1 ==select(fdi+1,&fds,NULL,NULL, &tv))   mreturn(3);
       if (!FD_ISSET(fdi, &fds)) continue;
       if (read (fdi, ev, evsize) < 0)               mreturn(4);
-      mprintf("\rout: type: %d, code: %d, val: %d\n", tmp.type, tmp.code, tmp.value); 
+      mprintf("\rout: type: %d, code: %d, val: %d\n", evtmp.type, evtmp.code, evtmp.value); 
 
-      tmp.time.tv_sec =tmp.time.tv_usec =0;
-      if (write(STDOUT_FILENO, &tmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
+      evtmp.time.tv_sec =evtmp.time.tv_usec =0;
+      if (write(STDOUT_FILENO, &evtmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
       if (pressterminate && (ev->type ==1) && (ev->value >0))
          if (ev->code==111) { mprintf("out: Del after Escape-Sequence, terminating");  mreturn(6); } 
          else pressterminate=0;
@@ -133,6 +144,9 @@ void* loopDeviceOUTstart(void *arg)
 //main function: //////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {   int retval =0, outretval =0, pressterminate =0, i;
+    ev =(void*)&evtmp +tmpsize-evsize;
+    mprintf("main: evtmp=%016X, tmpsize=%d, ev=%016X, evsize=%d\n", &evtmp, tmpsize, ev, evsize);
+
     pthread_t tid[8]; //8 devices max (standard usage 2, keyb+mouse)
 
     if      (argc==2 && !strcmp(argv[1], "inp")) 
