@@ -22,7 +22,8 @@ run on server:
 Shortcuts:  
 ```
 LCtrl-LAlt-RAlt-RCtrl == prefix (release after pressing all 4)  
-prefix ... X          == close all  
+prefix ... X          == close all (external IN->OUT kill) 
+prefix ... Del        == close all (internal OUT kill) 
 prefix ... someKEY    == destination defined in ~/.xroutekeysrc
 ```
 
