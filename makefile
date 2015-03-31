@@ -1,14 +1,18 @@
 #******************************************************************************
 SHELL=/bin/bash
-.PHONY: clean test gg install
+.PHONY: clean test gg
 
 archdir=bin/$(shell uname -m)
+destbin=/usr/bin
 #******************************************************************************
 
 all: $(archdir)/routekeys
 clean: 
 	rm $(archdir)/routekeys
-install: $(archdir)/routekeys $(wildcard scripts/*.sh)
+
+install: $(destbin)/routekeys
+
+$(destbin)/routekeys: $(archdir)/routekeys $(wildcard scripts/*.sh)
 	sudo ./install && touch install
 
 gg:     install

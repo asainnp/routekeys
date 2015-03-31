@@ -20,14 +20,16 @@ run on server:
 > ... or first try 'make test'
 
 Shortcuts:  
-> Ctrl-Alt-Shift-Esc == prefix (release after pressing all 4)  
-> prefix ... X       == close all  
-> prefix ... someKEY == destination defined in ~/.xroutekeysrc
+```
+LCtrl-LAlt-RAlt-RCtrl == prefix (release after pressing all 4)  
+prefix ... X          == close all  
+prefix ... someKEY    == destination defined in ~/.xroutekeysrc
+```
 
 Notes:  
-> user need to be in sudoers file, on both, server and client side.  
-> .....some parts of script calling sudo and need root perms.  
-> automatic ssh logon without password for server-user need to be  
-> .....configured on target-client comps (ssh authorized keys).  
-> 'ServerAliveInterval 10' or simillar value in ~/.ssh/config on  
-> .....server side (which is ssh client to key-clients)
+* user need to be in sudoers file, on both, server and client side.  
+  some parts of script calling sudo and need root perms.  
+* automatic ssh logon without password for server-user need to be  
+  configured on target-client comps (ssh authorized keys).  
+* 'ServerAliveInterval 10' or simillar value in ~/.ssh/config on  
+  server side (which is ssh client to key-clients)

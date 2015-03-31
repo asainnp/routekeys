@@ -16,7 +16,7 @@ dstbin=/usr/bin
 justkill
 
 cp -v $srcbin/routekeys $dstbin
-cp -v $srcscr/*.sh $dstbin
+cp -v $srcscr/route*.sh $dstbin
 
 #this script is separated from makefile for possibility of installing
 #on system without make tools (if target arch binary compiled and exists)
