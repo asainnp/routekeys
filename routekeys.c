@@ -30,7 +30,7 @@ int checkEscapeSequence(struct input_event *iev)
       if (escapevals[i]) all++;
    }  
    glbAll=all;
-   return all ==escapelen;
+   return all==escapelen;
 }
 
 int createUIDEV(int *fd)
@@ -66,17 +66,12 @@ int createUIDEV(int *fd)
     struct input_event     *ev =(void*)&evtmp +sizeof(struct event64)
                                               -sizeof(struct input_event),
                            savex, savey;
-    int oldAbsX =0, oldAbsY =0, xx=0, yy=0; 
-
-int touchpadAbs2Rel(int fdo, struct input_event *ev)
-{  int prevPress=0, itmp, newc, old;
-
-   if (xx) { xx=0; if (writeEvent(fdo, &savex)) return 2; }
-   if (yy) { yy=0; if (writeEvent(fdo, &savey)) return 3; }
-
-   if (ev->type !=EV_ABS) return 0; //bellow code only for ABS event
+static int prevPress=0, oldAbsX =0, oldAbsY =0, xx=0, yy=0; 
+int touchpadAbs2RelSave(int fdo, struct input_event *ev)
+{  
 
    //POSSIBLE SAVING:
+   if (ev->type ==EV_ABS) 
    switch (ev->code)
    {  case ABS_PRESSURE: if (ev->value>0 && prevPress==0 && xx==1 && yy==1) 
                          {  mprintf2("old chang from %d:%d\n", oldAbsX, oldAbsY);
@@ -89,9 +84,17 @@ int touchpadAbs2Rel(int fdo, struct input_event *ev)
       case ABS_Y:        savey=*ev; yy=1;  return 1; //main while continue; 
    }
 
-   //POSSIBLE TRANSLATING:
+   if (xx) { xx=0; if (writeEvent(fdo, &savex)) return 2; }
+   if (yy) { yy=0; if (writeEvent(fdo, &savey)) return 3; }
+   return 0;
+}
+int touchpadAbs2RelTranslate(int fdo, struct input_event *ev)
+{  //POSSIBLE TRANSLATING:
+   int newc, old;  
+   if (ev->type ==EV_ABS) 
    if (ev->code==ABS_X || ev->code==ABS_Y)
-   {  switch (ev->code) { case ABS_X: newc=REL_X; old=oldAbsX; oldAbsX=ev->value; break;
+   {  mprintf2("inp: check2\n");
+      switch (ev->code) { case ABS_X: newc=REL_X; old=oldAbsX; oldAbsX=ev->value; break;
                           case ABS_Y: newc=REL_Y; old=oldAbsY; oldAbsY=ev->value; break; }
       ev->type=EV_REL; ev->code =newc; ev->value -=old;
       mprintf2("inp: abs->rel\n");
@@ -100,6 +103,7 @@ int touchpadAbs2Rel(int fdo, struct input_event *ev)
 }
 int writeEvent(int fdo, struct input_event *wev)
 {  wev->time.tv_sec =wev->time.tv_usec =0;  
+   touchpadAbs2RelTranslate(fdo, wev);
    if (write(fdo, wev, evsize)  < 0) return 1;
    return 0;
 }
@@ -114,10 +118,10 @@ int loopKeyboardINP()
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
    {  r =read (STDIN_FILENO, &evtmp, tmpsize);                if (r<1) mreturn(1);    
-      mprintf("\rinp: type: %d, code: %d, val: %di, all=%d\n", 
+      mprintf("\rinp: type: %d, code: %d, val: %d, all=%d\n", 
                ev->type,        ev->code, ev->value, glbAll); 
       if (pressterminate) if (ev->type ==EV_KEY && ev->value >0)       mreturn(1000+ev->code); //return KEY
-      r =touchpadAbs2Rel(fdo, ev); if (r==1) continue;        if (r>1) mreturn(200+r);     //touch errs 2xx
+      r =touchpadAbs2RelSave(fdo, ev); if (r==1) continue;    if (r>1) mreturn(200+r);     //touch errs 2xx
 
       r =writeEvent(fdo, ev);                                 if (r>0) mreturn(2);
       if (checkEscapeSequence(ev)) { mprintf2("inp: Escape-Sequence detected, terminating on next-PRESS\n"); 
