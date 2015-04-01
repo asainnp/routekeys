@@ -22,6 +22,7 @@ ggio:
 	printf "%.0s-" {1..30} && cat /etc/hostname
 	git pull && make gg
 
+#compiling on all comps, for providing multi-arch binaries:
 ggallcomps: gg
 	scripts/routekeysdest.sh listdestinations |         \
 	while read line; do                                 \

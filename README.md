@@ -34,3 +34,5 @@ Notes:
   configured on target-client comps (ssh authorized keys).  
 * 'ServerAliveInterval 10' or simillar value in ~/.ssh/config on  
   server side (which is ssh client to key-clients)
+* fgnotify script (github/asainnp/fgnotify) is optional dependency,
+  for showing blink message on computer where keys are routed to.

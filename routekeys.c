@@ -110,7 +110,7 @@ int loopKeyboardINP()
 {  
    int i,r, pressterminate=0, fdo =-1;
    r =createUIDEV(&fdo);                                      if (r>0) mreturn(100+r);   //uidev errors 1xx 
-   mysys("fgnotify 'KEYS ROUTED HERE !(v1.1)'");
+   mysys("fgnotify 'KEYS ROUTED HERE !(v1.2)'");
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
    {  r =read (STDIN_FILENO, &evtmp, tmpsize);                if (r<1) mreturn(1);    
