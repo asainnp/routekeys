@@ -68,9 +68,7 @@ int createUIDEV(int *fd)
                            savex, savey;
 static int prevPress=0, oldAbsX =0, oldAbsY =0, xx=0, yy=0; 
 int touchpadAbs2RelSave(int fdo, struct input_event *ev)
-{  
-
-   //POSSIBLE SAVING:
+{  //POSSIBLE SAVING:
    if (ev->type ==EV_ABS) 
    switch (ev->code)
    {  case ABS_PRESSURE: if (ev->value>0 && prevPress==0 && xx==1 && yy==1) 
@@ -93,11 +91,9 @@ int touchpadAbs2RelTranslate(int fdo, struct input_event *ev)
    int newc, old;  
    if (ev->type ==EV_ABS) 
    if (ev->code==ABS_X || ev->code==ABS_Y)
-   {  mprintf2("inp: check2\n");
-      switch (ev->code) { case ABS_X: newc=REL_X; old=oldAbsX; oldAbsX=ev->value; break;
+   {  switch (ev->code) { case ABS_X: newc=REL_X; old=oldAbsX; oldAbsX=ev->value; break;
                           case ABS_Y: newc=REL_Y; old=oldAbsY; oldAbsY=ev->value; break; }
       ev->type=EV_REL; ev->code =newc; ev->value -=old;
-      mprintf2("inp: abs->rel\n");
    }
    return 0;
 }
