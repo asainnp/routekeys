@@ -11,11 +11,11 @@ if [ "$1" == "listdestinations" ]; then
    # show RC file       remove comments     remove spaces/tabs
    cat ~/.routekeysrc | sed -e 's/#.*$//' | tr -d '\040\011' | \
    while read line; do 
-      # find lines with format " keycode : XX : sshdestination "
+      # find lines with format " keycode : XX,YY... : sshdestination "
       arr=(${line//:/ })   ;     [ ${#arr[@]}       -eq 3 ] || continue
                                  [ ${arr[0]} == "keycode" ] || continue
-      fcode=${arr[1]}      ;                 (isnum $fcode) || continue
-      if [ "$2" == "withcodes" ]; then echo $fcode ${arr[2]} #simple space
+      fcodes=${arr[1]}     ;                # (isnum $fcode) || continue
+      if [ "$2" == "withcodes" ]; then echo $fcodes ${arr[2]} #simple space
       else                             echo ${arr[2]} ;   fi
    done 
    exit 0
@@ -30,8 +30,12 @@ case "$keycode" in
      *) #search home RC for defined key
         #<-classic '|' pipe to while would cause subshell-exit only
         while read line; do 
-           arr=( $line ) ; [ "${arr[0]}" -eq "$keycode" ] && \
-                           { echo ${arr[1]} ; exit 0; } #exit whole script
+           arr=($line) ; scodes=${arr[0]}        ; adest=${arr[1]}
+                         acodes=( ${scodes//,/ } )
+           for i in ${acodes[@]}; do 
+              (isnum $i) &&[ "$i" -eq "$keycode" ] && \
+              { echo $adest; exit 0; } #exit whole script!!!
+           done 
         done < <($0 listdestinations withcodes)
         exit 2  ;; # no key found, nor exitAll requested
 esac
@@ -40,7 +44,7 @@ exit 2
 #--------------------------------------------------------------------------------
 # routekeysdest.sh, documentation:
 #--------------------------------------------------------------------------------
-# reading ~/.routekeysrc for keycode-sshdestination pairs (keycode:xx:sshdest)
+# reading ~/.routekeysrc for keycode-sshdestination pairs (keycode:xx,yy:sshdest)
 #
 # routekeysdest.sh listdestinations ... just list destinations and exit 0
 #                                       (used in makefile with such param)

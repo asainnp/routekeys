@@ -1,10 +1,9 @@
 # example ~/.routekeysrc file 
-# defining: which keycodes routes to which comp destination.
-# line format: ' keycode : XX,YY... : sshdestination '
+# line format: ' keycode : XX : sshdestination '
 
-keycode :   2     : user1@192.168.1.45  #key '1' (keycode 2)
-keycode :  29, 56 : user2@192.168.1.44  #key  left-ctrl,  left-alt
-keycode : 100, 97 : user3@192.168.1.121 #key right-ctrl, right-alt
+#keycode : 2 : asain@192.168.131.35  #key '1'
+ keycode :  29, 56,105 : asain@192.168.131.35  #key  left-ctrl,  left-alt, arr-left
+#keycode : 100, 97,106 :    pi@192.168.134.121 #key right-ctrl, right-alt, arr-right
 
 # - see /usr/include/linux/input.h , or 'showkey' program
 #   for XX key-code values that can be used in above lines
