@@ -33,13 +33,41 @@ int checkEscapeSequence(struct input_event *iev)
    return all ==escapelen;
 }
 
-//TWO keyboard functions:
+int createUIDEV(int *fd)
+{  int i; struct uinput_user_dev uidev;
+   #define myEVMAX 6
+   int evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
+
+   *fd =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (*fd < 0) return 1;
+
+   for (i=0;i<myEVMAX;++i) if (ioctl(*fd, UI_SET_EVBIT, evbits[i]) < 0) return 20+i;
+   for (i=0;i<REL_MAX;++i) if (ioctl(*fd, UI_SET_RELBIT, i)        < 0) return 30+i;
+   //!!!! NOT SETTING ABS_X and ABS_Y (0 and 1), Xorg mouse movement not working
+   //     if both REL and ABS x-y bits are on... so ABS starting from 2
+   for (i=2;i<ABS_MAX;++i) if (ioctl(*fd, UI_SET_ABSBIT, i)        < 0) return 40+i; 
+   //turning on all Keys, including all-kbd-keys and all possible mouse-buttons:
+   for (i=0;i<KEY_MAX;++i) if (ioctl(*fd, UI_SET_KEYBIT, i)        < 0) return 5; 
+
+   memset(&uidev, 0, sizeof(uidev)); 
+   snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinputroutekeys"); 
+   uidev.id.bustype = BUS_USB;            uidev.id.vendor  = 0x1; 
+   uidev.id.version = 1;                  uidev.id.product = 0x1;
+               //uidev.absmin[ABS_X]=0; uidev.absmin[ABS_X]=1024;
+               //uidev.absmin[ABS_Y]=0; uidev.absmin[ABS_Y]=1080;
+
+   if (write(*fd, &uidev, sizeof(uidev)) < 0) return 6;
+   if (ioctl(*fd, UI_DEV_CREATE)         < 0) return 7;
+   return 0;
+}
+
+//global vars:
     struct event64         evtmp; const int tmpsize =sizeof(struct event64); 
                                   const int evsize  =sizeof(struct input_event); 
     struct input_event     *ev =(void*)&evtmp +sizeof(struct event64)
                                               -sizeof(struct input_event),
                            savex, savey;
-int oldAbsX =0, oldAbsY =0, xx=0, yy=0; 
+    int oldAbsX =0, oldAbsY =0, xx=0, yy=0; 
+
 int touchpadAbs2Rel(int fdo, struct input_event *ev)
 {  int prevPress=0, itmp, newc, old;
 
@@ -66,6 +94,7 @@ int touchpadAbs2Rel(int fdo, struct input_event *ev)
    {  switch (ev->code) { case ABS_X: newc=REL_X; old=oldAbsX; oldAbsX=ev->value; break;
                           case ABS_Y: newc=REL_Y; old=oldAbsY; oldAbsY=ev->value; break; }
       ev->type=EV_REL; ev->code =newc; ev->value -=old;
+      mprintf2("inp: abs->rel\n");
    }
    return 0;
 }
@@ -74,47 +103,27 @@ int writeEvent(int fdo, struct input_event *wev)
    if (write(fdo, wev, evsize)  < 0) return 1;
    return 0;
 }
+
+//TWO main keyboard functions:
 #define mreturn(rv) { close(fdo); close(STDIN_FILENO); return rv; }
 int loopKeyboardINP()
-{  struct uinput_user_dev uidev;
+{  
    int i,r, pressterminate=0, fdo =-1;
-   #define myEVMAX 6
-   int evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
-
-   fdo =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (fdo < 0) mreturn(1);
-
-   for (i=0;i<myEVMAX;++i) if (ioctl(fdo, UI_SET_EVBIT, evbits[i]) < 0) mreturn(20+i);
-   for (i=0;i<REL_MAX;++i) if (ioctl(fdo, UI_SET_RELBIT, i)        < 0) mreturn(30+i);
-   //!!!! NOT SETTING ABS_X and ABS_Y (0 and 1), Xorg mouse movement not working
-   //     if both REL and ABS x-y bits are on... so ABS starting from 2
-   for (i=2;i<ABS_MAX;++i) if (ioctl(fdo, UI_SET_ABSBIT, i)        < 0) mreturn(40+i); 
-   //turning on all Keys, including all-kbd-keys and all possible mouse-buttons:
-   for (i=0;i<KEY_MAX;++i) if (ioctl(fdo, UI_SET_KEYBIT, i)        < 0) mreturn(5); 
-
-   memset(&uidev, 0, sizeof(uidev)); 
-   snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinputroutekeys"); 
-   uidev.id.bustype = BUS_USB;            uidev.id.vendor  = 0x1; 
-   uidev.id.version = 1;                  uidev.id.product = 0x1;
-               //uidev.absmin[ABS_X]=0; uidev.absmin[ABS_X]=1024;
-               //uidev.absmin[ABS_Y]=0; uidev.absmin[ABS_Y]=1080;
-
-   if (write(fdo, &uidev, sizeof(uidev)) < 0) mreturn(6);
-   if (ioctl(fdo, UI_DEV_CREATE)         < 0) mreturn(7);
-
+   r =createUIDEV(&fdo);                                      if (r>0) mreturn(100+r);   //uidev errors 1xx 
    mysys("fgnotify 'KEYS ROUTED HERE !(v1.1)'");
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
-   {  r =read (STDIN_FILENO, &evtmp, tmpsize);                if (r<1) mreturn(8);
+   {  r =read (STDIN_FILENO, &evtmp, tmpsize);                if (r<1) mreturn(1);    
       mprintf("\rinp: type: %d, code: %d, val: %di, all=%d\n", 
                ev->type,        ev->code, ev->value, glbAll); 
-      if (pressterminate) if (ev->type ==EV_KEY && ev->value >0)       mreturn(1000+ev->code);
-      r =touchpadAbs2Rel(fdo, ev); if (r==1) continue;        if (r>1) mreturn(10+r);   //endAll
+      if (pressterminate) if (ev->type ==EV_KEY && ev->value >0)       mreturn(1000+ev->code); //return KEY
+      r =touchpadAbs2Rel(fdo, ev); if (r==1) continue;        if (r>1) mreturn(200+r);     //touch errs 2xx
 
-      r =writeEvent(fdo, ev);                                 if (r>0) mreturn(13);
+      r =writeEvent(fdo, ev);                                 if (r>0) mreturn(2);
       if (checkEscapeSequence(ev)) { mprintf2("inp: Escape-Sequence detected, terminating on next-PRESS\n"); 
                                      pressterminate=1; }
    }
-   if (ioctl(fdo, UI_DEV_DESTROY) < 0)            mreturn(10);
+   if (ioctl(fdo, UI_DEV_DESTROY) < 0)            mreturn(3);
 
    mreturn(0);
 }
