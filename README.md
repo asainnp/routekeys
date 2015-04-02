@@ -21,10 +21,12 @@ run on server:
 
 Shortcuts:  
 ```
-LCtrl-LAlt-RAlt-RCtrl == prefix (release after pressing all 4)  
-prefix ... X          == close all (external IN->OUT kill) 
-prefix ... Del        == close all (internal OUT kill) 
-prefix ... someKEY    == destination defined in ~/.xroutekeysrc
+LCtrl-LAlt-RAlt-RCtrl   == prefix (release after pressing all 4)  
+prefix ... X            == close all (external IN->OUT kill) 
+prefix ... Del          == close all (internal OUT kill) 
+prefix ... someOtherKEY == if key defined in ~/.xroutekeysrc
+                              then route to destComp
+                              else route to localComp
 ```
 
 Notes:  
