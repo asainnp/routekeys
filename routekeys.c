@@ -7,10 +7,12 @@
 #include <linux/input.h>
 #include <linux/uinput.h>
 #include <pthread.h>
+#include <signal.h>
 
-#define mprintf(args...)  //fprintf(stderr, args)
-#define mprintf2(args...) fprintf(stderr, args)
-int globalQUIT =0;
+char inout[]="none";
+#define mprintf(args...)  //{ fprintf(stderr,"%s: ",inout); fprintf(stderr, args); }
+#define mprintf2(args...)   { fprintf(stderr,"%s: ",inout); fprintf(stderr, args); }
+int  globalQUIT =0;
 
 void   mysys(char *cmd) 
 { char allcmd[512]; snprintf(allcmd, 512, "%s &>/dev/null &", cmd); system(allcmd); }
@@ -67,6 +69,7 @@ int createUIDEV(int *fd)
                                               -sizeof(struct input_event),
                            savex, savey;
 static int prevPress=0, oldAbsX =0, oldAbsY =0, xx=0, yy=0; 
+
 int touchpadAbs2RelSave(int fdo, struct input_event *ev)
 {  //POSSIBLE SAVING:
    if (ev->type ==EV_ABS) 
@@ -104,6 +107,7 @@ int writeEvent(int fdo, struct input_event *wev)
    return 0;
 }
 
+int signalEND =0;
 //TWO main keyboard functions:
 #define mreturn(rv) { close(fdo); close(STDIN_FILENO); return rv; }
 int loopKeyboardINP()
@@ -113,19 +117,19 @@ int loopKeyboardINP()
    mysys("fgnotify 'KEYS ROUTED HERE !(v1.2)'");
 
    while (!globalQUIT)                           //from stdin - 64bit sized structs comming
-   {  r =read (STDIN_FILENO, &evtmp, tmpsize);                if (r<1) mreturn(1);    
-      mprintf("\rinp: type: %d, code: %d, val: %d, all=%d\n", 
+   {  r =read (STDIN_FILENO, &evtmp, tmpsize);                if (r<1) mreturn(11);    
+      mprintf("\rtype: %d, code: %d, val: %d, all=%d\n", 
                ev->type,        ev->code, ev->value, glbAll); 
       if (pressterminate) if (ev->type ==EV_KEY && ev->value >0)       mreturn(1000+ev->code); //return KEY
       r =touchpadAbs2RelSave(fdo, ev); if (r==1) continue;    if (r>1) mreturn(200+r);     //touch errs 2xx
 
-      r =writeEvent(fdo, ev);                                 if (r>0) mreturn(2);
-      if (checkEscapeSequence(ev)) { mprintf2("inp: Escape-Sequence detected, terminating on next-PRESS\n"); 
+      r =writeEvent(fdo, ev);                                 if (r>0) mreturn(12);
+      if (checkEscapeSequence(ev)) { mprintf2("Escape-Sequence detected, terminating on next-PRESS\n"); 
                                      pressterminate=1; }
    }
    if (ioctl(fdo, UI_DEV_DESTROY) < 0)            mreturn(3);
 
-   mreturn(0);
+   mreturn(signalEND?1:0);
 }
 #undef  mreturn
 #define mreturn(rv) { close(fdi); close(STDOUT_FILENO); return rv; }
@@ -145,48 +149,57 @@ int loopDeviceOUT(char *devname)
       evtmp.time.tv_sec =evtmp.time.tv_usec =0;
       if (write(STDOUT_FILENO, &evtmp, tmpsize)   <0) mreturn(5); //to stdout send 64bit 
       if (pressterminate && (ev->type ==1) && (ev->value >0))
-         if (ev->code==111) { mprintf2("out: Del after Escape-Sequence, terminating");  mreturn(6); } 
-         else { pressterminate=0; mprintf2("out: continuing...\n"); }
-      if (checkEscapeSequence(ev)) { mprintf2("out: Escape-Sequence detected\n"); pressterminate=1; }
+         if (ev->code==111) { mprintf2("Del after Escape-Sequence, terminating");  mreturn(6); } 
+         else { pressterminate=0; mprintf2("continuing...\n"); }
+      if (checkEscapeSequence(ev)) { mprintf2("Escape-Sequence detected\n"); pressterminate=1; }
    }
-   mreturn(0);
+   mreturn(signalEND?1:0);
 }
 #undef  mreturn
-
 void* loopDeviceOUTstart(void *arg) 
 {  void *retval; 
-   mprintf("out: thread starting, (dev=%s)\n", arg);
+   mprintf("thread starting, (dev=%s)\n", arg);
    *((int*)&retval) =loopDeviceOUT((char*)arg); 
    globalQUIT =1; // 1 down -> all down
-   mprintf("out: thread exiting, retval==%d (dev=%s)\n", retval, arg);
+   mprintf2("thread exiting, retval==%d (dev=%s)\n", retval, arg);
    return retval;
 }
-
+#define setSigHandler(sig) if (signal(sig,  sig_handler) == SIG_ERR) mprintf("err: can not catch signal "#sig"\n");
+void sig_handler(int sig)
+{   switch (sig) { case SIGINT: break;
+                   case SIGSTOP: case SIGKILL: globalQUIT =signalEND =1; break; }
+    mprintf2("signal %d catched\n", sig);
+}
 //main function: //////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {   int retval =0, outretval =0, pressterminate =0, i;
     ev =(void*)&evtmp +tmpsize-evsize;
     mprintf("main: evtmp=%016X, tmpsize=%d, ev=%016X, evsize=%d\n", &evtmp, tmpsize, ev, evsize);
+    setSigHandler(SIGINT); setSigHandler(SIGSTOP); setSigHandler(SIGKILL);
 
     pthread_t tid[8]; //8 devices max (standard usage 2, keyb+mouse)
+    int       retvals[8] ={0,0,0,0,0,0,0,0};
 
     if      (argc==2 && !strcmp(argv[1], "inp")) 
-    {  retval =loopKeyboardINP();         //LOOP !!! 
-       mprintf("inp: exiting, org.retval==%d\n", retval);
+    {  sprintf(inout, "inp");
+       retval =loopKeyboardINP();         //LOOP !!! 
+       mprintf("exiting, org.retval==%d\n", retval);
        return (retval>1000) ?retval-1000 :0;         // INP-return:  =0 no key selected
                                                      //              >0 key-code returning
     }
     else if (argc >2 && !strcmp(argv[1], "out")) 
-    {  if (argc>7+2) { mprintf("out: err-max 8 devices allowed"); return 1; }
+    {  sprintf(inout, "out");
+       if (argc>7+2) { mprintf("err-max 8 devices allowed"); return 1; }
        for (i=2;i<argc;++i)
           if (0!=pthread_create(&tid[i-2], NULL, &loopDeviceOUTstart, argv[i])) //LOOP !!!
-          {  mprintf("out: err-cannot create thread %d for device %s.", i-2, argv[i]); return 2;  }
+          {  mprintf("err-cannot create thread %d for device %s.", i-2, argv[i]); return 2;  }
        for (i=2;i<argc;++i) 
        {  pthread_join(tid[i-2], (void**)&retval);
-          if (retval) if (!outretval) outretval=retval; 
+          mprintf("thread %d exited with retval=%d\n", i-2, retval);
+          retvals[i-2] =retval;  if (outretval <retval) outretval =retval;
        }
-       return 0;                                     // OUT-return:   first errcode 
-       //OUT return value is not so important for scripts that calling it (but above INP val is !!).
+       return outretval;                            // OUT-return:   greatest err
+       //OUT return value is not important to scripts that calling it (but above INP val is !!).
     }
     else 
     {  mprintf("usage: 1) routekeys inp\n"
