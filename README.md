@@ -40,5 +40,5 @@ Notes:
 * fgnotify script (github/asainnp/fgnotify) is optional dependency,
   for showing blink message on computer where keys are routed to.
 * clients do not need any configuration.
-* involving Xserver in any time is unpredictactable, sometimes it will work, even mouse will work, and touchpad's too, but sometimes (on some xservers nothing...), so just type prefix+space to return to main(server) comp.
+* involving Xserver in any time is unpredictactable, sometimes it will work, even mouse will work, and touchpad's too, but sometimes (on some xservers nothing...), so just type prefix+space (space as random undefined key) to return to main(server) comp.
 
