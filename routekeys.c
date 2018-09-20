@@ -69,6 +69,7 @@ int createUIDEV(int *fd)
                                               -sizeof(struct input_event),
                            savex, savey;
 static int prevPress=0, oldAbsX =0, oldAbsY =0, xx=0, yy=0; 
+int writeEvent(int fdo, struct input_event *wev);
 
 int touchpadAbs2RelSave(int fdo, struct input_event *ev)
 {  //POSSIBLE SAVING:

@@ -14,7 +14,7 @@ server config:
 > cp docs/.routekeysrc ~/.  
 > edit ~/.routekeysrc and add client IPs  
 
-run on server:  
+run on server (inside some virtual terminal or tmux/screen):  
 > routekeysloop.sh  
 > 
 > ... or first try 'make test'
@@ -29,6 +29,7 @@ prefix ... someOtherKEY == if key defined in ~/.xroutekeysrc
                               else route to localComp
 ```
 
+
 Notes:  
 * user need to be in sudoers file, on both, server and client side.  
   some parts of script calling sudo and need root perms.  
@@ -38,3 +39,6 @@ Notes:
   server side (which is ssh client to key-clients)
 * fgnotify script (github/asainnp/fgnotify) is optional dependency,
   for showing blink message on computer where keys are routed to.
+* clients do not need any configuration.
+* involving Xserver in any time is unpredictactable, sometimes it will work, even mouse will work, and touchpad's too, but sometimes (on some xservers nothing...), so just type prefix+space to return to main(server) comp.
+
