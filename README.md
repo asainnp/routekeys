@@ -29,7 +29,6 @@ prefix ... someOtherKEY == if key defined in ~/.xroutekeysrc
                               else route to localComp
 ```
 
-
 Notes:  
 * user need to be in sudoers file, on both, server and client side.  
   some parts of script calling sudo and need root perms.  
@@ -40,5 +39,5 @@ Notes:
 * fgnotify script (github/asainnp/fgnotify) is optional dependency,
   for showing blink message on computer where keys are routed to.
 * clients do not need any configuration.
-* involving Xserver in any time is unpredictactable, sometimes it will work, even mouse will work, and touchpad's too, but sometimes (on some xservers nothing...), so just type prefix+space (space as random undefined key) to return to main(server) comp.
+* involving Xserver in any time is unpredictactable, sometimes it will work, even mouse will work, and touchpad's too, but sometimes (on some xservers/drivers combinations... nothing), so if you are stucked in client's xserver just type prefix+space (space as random undefined key) to return to main(server) comp, and if you stuck inside main computer's xserver, just type prefix+X, which will kill routekeys loop, and return keyboard control to the system. (there should not ever be unresolvable states to think about restarting computer or accessing it with ssh from somewhere to kill routekeysloop etc.)
 
