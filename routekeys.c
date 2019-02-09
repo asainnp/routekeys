@@ -37,16 +37,12 @@ int checkEscapeSequence(struct input_event *iev)
 
 int createUIDEV(int *fd)
 {  int i; struct uinput_user_dev uidev;
-   #define myEVMAX 6
-   int evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP, EV_REL, EV_ABS }; 
+   #define myEVMAX 4
+   int evbits[myEVMAX] ={ EV_SYN, EV_KEY, EV_MSC, EV_REP }; 
 
    *fd =open("/dev/uinput", O_WRONLY | O_NONBLOCK);        if (*fd < 0) return 1;
 
    for (i=0;i<myEVMAX;++i) if (ioctl(*fd, UI_SET_EVBIT, evbits[i]) < 0) return 20+i;
-   for (i=0;i<REL_MAX;++i) if (ioctl(*fd, UI_SET_RELBIT, i)        < 0) return 30+i;
-   //!!!! NOT SETTING ABS_X and ABS_Y (0 and 1), Xorg mouse movement not working
-   //     if both REL and ABS x-y bits are on... so ABS starting from 2
-   for (i=2;i<ABS_MAX;++i) if (ioctl(*fd, UI_SET_ABSBIT, i)        < 0) return 40+i; 
    //turning on all Keys, including all-kbd-keys and all possible mouse-buttons:
    for (i=0;i<KEY_MAX;++i) if (ioctl(*fd, UI_SET_KEYBIT, i)        < 0) return 5; 
 
@@ -54,8 +50,6 @@ int createUIDEV(int *fd)
    snprintf(uidev.name, UINPUT_MAX_NAME_SIZE, "uinputroutekeys"); 
    uidev.id.bustype = BUS_USB;            uidev.id.vendor  = 0x1; 
    uidev.id.version = 1;                  uidev.id.product = 0x1;
-               //uidev.absmin[ABS_X]=0; uidev.absmin[ABS_X]=1024;
-               //uidev.absmin[ABS_Y]=0; uidev.absmin[ABS_Y]=1080;
 
    if (write(*fd, &uidev, sizeof(uidev)) < 0) return 6;
    if (ioctl(*fd, UI_DEV_CREATE)         < 0) return 7;
@@ -66,44 +60,13 @@ int createUIDEV(int *fd)
     struct event64         evtmp; const int tmpsize =sizeof(struct event64); 
                                   const int evsize  =sizeof(struct input_event); 
     struct input_event     *ev =(void*)&evtmp +sizeof(struct event64)
-                                              -sizeof(struct input_event),
-                           savex, savey;
-static int prevPress=0, oldAbsX =0, oldAbsY =0, xx=0, yy=0; 
+                                              -sizeof(struct input_event);
+
+static int prevPress=0; 
 int writeEvent(int fdo, struct input_event *wev);
 
-int touchpadAbs2RelSave(int fdo, struct input_event *ev)
-{  //POSSIBLE SAVING:
-   if (ev->type ==EV_ABS) 
-   switch (ev->code)
-   {  case ABS_PRESSURE: if (ev->value>0 && prevPress==0 && xx==1 && yy==1) 
-                         {  mprintf2("old chang from %d:%d\n", oldAbsX, oldAbsY);
-                            oldAbsX=savex.value;
-                            oldAbsY=savey.value;
-                            mprintf2("old changed to %d:%d\n", oldAbsX, oldAbsY);
-                         } 
-                         prevPress =ev->value; break;
-      case ABS_X:        savex=*ev; xx=1;  return 1; //main while continue; 
-      case ABS_Y:        savey=*ev; yy=1;  return 1; //main while continue; 
-   }
-
-   if (xx) { xx=0; if (writeEvent(fdo, &savex)) return 2; }
-   if (yy) { yy=0; if (writeEvent(fdo, &savey)) return 3; }
-   return 0;
-}
-int touchpadAbs2RelTranslate(int fdo, struct input_event *ev)
-{  //POSSIBLE TRANSLATING:
-   int newc, old;  
-   if (ev->type ==EV_ABS) 
-   if (ev->code==ABS_X || ev->code==ABS_Y)
-   {  switch (ev->code) { case ABS_X: newc=REL_X; old=oldAbsX; oldAbsX=ev->value; break;
-                          case ABS_Y: newc=REL_Y; old=oldAbsY; oldAbsY=ev->value; break; }
-      ev->type=EV_REL; ev->code =newc; ev->value -=old;
-   }
-   return 0;
-}
 int writeEvent(int fdo, struct input_event *wev)
 {  wev->time.tv_sec =wev->time.tv_usec =0;  
-   touchpadAbs2RelTranslate(fdo, wev);
    if (write(fdo, wev, evsize)  < 0) return 1;
    return 0;
 }
@@ -122,7 +85,6 @@ int loopKeyboardINP()
       mprintf("\rtype: %d, code: %d, val: %d, all=%d\n", 
                ev->type,        ev->code, ev->value, glbAll); 
       if (pressterminate) if (ev->type ==EV_KEY && ev->value >0)       mreturn(1000+ev->code); //return KEY
-      r =touchpadAbs2RelSave(fdo, ev); if (r==1) continue;    if (r>1) mreturn(200+r);     //touch errs 2xx
 
       r =writeEvent(fdo, ev);                                 if (r>0) mreturn(12);
       if (checkEscapeSequence(ev)) { mprintf2("Escape-Sequence detected, terminating on next-PRESS\n"); 
@@ -178,7 +140,7 @@ int main(int argc, char* argv[])
     mprintf("main: evtmp=%016X, tmpsize=%d, ev=%016X, evsize=%d\n", &evtmp, tmpsize, ev, evsize);
     setSigHandler(SIGINT); setSigHandler(SIGSTOP); setSigHandler(SIGKILL);
 
-    pthread_t tid[8]; //8 devices max (standard usage 2, keyb+mouse)
+    pthread_t tid[8]; //8 devices max (standard usage 1, keyb)
     int       retvals[8] ={0,0,0,0,0,0,0,0};
 
     if      (argc==2 && !strcmp(argv[1], "inp")) 

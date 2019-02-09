@@ -1,5 +1,5 @@
 # routekeys
-route keyboard and mouse devices to other computer 
+route keyboard device to other computer 
 at low, tty, level
 
 *function like:* tty alternative for synergy
@@ -39,5 +39,9 @@ Notes:
 * fgnotify script (github/asainnp/fgnotify) is optional dependency,
   for showing blink message on computer where keys are routed to.
 * clients do not need any configuration.
-* involving Xserver in any time is unpredictactable, sometimes it will work, even mouse will work, and touchpad's too, but sometimes (on some xservers/drivers combinations... nothing), so if you are stucked in client's xserver just type prefix+space (space as random undefined key) to return to main(server) comp, and if you stuck inside main computer's xserver, just type prefix+X, which will kill routekeys loop, and return keyboard control to the system. (there should not ever be unresolvable states to think about restarting computer or accessing it with ssh from somewhere to kill routekeysloop etc.)
+* involving Xserver will probably work OK - now when mouse (evil) support is removed, everything is simple. 
+  but it sometimes can be unpredictable, so in case that some xservers/driver combinations brings you to 'stucked keyboard situation', 
+     - if you are stucked in client's xserver just type prefix+space (space as random undefined key) to return to main(server) comp, and 
+     - if you are stucked inside main computer's xserver, just type prefix+X, which will kill routekeys loop, and return keyboard control to the system. 
+  (there should NEVER be unresolvable states to think about restarting computer or accessing it with ssh from somewhere to kill routekeysloop etc.)
 

@@ -1,9 +1,2 @@
 - routekeys.c:
    - threads-semaphore writing to stdout
-   - SIGNALs handling
-   - more complete (or deleting) ABS_XY->REL_XY translations
-      -standard Xorg config do not allow ABS and REL on same uinput device
-       ... primitive abs->rel translation implemented
-      -gpm (tty mouse) worked well with both events
-      -so this should be investigated more, or better translation todo.
-       and all of this concerning touch-pads only, standard mices are OK.
